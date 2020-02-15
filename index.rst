@@ -13,5 +13,5 @@ STATE documentation
    about 
    installation
    run
-   Tutorials/index
+   Tutorial/index
    manual
