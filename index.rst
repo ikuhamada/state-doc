@@ -13,5 +13,6 @@ STATE documentation
    about 
    installation
    run
+   Examples/index
    Tutorial/index
    manual

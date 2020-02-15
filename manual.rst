@@ -658,7 +658,7 @@ DTIO
 	Time step for the molecular dynamics / geometry optimization.
 
 
-FORCCR
+FORCCR | FMAX
 	Type: real
 	
 	Default: none
@@ -924,7 +924,7 @@ FRICT
 
   Syntax::
 
-	&ATOMIC_COORDINATES
+	&ATOMIC_COORDINATES [CART]
 	 CPS(1,1) CPS(1,2) CPS(1,3) IWEI(1) IMDTYP(1) ITYP(1)
 	 CPS(2,1) CPS(2,2) CPS(2,3) IWEI(2) IMDTYP(2) ITYP(2)
 	 ...
@@ -932,6 +932,8 @@ FRICT
 	&END
 	
 	
+  CART: If set, atomic coordinates are given in the cartesian coordinate
+
   CPS: Atomic coordinate in the cartesian (NCORD=1 or COORD=CARTESIAN) or in the crystal (NCORD=0 or COORD=CRYSTAL) coordinate
 
   IWEI: number of equivalent atoms under the inversion symmetry
@@ -1098,6 +1100,8 @@ FRICT
 
  * CUBE: Gaussian Cube format (default)
 
+ * XSF: Xcryden Structure File
  
+
 .. warning::
 	This document is by no means perfect.
