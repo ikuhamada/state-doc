@@ -919,12 +919,36 @@ FRICT
 
   ZETA1: Initial magnetization for each type of element
 
+
+&ATOMIC_SPECIES
+  This block is an alternative to the ``&ATOMIC_TYPE`` block, which is used to define the atomic types.
+  The syntax is similar to the one in Quantum-ESPRESSO.
+
+  Syntax::
+
+	&ATOMIC_SPECIES
+	 ATOMIC_NUMBER(1) ATOMIC_MASS(1) PSEUDOPOTENTIAL_FILE(1) 
+	 ATOMIC_NUMBER(2) ATOMIC_MASS(2) PSEUDOPOTENTIAL_FILE(2) 
+	 ...
+	 ATOMIC_NUMBER(NTYP) ATOMIC_MASS(NTYP) PSEUDOPOTENTIAL_FILE(NTYP) 
+	&END
+
+  or::
+
+	&ATOMIC_SPECIES
+	 ATOMIC_SYMBOL(1) ATOMIC_MASS(1) PSEUDOPOTENTIAL_FILE(1) 
+	 ATOMIC_SYMBOL(2) ATOMIC_MASS(2) PSEUDOPOTENTIAL_FILE(2)
+	 ...
+	 ATOMIC_SYMBOL(NTYP) ATOMIC_MASS(NTYP) PSEUDOPOTENTIAL_FILE(NTYP) 
+	&END
+
+
 &ATOMIC_COORDINATES ... &END
   This block is used to define the atomic coordinates in the legacy STATE format.
 
   Syntax::
 
-	&ATOMIC_COORDINATES [CART]
+	&ATOMIC_COORDINATES [CRYSTAL|CRYS|CARTESIAN|CART]
 	 CPS(1,1) CPS(1,2) CPS(1,3) IWEI(1) IMDTYP(1) ITYP(1)
 	 CPS(2,1) CPS(2,2) CPS(2,3) IWEI(2) IMDTYP(2) ITYP(2)
 	 ...
@@ -932,7 +956,9 @@ FRICT
 	&END
 	
 	
-  CART: If set, atomic coordinates are given in the cartesian coordinate
+  CARTESIAN/CART: If set, atomic coordinates are given in the cartesian coordinate
+
+  CRYSTAL/CRYS: If set, atomic coordinates are given in the crystal coordinate
 
   CPS: Atomic coordinate in the cartesian (NCORD=1 or COORD=CARTESIAN) or in the crystal (NCORD=0 or COORD=CRYSTAL) coordinate
 
@@ -962,6 +988,21 @@ FRICT
 	 ...
 	 CPS(NATM,1) CPS(NATM,2) CPS(NATM,3) IWEI(NATM) IMDTYP(NATM) ITYP(NATM)
 	&END
+
+
+&INITIAL_ZETA ... &END
+  This block is used to define the initial magnetizations. Default values are zero.
+
+  Syntax::
+
+	&INITIAL_ZETA
+	 ZETA1(1)
+	 ZETA1(2)
+	 ...
+	 ZETA1(NTYP)
+	&END
+
+  ZETA1: Initial magnetization for each type of element
 
 
 &PDOS ... &END
