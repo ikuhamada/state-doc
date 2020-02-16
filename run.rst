@@ -8,15 +8,17 @@ Running STATE
 Having built it and obtained pseudopotentials, we are ready to run STATE!
 
 Suppose the source directory is ``${HOME}/STATE/src/state/src`` and pseudopotentials are located in ``${HOME}/STATE/gncpp``.
-In ``${HOME}/STATE``, let us create a directory for a test run for a CO molecule in a rectangular unit cell as::
+In ``${HOME}/STATE``, let us create a directory for a test run for a CO molecule in a rectangular unit cell as
 
-  mkdir -p test/CO; cd test/CO
+.. code:: bash
+
+  $ mkdir -p test/CO; cd test/CO
 
 Let us create symbolic link to a STATE command by executing
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/src/state/src/STATE
+  $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
 
 and those to pseudopotentials as
 
@@ -38,6 +40,7 @@ Then let us prepare the input file. Here we use the following file named ``nfinp
 
 .. code:: bash
 
+  WF_OPT    DAV
   NTYP      2
   NATM      2
   TYPE      0
@@ -85,7 +88,7 @@ Once your job starts, the following greeting is printed in ``nfout_1``::
    *                ***      **   **********   **    ******              *
    *                  **     **  **        **  **    **                  *
    *             ********    ** **          ** **    ********            *
-   *              ******     ** VERSION 5.6.5  **    ********            *
+   *              ******     ** VERSION 5.6.6  **    ********            *
    *                               RICS-AIST                             *
    *                           OSAKA UNIVERSITY                          *
    *                                                                     *
