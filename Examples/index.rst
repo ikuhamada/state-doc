@@ -33,9 +33,7 @@ Let us have a look at it by using the ``cat`` command as
 
   $ cat nfinp_scf
 
-then we get the following:
-
-.. code:: bash
+then we get the following::
 
   #
   # Crystalline silicon in the diamond structure
@@ -105,6 +103,27 @@ Converged total energy and its componets are printed as::
                  ENTROPIC ENERGY     =           0.00000000 A.U.
 
 NOTE this message is NOT printed when the convergence is not achieved.
+
+In addition, total density of states (DOS) is printed to ``dos.data``, which can be plotted with, for instantce, ``gnuplot`` as
+
+.. code:: bash
+
+  $ gnuplot
+
+.. code :: bash
+
+  $ gnuplot> set xrange [-12.5:7.5]
+  $ gnuplot> set yrange [0:2.0]
+  $ gnuplot> set xlabel 'Energy (eV)'
+  $ gnuplot> set ylabel 'DOS (arb. unit)'
+  $ gnuplot> plot 'dos.data' w l
+
+The resulting DOS looks as follows:
+
+.. image:: ../img/dos_si_raw.png
+   :scale: 80%
+   :align: center
+
 
 Cell optimization
 -----------------
