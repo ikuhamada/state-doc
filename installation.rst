@@ -16,19 +16,19 @@ Compilation
 
   Unpack the source code::
 
-    gzip -dc state-5.6.x.tgz | tar xf -
+    gzip -dc state-5.6.6.tgz | tar xf -
 
   or::
 
-    tar zxf state-5.6.x.tgz
+    tar zxf state-5.6.6.tgz
 
-  state-5.6.x/ contains the following file and directories::
+  state-5.6.6/ contains the following file and directories::
 
     README  arch/   build/  src/    util/
 
   Go to the source directory::
 
-    cd state-5.6.x/src
+    cd state-5.6.6/src
 
 
   make a symbolic link to ``make.arch`` as follows, e.g.::

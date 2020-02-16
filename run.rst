@@ -12,23 +12,31 @@ In ``${HOME}/STATE``, let us create a directory for a test run for a CO molecule
 
   mkdir -p test/CO; cd test/CO
 
-Let us create symbolic link to a STATE command by executing::
+Let us create symbolic link to a STATE command by executing
 
-  ln -s ${HOME}/STATE/src/state/src/STATE
+.. code:: bash
 
-and those to pseudopotentials as::
+  $ ln -s ${HOME}/STATE/src/state/src/STATE
 
-  ln -s ${HOME}/STATE/gncpp/pot_C_pbe1 fort.37
+and those to pseudopotentials as
 
-  ln -s ${HOME}/STATE/gncpp/pot_O_pbe1 fort.38
+.. code:: bash
 
-or::
+  $ ln -s ${HOME}/STATE/gncpp/pot_C_pbe1 fort.37
 
-  ln -s ${HOME}/STATE/gncpp/C_pbe1/#vnew.data fort.37
+  $ ln -s ${HOME}/STATE/gncpp/pot_O_pbe1 fort.38
 
-  ln -s ${HOME}/STATE/gncpp/O_pbe1/#vnew.data fort.38
+or
 
-Then let us prepare the input file. Here we use the following file named ``nfinp_1``::
+.. code:: bash
+
+  $ ln -s ${HOME}/STATE/gncpp/C_pbe1/#vnew.data fort.37
+
+  $ ln -s ${HOME}/STATE/gncpp/O_pbe1/#vnew.data fort.38
+
+Then let us prepare the input file. Here we use the following file named ``nfinp_1``
+
+.. code:: bash
 
   NTYP      2
   NATM      2
@@ -91,7 +99,9 @@ and the following when the SCF starts::
    *                                                                     *
    ***********************************************************************
 
-The convergence of the total energy can be monitored by executing::
+The convergence of the total energy can be monitored by executing
+
+.. code:: bash
 
   grep ETOT\: nfout
 
