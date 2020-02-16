@@ -59,6 +59,7 @@ then we get the following::
         0.250000000000      0.250000000000      0.250000000000    1    1    1
   &END
 
+By default wave function optimization (single-point calculation) is performed (``WF_OPT``) with the Davidson algorithm (``DAV``), and structural optimization is not performed.
 By using the above input file, we perform the SCF calculation as:
 
 .. code:: bash
@@ -69,12 +70,11 @@ The convergence of the total energy can be monitored by executing:
 
 .. code:: bash
 
-  $ grep ETOT nfout_scf
+  $ grep ETOT\: nfout_scf
 
 The result looks like::
 
   ETOT:   1     -6.05513096  0.6055E+01  0.3203E-02
-    NSCF NADR            ETOTAL          EDEL          CDEL CONV      TCPU
   ETOT:   2     -7.84013758  0.1785E+01  0.5062E-02
   ETOT:   3     -7.87244596  0.3231E-01  0.4562E-02
   ETOT:   4     -7.87086756  0.1578E-02  0.7631E-02
@@ -206,6 +206,12 @@ In the ``Al`` directory, first prepare the pseudopotential as
 
   $ ln -s ${HOME}/STATE/gncpp/pot.Al_pbe1
 
+and the STATE executable as
+
+.. code:: bash
+
+  $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
+
 We use the following input file for the SCF calculation.
 
 ``nfinp_scf``::
@@ -251,6 +257,12 @@ We can also use negative ``WIDTH`` to enable the smearing function.
 In this case the MP smearing function is automatically set.
 See the manual for the available smearing functions.
 
+Execution of STATE is done as
+
+.. code:: bash
+
+  $ mpirun -np ./STATE < nfinp_scf > nfout_scf
+
 Total energy of the metallic system is sensitive to the smearing function and width, and the number of k-points, and they should be determined very carefully before the production run.
 Detail is discussed in the tutorial (to be completed).
 
@@ -258,8 +270,80 @@ Detail is discussed in the tutorial (to be completed).
 Nickel
 ======
 
-SCF
----
+This example shows how to perform a calculation of a spin-polarized system using the ferromagnetic Ni in the fcc structure.
+
+Prep.
+-----
+
+* STATE
+
+.. code:: bash
+
+  $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
+
+* Pseudopotential ``pot.Ni_pbe4``
+
+.. code:: bash
+
+  $ ln -s ${HOME}/STATE/gncpp/pot.Ni_pbe4
+
+* Input file (``nfinp_scf``)
+
+.. code:: bash
+
+  #
+  # Ferromagnetic Ni in the fcc structure
+  #
+  WF_OPT DAV
+  NTYP   1
+  NATM   1
+  TYPE   2
+  NSPG   221
+  GMAX    5.00
+  GMAXP  15.00
+  KPOINT_MESH   12 12 12
+  KPOINT_SHIFT   1  1  1
+  MIX_ALPHA 0.3
+  SMEARING MP
+  WIDTH  0.0020
+  EDELTA 0.5000D-09
+  NSPIN  2
+  NBZTYP 102
+  NEG    10
+  CELL   6.70  6.70  6.70  90.00  90.00  90.00
+  &ATOMIC_SPECIES
+   Ni 58.6900 pot.Ni_pbe4
+  &END
+  &INITIAL_ZETA
+   0.20 
+  &END
+  &ATOMIC_COORDINATES CRYSTAL
+        0.000000000000      0.000000000000      0.000000000000    1    1    1
+  &END
+
+To allow the spin polarized calculation, one has to set
+
+.. code:: bash
+
+  NSPIN 2
+
+along with the initial magnetization as
+
+.. code:: bash
+
+  &INITIAL_ZETA
+   0.20
+  &END
+
+for each atomic species.
+
+SCF run
+-------
+
+.. code:: bash
+
+  $ mpirun -np ./STATE < nfinp_scf > nfout_scf
+
 
 Ethylene
 ========
