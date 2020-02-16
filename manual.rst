@@ -548,6 +548,7 @@ WIDTH
 	Description:
 
 	Smearing width. The 1st-order Hermite-Gaussiang smearing is used when the negative value is used (if < -10.0, tetrahedron method is used)
+	When the variable ``SMEARING`` is set, positive ``WIDTH`` can be used. 
 
 
 EDELTA
