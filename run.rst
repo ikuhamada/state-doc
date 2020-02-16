@@ -142,9 +142,9 @@ When the SCF convergence is reached, total energy and its componets are printed 
 Forces acting on atoms::
 
       ATOM              COORDINATES                        FORCES
-  MD:   1
-  MD:     1  C    0.000000    0.000000    0.000000   0.01852  0.00000 -0.00000
-  MD:     2  O    2.200000    0.000000    0.000000  -0.01858 -0.00000  0.00000
+  MD:    1
+  MD:    1  C   0.000000   0.000000   0.000000   0.01852  0.00000 -0.00000
+  MD:    2  O   2.200000   0.000000   0.000000  -0.01858 -0.00000  0.00000
 
 And the "victory cats" at the bottom of the output file::
 
