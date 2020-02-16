@@ -66,7 +66,7 @@ Then let us prepare the input file. Here we use the following file named ``nfinp
 
 In the current working directory, let us execute::
 
-  mpirun -np 2 ./STATE < nfinp_1 > nfout_1
+  $ mpirun -np 2 ./STATE < nfinp_1 > nfout_1
 
 where we use 2 processors and the output is written to ``nfout_1``. The MPI command depends on the system and a job script is necessary when we use a supercomputer fascility.
 
@@ -103,7 +103,7 @@ The convergence of the total energy can be monitored by executing
 
 .. code:: bash
 
-  grep ETOT\: nfout
+  $ grep ETOT\: nfout
 
 and we get the following::
 
