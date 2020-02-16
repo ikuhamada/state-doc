@@ -110,7 +110,7 @@ PRINT_RHO
 
 	Description:
 
-	Use this key word to print the charge density in real space
+	Use this keyword to print the charge density in real space
 
 
 DOS
@@ -120,7 +120,7 @@ DOS
 
 	Description:
 
-	Use this key word to print the total density of states
+	Use this keyword to print the total density of states
 
 
 PDOS | AOLDOS
@@ -130,7 +130,7 @@ PDOS | AOLDOS
 
 	Description:
 
-	Use this key word to print the density of states projected onto the atomic orbital. The &PDOS...&END block should be added.
+	Use this keyword to print the density of states projected onto the atomic orbital. The &PDOS...&END block should be added.
 
 
 ALDOS
@@ -140,7 +140,7 @@ ALDOS
 
 	Description:
 
-	Use this key word to performe the atomic layer resolved density of states analysis.
+	Use this keyword to performe the atomic layer resolved density of states analysis.
 
 
 COOP
@@ -150,7 +150,7 @@ COOP
 
 	Description:
 
-	Use this key word to generate data for the COOP analysis
+	Use this keyword to generate data for the COOP analysis
 
 
 BAND
@@ -160,7 +160,7 @@ BAND
 
 	Description:
 
-	Use this key word to perform the band structure analysis
+	Use this keyword to perform the band structure analysis
 
 
 STM_SIMPLE
@@ -170,7 +170,7 @@ STM_SIMPLE
 
 	Description:
 
-	Use this key word to perform a simple STM simulation based on the Tersoff-Hamann theory.
+	Use this keyword to perform a simple STM simulation based on the Tersoff-Hamann theory.
 
 
 STM
@@ -180,7 +180,54 @@ STM
 
 	Description:
 
-	Use this key word to perform a precise STM simulation based on the Tersoff-Hamann theory. Need to add the &STM...&END block.
+	Use this keyword to perform a precise STM simulation based on the Tersoff-Hamann theory. Need to add the &STM...&END block.
+
+
+TASK
+	Type: character
+
+	Default: none
+
+	Description:
+
+	This keyworkd is used to specify the task, but the keyword ``TASK`` can be omitted as above.
+	Available options are as follows:
+
+	* SCF | WF_OPT : SCF calculation
+
+	* NSCF : Non-SCF calculation
+
+	* BAND : Band structure calculation
+
+	* OPT | GEO_OPT : Structural optimization
+
+	* MD | FTMD : Finite temperature molecular dynamics
+
+	* ZTMD : Zero temperature molecular dynamics
+
+	* NEB : Nudged elastic band calculation
+
+	* CINBE : Climbing-image nudged elastic band calculation
+
+	* VIB : Vibrational mode analysis
+
+	* PRTRHO : Print the charge density in real space
+
+	* DOS : Print the total density of states
+
+	* PDOS : Print the density of states projected onto atomic orbital (AOLDOS)
+
+	* PRTWFC : Print wave function(s) in real space
+
+	* PRTWFC_BAND : Print wave function(s) in real space
+
+	* COOP : Crystal orbital overlap population analysis (post-processing required)
+
+	* ALDOS : Atomic layer resolved local density of states calculation
+
+	* STM: Scanning tunneling microscopy (STM) simulation based on the Tersoff-Hamann theory
+
+	* STM_SIMPLE: Simplified STM simulation based on the Tersoff-Hamann theory
 
 
 GMAX
