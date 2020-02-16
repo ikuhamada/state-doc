@@ -261,7 +261,7 @@ Execution of STATE is done as
 
 .. code:: bash
 
-  $ mpirun -np ./STATE < nfinp_scf > nfout_scf
+  $ mpirun -np 8 ./STATE < nfinp_scf > nfout_scf
 
 Total energy of the metallic system is sensitive to the smearing function and width, and the number of k-points, and they should be determined very carefully before the production run.
 Detail is discussed in the tutorial (to be completed).
@@ -348,8 +348,76 @@ SCF run
 Ethylene
 ========
 
-Structural optimization
------------------------
+This example explains how to perform the geometry optimization.
+
+Prep.
+-----
+
+* STATE
+
+.. code:: bash
+
+  $ ln -fs ${HOME}/STATE/src/state-5.6.6/src/STATE
+
+* Pseudopotentials
+
+.. code:: bash
+
+  $ ln -s ${HOME}/STATE/gncpp/pot.C_pbe3
+  $ ln -s ${HOME}/STATE/gncpp/pot.H_lda3
+
+* Input file ``nfinp_gdiis``
+
+.. code:: bash
+
+  #
+  # Ethylene molecule in a box: geometry optimization with the GDIIS method
+  #
+  WF_OPT  DAV
+  GEO_OPT GDIIS
+  NTYP   2
+  NATM   6
+  TYPE   0
+  GMAX    5.00
+  GMAXP  15.00
+  MIX_ALPHA 0.8
+  WIDTH   0.0010
+  EDELTA  0.1000D-08
+  NEG     10
+  FMAX    0.5000D-03
+  CELL   12.00  12.00  12.00  90.00  90.00  90.00
+  &ATOMIC_SPECIES
+   C  12.0107  pot.C_pbe3
+   H   1.0079  pot.H_lda3
+  &END
+  &ATOMIC_COORDINATES CARTESIAN
+        1.262722983300      0.000000000000      0.000000000000    1    1    1
+        2.348328846800      1.753458668500      0.000000000000    1    1    2
+        2.348328846800     -1.753458668500      0.000000000000    1    1    2
+       -1.262722983300      0.000000000000      0.000000000000    1    1    1
+       -2.348328846800      1.753458668500      0.000000000000    1    1    2
+       -2.348328846800     -1.753458668500      0.000000000000    1    1    2
+  &END
+ 
+The keyword ``GEO_OPT`` is used to activate the geometry optimization.
+In this example, GDIIS algorithm is employed as::
+
+  GEO_OPT GDIIS
+
+The force threshold for the geometry optimization is set by the keyword ``FMAX`` as::
+
+  FMAX    0.5000D-03
+
+Geometry optimization
+---------------------
+
+.. code:: bash
+
+  $ mpirun -np 8 ./STATE < nfinp_gdiis > nfout_gdiis
+
+The latest geometry is stored in the ``GEOMETRY`` file, and in the case of GDIIS, past geometries are stored in ``gdiis.data``.
+It is suggested that ``gdiis.data`` be deleted or renamed when the number of optimization steps is close to the number of degrees of freedom.
+
 
 Cl on Al(100)
 =============
