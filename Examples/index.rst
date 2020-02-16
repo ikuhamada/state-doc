@@ -20,7 +20,7 @@ First in the ``Si/`` directory, let us create a symbolik link to the STATE execu
 
   $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
 
-and that to the pseudopotential::
+and that to the pseudopotential
 
 .. code:: bash
 
@@ -38,6 +38,7 @@ then we get the following::
   #
   # Crystalline silicon in the diamond structure
   #
+  WF_OPT    DAV
   NTYP      1
   NATM      2
   TYPE      2
@@ -195,9 +196,64 @@ Compare with that reported in the literature.
 
 Aluminum
 ========
+In this example, how to deal with a metallic system with the smearing method is briefly described by using the crystalline aluminium in the face centered cubic (fcc) structure.
 
 SCF
 ---
+In the ``Al`` directory, first prepare the pseudopotential as
+
+.. code:: bash
+
+  $ ln -s ${HOME}/STATE/gncpp/pot.Al_pbe1
+
+We use the following input file for the SCF calculation.
+
+``nfinp_scf``::
+
+  #
+  # Crystalline aluminum in the face centered cubic structure
+  #
+  WF_OPT  DAV
+  NTYP    1
+  NATM    1
+  TYPE    2
+  NSPG    221
+  GMAX    4.00
+  GMAXP   8.00
+  KPOINT_MESH   12 12 12
+  KPOINT_SHIFT   1  1  1
+  SMEARING MP
+  WIDTH   0.0020
+  EDELTA  0.5000D-09
+  NEG     6
+  CELL    7.50000000   7.50000000   7.50000000  90.00000000  90.00000000  90.00000000
+  &ATOMIC_SPECIES
+  Al 26.9815386 pot.Al_pbe1
+  &END
+  &ATOMIC_COORDINATES CRYSTAL
+        0.000000000000      0.000000000000      0.000000000000    1    0    1
+  &END
+
+
+Here we set the smearing function of Methefessel and Paxton (MP) as
+
+.. code:: bash
+
+  SMEARING MP
+
+and smearing width
+
+.. code:: bash
+
+  WIDTH  0.0020
+
+We can also use negative ``WIDTH`` to enable the smearing function.
+In this case the MP smearing function is automatically set.
+See the manual for the available smearing functions.
+
+Total energy of the metallic system is sensitive to the smearing function and width, and the number of k-points, and they should be determined very carefully before the production run.
+Detail is discussed in the tutorial (to be completed).
+
 
 Nickel
 ======
