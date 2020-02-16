@@ -967,6 +967,8 @@ FRICT
 
   ZETA1: Initial magnetization for each type of element
 
+``&ATOM ... &END`` can be used with the same syntax.
+
 
 &ATOMIC_SPECIES
   This block is an alternative to the ``&ATOMIC_TYPE`` block, which is used to define the atomic types.
@@ -1080,6 +1082,24 @@ FRICT
   EPDOS(3): Smearing width for the Gaussian broadening
   
   NPDOSE: Energy mesh for the density of states calculation.	
+
+  RPDOS(1,I): Cutoff radius for the I-th atomic orbital
+
+  RPDOS(2,I): Smearing width (in real space) for the I-th atomic orbital
+
+  Following synax can also be used::
+
+	&PDOS
+	 NPDOSAO [NPDOSAO]
+	 IPDOST  [IPDOST(1) IPDOST(2) ... IPDOST(NPDOSAO)]
+	 EMIN    [EPDOS(1)]
+         EMAX    [EPDOS(2)]
+         EWIDTH  [EPDOS(3)]
+         NPDOSE  [NPDOSE]
+         RCUT    [RPDOS(1,1) RPDOS(1,2) ... RPDOS(1,NTYP)]
+         RWIDTH  [RPDOS(2,1) RPDOS(2,2) ... RPDOS(2,NTYP)]
+	&END
+
 
 &DFT+U ... &END
   This block is used to define the parameters needed for the DFT+U calculations.

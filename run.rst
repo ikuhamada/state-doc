@@ -55,12 +55,10 @@ Then let us prepare the input file. Here we use the following file named ``nfinp
   WIDTH     0.0010
   EDELTA    0.1000D-09
   NEG       8
+  CELL      6.00  4.00  4.00  90.00  90.00  90.00
   &ATOMS
    6.00  0.1500  51577.50 3 1  0.0000
    8.00  0.1500  51577.50 3 1  0.0000
-  &END
-  &CELL
-    6.0000  4.0000  4.0000  90.000  90.000  90.000
   &END
   &ATOMIC_COORDINATES
     0.0000  0.0000  0.0000  1  1  1
