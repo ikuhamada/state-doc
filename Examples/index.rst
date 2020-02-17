@@ -619,5 +619,171 @@ Use C2H4.xsf for the XSF file, vib.data for VIB file, and vib for prefix, and we
 Cl on Al(100)
 =============
 
-Structural optimization
------------------------
+This example explains how to model the surface with an adsobate by using an Al(100) surface with a Cl atom.
+We also discuss how the periodic boundary condition (PBC) affects the potential (and thus the energy and forces)
+and how to address the issue by using the effective screening medium (ESM) method.
+
+Prep.
+-----
+
+* STATE
+
+In the ``ClonAl100`` directory
+
+.. code:: bash
+
+  $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
+
+* Pseudopotentials
+
+.. code:: bash
+
+  $ ln -s ${HOME}/STATE/gncpp/pot_Al.pbe1
+
+.. code:: bash
+
+  $ ln -s ${HOME}/STATE/gncpp/pot_Al.pbe1
+
+
+Structural optimization with the periodic boundary condition
+------------------------------------------------------------
+
+We are going to use the following input file (``nfinp_gdiis_pbc``)::
+
+  #
+  # Cl on Al(100)
+  #
+  WF_OPT  DAV
+  GEO_OPT GDIIS
+  NTYP    2
+  NATM    7
+  NSPG    1
+  GMAX    4.00
+  GMAXP  10.00
+  KPOINT_MESH    4  4  1
+  KPOINT_SHIFT   2  2  1
+  SMEARING  MP
+  WIDTH     0.0020
+  NEG       16
+  MIX       BROYDEN2
+  MIX_ALPHA 0.80
+  EDELTA   1.000D-09
+  DTIO     600.00
+  FMAX     1.000D-03
+  &ATOMIC_SPECIES
+   Al  26.9815 pot.Al_pbe1
+   Cl  35.4527 pot.Cl_pbe1
+  &END
+  &CELL
+        7.653400000000      0.000000000000      0.000000000000
+        0.000000000000      7.653000000000      0.000000000000
+        0.000000000000      0.000000000000     30.613600000000
+  &END
+  &ATOMIC_COORDINATES CARTESIAN
+        0.000000000000      0.000000000000      3.700000000000    1    1    2
+        0.000000000000      3.826700000000      0.000000000000    1    1    1
+        3.826700000000      0.000000000000      0.000000000000    1    1    1
+        0.000000000000      0.000000000000     -3.826700000000    1    0    1
+        3.826700000000      3.826700000000     -3.826700000000    1    0    1
+        0.000000000000      3.826700000000     -7.653400000000    1    0    1
+        3.826700000000      0.000000000000     -7.653400000000    1    0    1
+  &END
+
+We see that how to define the lattice vectors differs from the previous examples.
+
+Run STATE by executing:
+
+.. code:: bash
+
+  $ mpirun -np 8 ./STATE < nfinp_gdiis_pbc > nfout_gdiis_pbc
+
+and we get ``GEOMETRY`` and ``gdiis.data`` in addition to the standard output files.
+
+Structural optimization with the effective screening medium method
+------------------------------------------------------------------
+
+We then use ``nfinp_gdiis_esm`` for the structural optimization with the effective screening medium method, which looks like::
+
+  #
+  # Cl on Al(100)
+  #
+  WF_OPT  DAV
+  GEO_OPT GDIIS
+  NTYP    2
+  NATM    7
+  NSPG    1
+  GMAX    4.00
+  GMAXP  10.00
+  KPOINT_MESH    4  4  1
+  KPOINT_SHIFT   2  2  1
+  SMEARING  MP
+  WIDTH     0.0020
+  NEG       16
+  MIX       BROYDEN2
+  MIX_ALPHA 0.80
+  EDELTA   1.000D-09
+  DTIO     600.00
+  FMAX     1.000D-03
+  &ESM
+   BOUNDARY_CONDITION BARE
+  &END
+  &ATOMIC_SPECIES
+   Al  26.9815 pot.Al_pbe1
+   Cl  35.4527 pot.Cl_pbe1
+  &END
+  &CELL
+        7.653400000000      0.000000000000      0.000000000000
+        0.000000000000      7.653000000000      0.000000000000
+        0.000000000000      0.000000000000     30.613600000000
+  &END
+  &ATOMIC_COORDINATES CARTESIAN
+        0.000000000000      0.000000000000      3.700000000000    1    1    2
+        0.000000000000      3.826700000000      0.000000000000    1    1    1
+        3.826700000000      0.000000000000      0.000000000000    1    1    1
+        0.000000000000      0.000000000000     -3.826700000000    1    0    1
+        3.826700000000      3.826700000000     -3.826700000000    1    0    1
+        0.000000000000      3.826700000000     -7.653400000000    1    0    1
+        3.826700000000      0.000000000000     -7.653400000000    1    0    1
+  &END
+
+Diffence from the previous calculation is ::
+
+  &ESM
+   BOUNDARY_CONDITION BARE
+  &END
+
+This enables the ESM calculation. 
+In this case open boundary condition in the surface normal direction is used.
+
+Analysis of the effective and electrostatic potentials
+------------------------------------------------------
+
+Here we analyze the potentials from PBC and ESM calculations.
+Use ``state2chgpro.sh`` utility to extract planar average of charge, effective (Kohn-Sham) and electrostatic potentials as:
+
+.. code:: bash
+
+  $ state2chgpro.sh nfout_gdiis_pbc > chgpro.dat_pbc
+
+By plotting the first and third colums, and first and fourth colums, we get the following potential profile:
+
+.. image:: ../img/potential_profile_pbc.png
+   :scale: 80%
+   :align: center
+
+We can see that the electric field is applied to the slab because of the periodic boundary condition.
+
+We also extract the planar average of chargen and potential from the ESM calculations as:
+
+.. code:: bash
+
+  $ state2chgpro.sh nfout_gdiis_esm > chgpro.dat_esm
+
+and we get the following:
+
+.. image:: ../img/potential_profile_esm.png
+   :scale: 80%
+   :align: center
+
+
+We can see that the potentials are flat in the vacuum region. Mind that the slab is locased near the origin (z=0). The discontinuity is by the plotting reason (actually they are disconnected because we do not use the periodic boundary condition with the ESM method). 
