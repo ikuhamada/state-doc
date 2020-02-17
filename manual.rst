@@ -268,7 +268,7 @@ NATM
 
 	Number of atoms in the system.
 	
-BRAVIS_TYPE
+BRAVIS_TYPE | TYPE
 	Type: integer
 
 	Default: 0

@@ -355,6 +355,8 @@ Prep.
 
 * STATE
 
+In the ``C2H4`` directory:
+
 .. code:: bash
 
   $ ln -fs ${HOME}/STATE/src/state-5.6.6/src/STATE
@@ -415,9 +417,204 @@ Geometry optimization
 
   $ mpirun -np 8 ./STATE < nfinp_gdiis > nfout_gdiis
 
+The convergence of the forces can be monitored by:
+
+.. code:: bash
+
+  $ grep -A1 f_max nfout_gdiis
+
+The result looks like::
+
+     NIT     TotalEnergy     f_max     f_rms      edel      vdel      fdel
+       1    -13.90231646  0.001396  0.001303  0.13D-08  0.59D-07  0.13D-08
+  --
+     NIT     TotalEnergy     f_max     f_rms      edel      vdel      fdel
+       2    -13.90232125  0.001296  0.001109  0.45D-09  0.47D-07  0.45D-09
+  --
+     NIT     TotalEnergy     f_max     f_rms      edel      vdel      fdel
+       3    -13.90233075  0.000965  0.000788  0.27D-09  0.13D-06  0.27D-09
+  --
+     NIT     TotalEnergy     f_max     f_rms      edel      vdel      fdel
+       4    -13.90234041  0.000562  0.000459  0.17D-08  0.25D-06  0.17D-08
+  --
+     NIT     TotalEnergy     f_max     f_rms      edel      vdel      fdel
+       5    -13.90234848  0.000329  0.000271  0.11D-09  0.91D-07  0.11D-09
+
+
 The latest geometry is stored in the ``GEOMETRY`` file, and in the case of GDIIS, past geometries are stored in ``gdiis.data``.
 It is suggested that ``gdiis.data`` be deleted or renamed when the number of optimization steps is close to the number of degrees of freedom.
 
+Vibrational analyis
+-------------------
+
+Having obtained the optimized geometry, let us perform the vibrational (normal) mode analysis.
+This can be done in the following steps.
+
+Frist, we need to create an input file with the optimized geometry.
+This can be done by using a utility ``geom2nfinp`` as
+
+.. code:: bash
+
+  $ geom2nfinp -i nfinp_gdiis -g GEOMETRY -o nfinp_relaxed
+
+where input parameters from ``nfinp_gdiis`` and atomic positions from ``GEOMETRY`` are used to create a new input file ``nfinp_relaxed``. 
+``geom2nfinp`` can also be used to generate an XYZ/XSF file from the optimized geometry.
+Type ``geom2nfinp -h`` for the usage of the command.
+
+Then we copy ``nfinp_relaxed`` to ``nfinp_vib`` which looks like::
+
+  #
+  # Ethylene molecule in a box: geometry optimization with the GDIIS method
+  #
+  TASK   VIB
+  WF_OPT DAV
+  NTYP   2
+  NATM   6
+  TYPE   0
+  GMAX    5.00
+  GMAXP  15.00
+  MIX_ALPHA 0.8
+  WIDTH   0.0010
+  EDELTA  0.1000D-08
+  NEG     10
+  FMAX    0.5000D-03
+  CELL   12.00  12.00  12.00  90.00  90.00  90.00
+  &ATOMIC_SPECIES
+   C  12.0107  pot.C_pbe3
+   H   1.0079  pot.H_lda3
+  &END
+  &ATOMIC_COORDINATES CARTESIAN
+        1.260767348060     -0.000000889176      0.000000061206    1    1    1
+        2.337934105040      1.755199776368      0.000000035554    1    1    2
+        2.337933682371     -1.755198581491      0.000000037135    1    1    2
+       -1.260766004354     -0.000000071340      0.000000050715    1    1    1
+       -2.337933757669      1.755199342527      0.000000064907    1    1    2
+       -2.337933482763     -1.755199042963      0.000000067944    1    1    2
+  &END
+
+We can see the new keyword ``TASK VIB``, which enables one to perform the vibrational analysis.
+
+.. note::
+
+  Make sure the atomic masses in the input file are those you want to use as
+  in some cases we use artificially large/small atomic masses for efficient structural optimization.
+
+In addition to the input file, we need prepare ``nfvibrate.data`` as::
+
+      1  0.10D+01   1
+       1   0.0100000000   0.0000000000   0.0000000000
+      1 -0.10D+01   1
+       1   0.0100000000   0.0000000000   0.0000000000
+      1  0.10D+01   2
+       1   0.0000000000   0.0100000000   0.0000000000
+      1 -0.10D+01   2
+       1   0.0000000000   0.0100000000   0.0000000000
+      1  0.10D+01   3
+       1   0.0000000000   0.0000000000   0.0100000000
+      1 -0.10D+01   3
+       1   0.0000000000   0.0000000000   0.0100000000
+      ...
+      1  0.10D+01  16
+       6   0.0100000000   0.0000000000   0.0000000000
+      1 -0.10D+01  16
+       6   0.0100000000   0.0000000000   0.0000000000
+      1  0.10D+01  17
+       6   0.0000000000   0.0100000000   0.0000000000
+      1 -0.10D+01  17
+       6   0.0000000000   0.0100000000   0.0000000000
+      1  0.10D+01  18
+       6   0.0000000000   0.0000000000   0.0100000000
+      1 -0.10D+01  18
+       6   0.0000000000   0.0000000000   0.0100000000
+
+In the present example, the file contains 2 x 2 x 6 x 3 = 72 lines, which define the atomic displacement in the cartesian coordinate.
+This is 36 set of displacement composed of 2 lines (in this case).
+Here I use first two lines as an example:
+
+First line
+
+.. code:: bash
+
+      1  0.10D+01   1
+
+* First column : number of displacement(s)
+
+* Second column : factor for the displacement
+
+* Thrid column : dummy
+
+Second line
+
+.. code:: bash
+
+       1   0.0100000000   0.0000000000   0.0000000000
+
+
+* First column in the second line: the index for the atom displaced
+
+* Second-Fourth column in the second line: atomic displacement in the cartesian coordinate.
+
+Actual atomic displacements are atomic displacement (2-4th column in the second line multiplied by the factor).
+
+Execute the following
+
+.. code:: bash
+
+  $ mpirun -np 8 ./STATE < nfinp_vib > nfout_vib
+
+and we get ``nfforce.data`` in addition to the standard output files, which contains displaced atomic positions and forces acting on atoms, which can be used to calculate the vibrational frequencies.
+
+Then to calculate the dynamical matrix and vibrational frequencies, we use the ``gif`` program as follows:
+
+.. code:: bash
+
+  $ gif -f nfforce.data
+
+and we can see the vibrational frequncies printed in the standard output as:
+
+.. code:: bash
+
+               =========             
+                SUMMARY              
+               =========             
+  
+   MODE  WR       : NU(meV)  NU(cm-1)
+      1 -0.42D-03 :   12.97    104.63
+      2 -0.19D-03 :    8.76     70.63
+      3 -0.61D-04 :    4.97     40.06
+      4 -0.18D-04 :    2.67     21.50
+      5  0.30D-04 :    3.46     27.93
+      6  0.28D-03 :   10.71     86.35
+      7  0.25D-01 :  100.48    810.43
+      8  0.32D-01 :  114.17    920.88
+      9  0.34D-01 :  116.25    937.60
+     10  0.41D-01 :  128.26   1034.48
+     11  0.55D-01 :  148.39   1196.82
+     12  0.68D-01 :  165.42   1334.18
+     13  0.76D-01 :  175.51   1415.54
+     14  0.10D+00 :  201.49   1625.12
+     15  0.36D+00 :  379.55   3061.29
+     16  0.36D+00 :  381.80   3079.41
+     17  0.37D+00 :  388.22   3131.17
+     18  0.38D+00 :  393.55   3174.18
+
+The first column, the number of mode, the second column, square of the vibrational frequency in Hartree, and third and fourth columns are vibrational frequencies in meV and wavenumber (cm^-1), respectively.
+
+Finally, we visualize the vibrational mode by using the ``gif2xsf`` utility.
+To use ``gif2xsf`` we prepare an XSF, which can be created by using the ``chkinpf`` utility as:
+
+.. code:: bash
+
+  $ chkinpf --atom nfinp_vib
+
+By this we are able to create an XSF file for molecule (not periodic boundary condition).
+Then type
+
+.. code:: bash
+
+  $ gif2xsf -s
+
+Use C2H4.xsf for the XSF file, vib.data for VIB file, and vib for prefix, and we get vib_*.xsf, which can be visualized by using XCrySden or VESTA.
 
 Cl on Al(100)
 =============
