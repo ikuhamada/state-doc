@@ -1210,7 +1210,7 @@ FRICT
 
   BAR_WIDTH: Width for the artifical wall potential for electron
 
-  ELECTRIC_FIELD: Electric field applied to the system. Use with the boundary condition PE1 (BC2).
+  ELECTRIC_FIELD: Electric field (in Ha/Bohr) applied to the system. Use with the boundary condition PE1 (BC2).
 
 
 &OCCUPATION ... &END
