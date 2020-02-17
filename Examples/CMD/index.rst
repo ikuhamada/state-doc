@@ -1,18 +1,13 @@
-========
-Examples
-========
+
+============
+CMD Examples
+============
 
 .. warning::
 	This page is under construction
 
 In this section how to run the STATE examples is described.
-Download example files from `github <https://github.com/ikuhamada/state-examples>`_ and place them in an appropriate place, say, ``${HOME}/STATE``
-See below for the example used in the Computational Materials Densing workshop
-
-.. toctree::
-   :maxdepth: 1
-
-   CMD/index.rst
+Download example files and place them in an appropriate place, say, ``${HOME}/STATE``
 
 Silicon
 =======
@@ -20,7 +15,7 @@ How to perform a self-consistent field (SCF) calculation and cell (volume) optim
 
 SCF
 ---
-First in the ``Si/`` directory, let us create a symbolik link to the STATE executable as follows
+First in the ``Si`` directory, let us create a symbolik link to the STATE executable as follows
 
 .. code:: bash
 
@@ -66,11 +61,11 @@ then we get the following::
   &END
 
 By default wave function optimization (single-point calculation) is performed (``WF_OPT``) with the Davidson algorithm (``DAV``), and structural optimization is not performed.
-By using the above input file, we perform the SCF calculation as:
+By using the above input file, we submit the job as:
 
 .. code:: bash
 
-  $ mpirun -np 8 ./STATE < nfinp_scf > nfout_scf
+  $ qsub qsub_cmd.sh
 
 The convergence of the total energy can be monitored by executing:
 
@@ -127,7 +122,7 @@ In addition, total density of states (DOS) is printed to ``dos.data``, which can
 
 The resulting DOS looks as follows:
 
-.. image:: ../img/dos_si_raw.png
+.. image:: ../../img/dos_si_raw.png
    :scale: 80%
    :align: center
 
@@ -155,17 +150,7 @@ For each lattice constant we prepare an input file as ``nfinp_scf_10.10``, ``nfi
 
 .. code:: bash
 
-  $ mpirun -np 8 < nfinp_scf_10.10 > nfout_scf_10.10
-
-.. code:: bash
-
-  $ mpirun -np 8 < nfinp_scf_10.15 > nfout_scf_10.15
-
-...
-
-.. code:: bash
-
-  $ mpirun -np 8 < nfinp_scf_10.50 > nfout_scf_10.50
+  $ qsub qsub_cmd.sh
 
 To collect the volume-energy (E-V) data, here we use ``state2ev.sh`` script in ``state-5.6.6/util/`` as
 
@@ -185,13 +170,13 @@ This can be visualized by using, for example, ``gnuplot`` as
 
 The output looks like
 
-.. image:: ../img/etot_si_raw.png
+.. image:: ../../img/etot_si_raw.png
    :scale: 80%
    :align: center
 
 Furthermore, by using the ``eosfit`` in the ``util`` directory, the equilibrium volume is obitained:
 
-.. image:: ../img/etot_si_fit.png
+.. image:: ../../img/etot_si_fit.png
    :scale: 80%
    :align: center
 
@@ -263,11 +248,11 @@ We can also use negative ``WIDTH`` to enable the smearing function.
 In this case the MP smearing function is automatically set.
 See the manual for the available smearing functions.
 
-Execution of STATE is done as
+Submit the STATE job as
 
 .. code:: bash
 
-  $ mpirun -np 8 ./STATE < nfinp_scf > nfout_scf
+  $ qsub_cmd.sh
 
 Total energy of the metallic system is sensitive to the smearing function and width, and the number of k-points, and they should be determined very carefully before the production run.
 Detail is discussed in the tutorial (to be completed).
@@ -348,10 +333,8 @@ SCF run
 
 .. code:: bash
 
-  $ mpirun -np ./STATE < nfinp_scf > nfout_scf
+  $ qsub qsub_cmd.sh
 
-
-Ethylene
 ========
 
 This example explains how to perform the geometry optimization.
@@ -421,7 +404,7 @@ Geometry optimization
 
 .. code:: bash
 
-  $ mpirun -np 8 ./STATE < nfinp_gdiis > nfout_gdiis
+  $ qsub qsub_cmd.sh
 
 The convergence of the forces can be monitored by:
 
@@ -562,11 +545,11 @@ Second line
 
 Actual atomic displacements are atomic displacement (2-4th column in the second line multiplied by the factor).
 
-Execute the following
+Submit the job
 
 .. code:: bash
 
-  $ mpirun -np 8 ./STATE < nfinp_vib > nfout_vib
+  $ qsub qsub_cmd.sh
 
 and we get ``nfforce.data`` in addition to the standard output files, which contains displaced atomic positions and forces acting on atoms, which can be used to calculate the vibrational frequencies.
 
@@ -697,11 +680,11 @@ We are going to use the following input file (``nfinp_gdiis_pbc``)::
 
 We see that how to define the lattice vectors differs from the previous examples.
 
-Run STATE by executing:
+Subit the STATE job by executing:
 
 .. code:: bash
 
-  $ mpirun -np 8 ./STATE < nfinp_gdiis_pbc > nfout_gdiis_pbc
+  $ qsub qsub_cmd.sh
 
 and we get ``GEOMETRY`` and ``gdiis.data`` in addition to the standard output files.
 
@@ -773,7 +756,7 @@ Use ``state2chgpro.sh`` utility to extract planar average of charge, effective (
 
 By plotting the first and third colums, and first and fourth colums, we get the following potential profile:
 
-.. image:: ../img/potential_profile_pbc.png
+.. image:: ../../img/potential_profile_pbc.png
    :scale: 80%
    :align: center
 
@@ -787,7 +770,7 @@ We also extract the planar average of chargen and potential from the ESM calcula
 
 and we get the following:
 
-.. image:: ../img/potential_profile_esm.png
+.. image:: ../../img/potential_profile_esm.png
    :scale: 80%
    :align: center
 
