@@ -1143,6 +1143,24 @@ FRICT
 
   J_LDAU: Habbard J value
 
+&VDW_CORRECTION ... &END
+ This block is used to add the van der Waals correction of Grimme's DFT-D2.
+ C6 parameters are hard coded in VanDerWaals.f90.
+
+  Syntax::
+
+	&VDW_CORRECTION
+	 DVDW [DVDW value]
+	 S6   [S6 value]
+	 CUTOFF [R1] [R2] [R3] 
+	&END
+
+  DVDW: d parameter in DFT-D2
+
+  S6: s6 parameter in DFT-D2
+
+  CUTOFF: Cutoff parameters in the directions of the first, second, and third lattice vectors.
+
 &SYMM ... &END
  This block is used to set the symmetry manually.
 
@@ -1166,7 +1184,34 @@ FRICT
   TAU(1:NSPG): Fractional translation associated with the symmetry operation.
 
 &ESM ... &END
-  This block specifies the parameters for the ESM calculation
+  This block specifies the parameters for the ESM calculation.
+
+  Syntax::
+
+	&ESM
+	 BOUNDARY_CONDITION [boundary_condition]
+	 Z1 [value]
+	 CHARGE [value]
+	 Z_WALL [value]
+	 BAR_HEIGHT [value]
+	 BAR_WIDTH [value]
+	 ELECTRIC_FIELD [value]
+	&END
+
+  BOUNDARY_CONDITION: Boundary condition. Available options are BARE (PE0/BC1), PE1 (BC2), and PE2(BC3) for open (vacuum/slab/vacuum), metal/slab/metal, and vacuum/slab/metal boundary conditions, respectively
+
+  Z1: Z position of the cell boundary
+
+  CHARGE: Charge of the system. Note that positive value means deficit charge, while negative, excess charge.
+
+  Z_WALL: Z position of an artifical wall potential for electron
+
+  BAR_HEIGHT: Barrier height for the artifical wall potential for electron
+
+  BAR_WIDTH: Width for the artifical wall potential for electron
+
+  ELECTRIC_FIELD: Electric field applied to the system. Use with the boundary condition PE1 (BC2).
+
 
 &OCCUPATION ... &END
   This block is used to specify the occupations for the fixed occupation calculation (Gamma-point only).
