@@ -1,17 +1,141 @@
-
 ============
 CMD Examples
 ============
 
-.. warning::
-	This page is under construction
+In this section, how to run the STATE examples is described.
 
-In this section how to run the STATE examples is described.
-Download example files and place them in an appropriate place, say, ``${HOME}/STATE``
+Getting started
+===============
+
+CO
+==
+
+As the first example, let us use the carbon monoxide (CO) molecule in a box.
+Let us have a look at by ``cat nfinp_1``
+
+.. code:: bash
+
+  WF_OPT    DAV
+  NTYP      2
+  NATM      2
+  TYPE      0
+  GMAX      5.50
+  GMAXP     20.00
+  NCORD     1
+  NSCF      200
+  WAYMIX    3
+  MIX_WHAT  1
+  KBXMIX    8
+  MIX_ALPHA 0.8
+  WIDTH     0.0010
+  EDELTA    0.1000D-09
+  NEG       8
+  CELL      6.00  4.00  4.00  90.00  90.00  90.00
+  &ATOMS
+   6.00  0.1500  51577.50 3 1  0.0000
+   8.00  0.1500  51577.50 3 1  0.0000
+  &END
+  &ATOMIC_COORDINATES
+    0.0000  0.0000  0.0000  1  1  1
+    2.2000  0.0000  0.0000  1  1  2
+  &END
+
+and the job script by ``cat qsub_cmd.sh``
+
+.. code:: bash
+
+  #$ -S /bin/sh
+  #$ -cwd
+  #$ -pe fillup 6
+  #$ -N CO
+  
+  #disable OPENMP parallelism
+  setenv OMP_NUM_THREADS 1
+  
+  # execuable of the STATE code
+  ln -fs ${HOME}/STATE/src/state-5.6.6_beta/src/STATE .
+  
+  # pseudopotential data
+  ln -fs ${HOME}/STATE/gncpp/pot.C_pbe1 fort.37
+  ln -fs ${HOME}/STATE/gncpp/pot.O_pbe1 fort.38
+   
+  # launch STATE
+  mpirun -np $NSLOTS ./STATE < nfinp_1 > nfout_1
+
+And submit!
+
+.. code:: bash
+
+  $ qsub qsub_cmd.sh
+
+The output ``nfout_1`` starts with the header
+
+.. code:: bash
+
+   ***********************************************************************
+   *                                                                     *
+   *                                                                     *
+   *                                                                     *
+   *              ******  ********    **    ******** ********            *
+   *             ******** ********   ****   ******** ********            *
+   *             **          **     **  **     **    **                  *
+   *              ***        **    ********    **    ******              *
+   *                ***      **   **********   **    ******              *
+   *                  **     **  **        **  **    **                  *
+   *             ********    ** **          ** **    ********            *
+   *              ******     ** VERSION 5.6.6  **    ********            *
+   *                               RICS-AIST                             *
+   *                           OSAKA UNIVERSITY                          *
+   *                                                                     *
+   ***********************************************************************
+
+and at the convergence, total energy, its components, and Fermi energy are printed as
+
+.. code:: bash
+
+                       TOTAL ENERGY AND ITS COMPONENTS 
+                    TOTAL ENERGY     =         -22.21942426 A.U.
+                  KINETIC ENERGY     =           9.92111407 A.U.
+                  HARTREE ENERGY     =           5.12121800 A.U.
+                       XC ENERGY     =          -5.89585641 A.U.
+                    LOCAL ENERGY     =         -20.23161604 A.U.
+                 NONLOCAL ENERGY     =           6.73686140 A.U.
+                    EWALD ENERGY     =         -17.87114528 A.U.
+                       PC ENERGY     =           0.00000000 A.U.
+                 ENTROPIC ENERGY     =           0.00000000 A.U.
+  
+                                           FERMI ENERGY =       0.43248213
+  
+along with the forces acting on atoms
+
+.. code:: bash
+
+      ATOM              COORDINATES                        FORCES
+  MD:    1
+  MD:    1  C   0.000000   0.000000   0.000000   0.01852 -0.00000 -0.00000
+  MD:    2  O   2.200000   0.000000   0.000000  -0.01858  0.00000 -0.00000
+
+Congratulations! We see the victory cat at the end of the output file:-)
+
+.. code:: bash
+
+   HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+   HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+                             _______________________
+       __________   _______/______v______v______v___]
+      D          | |                                 |
+      D   A A    | | Congratulations!                |  C( > < )D
+    --  =(^.^)=  | |  The calculation has converged. |    = o =
+   |     @@@@@   | |                                 |    (    )~
+   /--=O=-+-=O=---+--=O=--+--==O==--+--==O==--+--=O=-+--=O=---=O=-/
+    
+   HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+   HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+
 
 Silicon
 =======
-How to perform a self-consistent field (SCF) calculation and cell (volume) optimization by using a crystalline silicon in the diamond structure as an example.
+This example explains how to perform a self-consistent field (SCF) calculation and cell (volume) optimization by using a crystalline silicon in the diamond structure as an example.
 
 SCF
 ---
@@ -28,13 +152,7 @@ and that to the pseudopotential
   $ ln -s ${HOME}/STATE/gncpp/pot_Si.pbe1
 
 Here we are going to use the input file ``nfinp_scf``.
-Let us have a look at it by using the ``cat`` command as
-
-.. code:: bash
-
-  $ cat nfinp_scf
-
-then we get the following::
+Let us have a look at it by typing ``cat nfinp_scf``:: 
 
   #
   # Crystalline silicon in the diamond structure
@@ -146,7 +264,7 @@ Let us change the lattice constant from 10.10 Bohr to 10.50 Bohr by 0.05 Bohr by
 
   CELL   10.50  10.50  10.50  90.00  90.00  90.00
 
-For each lattice constant we prepare an input file as ``nfinp_scf_10.10``, ``nfinp_scf_10.15``, ... ``nfinp_scf_10.50`` and execute STATE
+For each lattice constant we prepare an input file as ``nfinp_scf_10.10``, ``nfinp_scf_10.15``, ... ``nfinp_scf_10.50`` and submit jobs by changing the input and output files in the job script.
 
 .. code:: bash
 
@@ -191,18 +309,6 @@ In this example, how to deal with a metallic system with the smearing method is 
 
 SCF
 ---
-In the ``Al`` directory, first prepare the pseudopotential as
-
-.. code:: bash
-
-  $ ln -s ${HOME}/STATE/gncpp/pot.Al_pbe1
-
-and the STATE executable as
-
-.. code:: bash
-
-  $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
-
 We use the following input file for the SCF calculation.
 
 ``nfinp_scf``::
@@ -230,7 +336,6 @@ We use the following input file for the SCF calculation.
   &ATOMIC_COORDINATES CRYSTAL
         0.000000000000      0.000000000000      0.000000000000    1    0    1
   &END
-
 
 Here we set the smearing function of Methefessel and Paxton (MP) as
 
@@ -263,20 +368,8 @@ Nickel
 
 This example shows how to perform a calculation of a spin-polarized system using the ferromagnetic Ni in the fcc structure.
 
-Prep.
------
-
-* STATE
-
-.. code:: bash
-
-  $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
-
-* Pseudopotential ``pot.Ni_pbe4``
-
-.. code:: bash
-
-  $ ln -s ${HOME}/STATE/gncpp/pot.Ni_pbe4
+SCF
+---
 
 * Input file (``nfinp_scf``)
 
@@ -328,34 +421,14 @@ along with the initial magnetization as
 
 for each atomic species.
 
-SCF run
--------
-
-.. code:: bash
+Submitting a job::
 
   $ qsub qsub_cmd.sh
 
+Ethylene
 ========
 
 This example explains how to perform the geometry optimization.
-
-Prep.
------
-
-* STATE
-
-In the ``C2H4`` directory:
-
-.. code:: bash
-
-  $ ln -fs ${HOME}/STATE/src/state-5.6.6/src/STATE
-
-* Pseudopotentials
-
-.. code:: bash
-
-  $ ln -s ${HOME}/STATE/gncpp/pot.C_pbe3
-  $ ln -s ${HOME}/STATE/gncpp/pot.H_lda3
 
 * Input file ``nfinp_gdiis``
 
@@ -611,28 +684,6 @@ Cl on Al(100)
 This example explains how to model the surface with an adsobate by using an Al(100) surface with a Cl atom.
 We also discuss how the periodic boundary condition (PBC) affects the potential (and thus the energy and forces)
 and how to address the issue by using the effective screening medium (ESM) method.
-
-Prep.
------
-
-* STATE
-
-In the ``ClonAl100`` directory
-
-.. code:: bash
-
-  $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
-
-* Pseudopotentials
-
-.. code:: bash
-
-  $ ln -s ${HOME}/STATE/gncpp/pot_Al.pbe1
-
-.. code:: bash
-
-  $ ln -s ${HOME}/STATE/gncpp/pot_Al.pbe1
-
 
 Structural optimization with the periodic boundary condition
 ------------------------------------------------------------
