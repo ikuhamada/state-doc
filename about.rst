@@ -11,14 +11,15 @@ The code is written in Fortran90 and parallelized using MPI and OpenMP.
 STATE can perform the following calculations:
 
 * Electronic minization with Davidson or RMM-DIIS method
-* Electronic structure analysis: band structure and density of states
+* Real-space projection of the nonlocal pseudopotentials for an efficient calculation
+* Various exchange-correlation functional: LDA, GGA, GGA+U, and vdW-DF 
 * Structural optimization with quenched molecular dynamics (aka QuickMin) or GDIIS
 * Reaction path search via the CINEB method
 * Born-Oppenheimer molecular dynamics simulation with NVE or NVT ensemble
 * Blue-moon ensemble or metadynamics for free energy sampling
-* Real-space projection of the nonlocal pseudopotentials for an efficient calculation
-* Effective screening medium method
-* Various exchange-correlation functional: LDA, GGA, GGA+U, and vdW-DF 
+* Effective screening medium method for a charged slab calculation
+* Electronic structure analysis: band structure and density of states
+* Vibrational mode analysis via the finite difference method
 
 Developers
 ----------
