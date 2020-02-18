@@ -349,7 +349,7 @@ and smearing width
 
   WIDTH  0.0020
 
-We can also use negative ``WIDTH`` to enable the smearing function.
+We can also use negative ``WIDTH`` without specifying ``SMEARING`` to enable the smearing function.
 In this case the MP smearing function is automatically set.
 See the manual for the available smearing functions.
 

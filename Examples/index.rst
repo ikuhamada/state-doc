@@ -259,7 +259,7 @@ and smearing width
 
   WIDTH  0.0020
 
-We can also use negative ``WIDTH`` to enable the smearing function.
+We can also use negative ``WIDTH`` without explicitly specifying ``SMEARING`` to enable the smearing function.
 In this case the MP smearing function is automatically set.
 See the manual for the available smearing functions.
 
@@ -606,6 +606,9 @@ and we can see the vibrational frequncies printed in the standard output as:
 
 The first column, the number of mode, the second column, square of the vibrational frequency in Hartree, and third and fourth columns are vibrational frequencies in meV and wavenumber (cm^-1), respectively.
 
+.. warning::
+	New data are always appended to the exsiting ``nfforce.data``. Rename it when (a set of) calculations are finished.
+
 Finally, we visualize the vibrational mode by using the ``gif2xsf`` utility.
 To use ``gif2xsf`` we prepare an XSF, which can be created by using the ``chkinpf`` utility as:
 
@@ -648,7 +651,7 @@ In the ``ClonAl100`` directory
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/gncpp/pot_Al.pbe1
+  $ ln -s ${HOME}/STATE/gncpp/pot_Cl.pbe1
 
 
 Structural optimization with the periodic boundary condition
