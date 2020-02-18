@@ -543,7 +543,6 @@ MIX
 	* BLUGEL: Bluegel-Ishida mixing scheme 
 
 MIXOBJ
-
 	Type: character
 
 	Default: CHARGE
@@ -819,6 +818,29 @@ NPDOSAO
 	Description:
 
 	Number of atoms for which the projected density of states are calculated
+
+TEMP_CONTROL
+	Type: integer
+
+	Default: VELSC
+
+	Description:
+
+	This keyword defines the ensemble method for the finite temperature molecular dynaics simulation
+
+	* MICRO: Microcanonical 
+
+	* SA: Simulated annealing
+
+	* VELSC: Simple velocity rescaling
+
+	* MA: Rolling average
+
+	* GT: Gauusian thermostating method
+
+	* NHC: Nose-Hoover chain
+
+	* GGMT: Generalized Gaussian Moment thermostating (GGMT) method
 
 MVELSC
 	Type: integer

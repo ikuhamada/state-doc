@@ -7,11 +7,25 @@ In this section, how to run the STATE examples is described.
 Getting started
 ===============
 
-CO
-==
+We first set up STATE program, pseudopotential, and example files.
+To do so, in the ``home`` directory, type
+
+.. code:: bash
+
+  $ ~teac21/STATE/util/setup-state-cmd.sh
+
+and
+
+.. code:: bash
+
+  $ source ~/.bashrc
+
+and you are all set!
+
+The source file is located in ``${HOME}/STATE/src`` and examples ``${HOME}/STATE/examples``
 
 As the first example, let us use the carbon monoxide (CO) molecule in a box.
-Let us have a look at by ``cat nfinp_1``
+Go to ``CO`` in the examples directory, and  have a look at by ``cat nfinp_1``
 
 .. code:: bash
 
@@ -40,7 +54,7 @@ Let us have a look at by ``cat nfinp_1``
     2.2000  0.0000  0.0000  1  1  2
   &END
 
-and the job script by ``cat qsub_cmd.sh``
+and review the job script by ``cat qsub_cmd.sh``
 
 .. code:: bash
 
