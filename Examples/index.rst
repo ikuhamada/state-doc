@@ -18,9 +18,9 @@ Silicon
 =======
 How to perform a self-consistent field (SCF) calculation and cell (volume) optimization by using a crystalline silicon in the diamond structure as an example.
 
-SCF
----
-First in the ``Si/`` directory, let us create a symbolik link to the STATE executable as follows
+Prep.
+-----
+First in the ``Si`` directory, let us create a symbolik link to the STATE executable as follows
 
 .. code:: bash
 
@@ -33,13 +33,7 @@ and that to the pseudopotential
   $ ln -s ${HOME}/STATE/gncpp/pot_Si.pbe1
 
 Here we are going to use the input file ``nfinp_scf``.
-Let us have a look at it by using the ``cat`` command as
-
-.. code:: bash
-
-  $ cat nfinp_scf
-
-then we get the following::
+Let us have a look at it by typing ``cat nfinp_scf``::
 
   #
   # Crystalline silicon in the diamond structure
@@ -66,6 +60,9 @@ then we get the following::
   &END
 
 By default wave function optimization (single-point calculation) is performed (``WF_OPT``) with the Davidson algorithm (``DAV``), and structural optimization is not performed.
+
+SCF
+---
 By using the above input file, we perform the SCF calculation as:
 
 .. code:: bash
@@ -167,7 +164,7 @@ For each lattice constant we prepare an input file as ``nfinp_scf_10.10``, ``nfi
 
   $ mpirun -np 8 < nfinp_scf_10.50 > nfout_scf_10.50
 
-To collect the volume-energy (E-V) data, here we use ``state2ev.sh`` script in ``state-5.6.6/util/`` as
+To collect the volume-energy (E-V) data, here we use the ``state2ev.sh`` script in ``state-5.6.6/util/`` as
 
 .. code:: bash
 
@@ -204,8 +201,8 @@ Aluminum
 ========
 In this example, how to deal with a metallic system with the smearing method is briefly described by using the crystalline aluminium in the face centered cubic (fcc) structure.
 
-SCF
----
+Prep.
+-----
 In the ``Al`` directory, first prepare the pseudopotential as
 
 .. code:: bash
@@ -263,7 +260,9 @@ We can also use negative ``WIDTH`` without explicitly specifying ``SMEARING`` to
 In this case the MP smearing function is automatically set.
 See the manual for the available smearing functions.
 
-Execution of STATE is done as
+SCF
+---
+Execution of STATE is done by
 
 .. code:: bash
 
@@ -654,8 +653,8 @@ In the ``ClonAl100`` directory
   $ ln -s ${HOME}/STATE/gncpp/pot_Cl.pbe1
 
 
-Structural optimization with the periodic boundary condition
-------------------------------------------------------------
+Geometry optimization with PBC
+------------------------------
 
 We are going to use the following input file (``nfinp_gdiis_pbc``)::
 
@@ -708,8 +707,8 @@ Run STATE by executing:
 
 and we get ``GEOMETRY`` and ``gdiis.data`` in addition to the standard output files.
 
-Structural optimization with the effective screening medium method
-------------------------------------------------------------------
+Geometry optimization with the ESM method
+-----------------------------------------
 
 We then use ``nfinp_gdiis_esm`` for the structural optimization with the effective screening medium method, which looks like::
 

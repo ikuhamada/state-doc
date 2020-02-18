@@ -662,6 +662,9 @@ and we can see the vibrational frequncies printed in the standard output as:
 
 The first column, the number of mode, the second column, square of the vibrational frequency in Hartree, and third and fourth columns are vibrational frequencies in meV and wavenumber (cm^-1), respectively.
 
+.. warning::
+	New data are always appended to the exsiting ``nfforce.data``. Rename it when (a set of) calculations are finished.
+
 Finally, we visualize the vibrational mode by using the ``gif2xsf`` utility.
 To use ``gif2xsf`` we prepare an XSF, which can be created by using the ``chkinpf`` utility as:
 
@@ -685,8 +688,8 @@ This example explains how to model the surface with an adsobate by using an Al(1
 We also discuss how the periodic boundary condition (PBC) affects the potential (and thus the energy and forces)
 and how to address the issue by using the effective screening medium (ESM) method.
 
-Structural optimization with the periodic boundary condition
-------------------------------------------------------------
+Geometry optimization with PBC
+------------------------------
 
 We are going to use the following input file (``nfinp_gdiis_pbc``)::
 
@@ -739,8 +742,8 @@ Subit the STATE job by executing:
 
 and we get ``GEOMETRY`` and ``gdiis.data`` in addition to the standard output files.
 
-Structural optimization with the effective screening medium method
-------------------------------------------------------------------
+Geometry optimization with the ESM method
+-----------------------------------------
 
 We then use ``nfinp_gdiis_esm`` for the structural optimization with the effective screening medium method, which looks like::
 
