@@ -2,7 +2,7 @@
 CMD Examples
 ============
 
-In this section, how to run the STATE examples is described.
+In this section, how to run the STATE examples for the Computational Materials Design (CMD) workshop is described.
 
 Getting started
 ===============
