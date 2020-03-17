@@ -634,7 +634,7 @@ BZINT
 
 	* TETRA: Linear tetrahedron method
 
-	* TETRA_CORR: Linear tetrahedron method with Bloechl's correction
+	* TETRA_RED: Linear tetrahedron method with reduced G-vectors
 
 
 SMEARING
