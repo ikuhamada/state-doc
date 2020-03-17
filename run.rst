@@ -69,7 +69,7 @@ In the current working directory, let us execute::
 
   $ mpirun -np 2 ./STATE < nfinp_1 > nfout_1
 
-where we use 2 processors and the output is written to ``nfout_1``. The MPI command depends on the system and a job script is necessary when we use a supercomputer fascility.
+where we use 2 processors and the output is written to ``nfout_1``. The MPI command depends on the system and a job script is necessary when we use a supercomputer facility.
 
 In this example, only the single-point (or SCF) calculation is performed and no structural optization is performed.
 
