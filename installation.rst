@@ -16,11 +16,11 @@ Compilation
 
   Unpack the source code::
 
-    gzip -dc state-5.6.6.tgz | tar xf -
+    $ gzip -dc state-5.6.6.tgz | tar xf -
 
   or::
 
-    tar zxf state-5.6.6.tgz
+    $ tar zxf state-5.6.6.tgz
 
   state-5.6.6/ contains the following file and directories::
 
@@ -28,16 +28,16 @@ Compilation
 
   Go to the source directory::
 
-    cd state-5.6.6/src
+    $ cd state-5.6.6/src
 
 
   make a symbolic link to ``make.arch`` as follows, e.g.::
 
-    ln -s ../arc/make.arc.intel_smith make.arc
+    $ ln -s ../arc/make.arc.intel_smith make.arc
 
   and edit ``make.arc`` according to your environment. Then type::
 
-    make
+    $ make
 
   You will get the executable ``STATE`` in the source directory.
 
@@ -64,6 +64,6 @@ Compilation
 
   To compile the utilities, go to the ``util`` directory, edit ``make.inc``, and type ::
 
-    make
+    $ make
 
   Symbolic links to the utilities are created in the ``bin`` directory.
