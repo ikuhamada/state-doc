@@ -7,7 +7,7 @@ Running STATE
 
 Having built it and obtained pseudopotentials, we are ready to run STATE!
 
-Suppose the source directory is ``${HOME}/STATE/src/state/src`` and pseudopotentials are located in ``${HOME}/STATE/gncpp``.
+Suppose the source directory is ``${HOME}/STATE/src/state/src`` and pseudopotentials are located in ``${HOME}/STATE/gncpp``, where $``${HOME}`` is the home directory.
 In ``${HOME}/STATE``, let us create a directory for a test run for a CO molecule in a rectangular unit cell as
 
 .. code:: bash
