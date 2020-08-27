@@ -277,6 +277,29 @@ BRAVIS_TYPE | TYPE
 
 	Type of Bravis lattice.
 
+BRAVIS_LATTICE
+	Type: character
+
+	Default: Simple
+
+	Description:
+
+	Type of Bravis lattice.	
+
+	* SIMPLE: Simple lattice
+
+	* BCC: Body-centered cubic
+
+	* FCC: Face-centered cubic
+
+	* A_CENTER: A-centered lattice
+
+	* B_CENTER: B-centered lattice
+
+	* C_CENTER: C-centered lattice
+
+	* RHOMBO | TRIG: Rhombohedral lattice
+
 NSPG
 	Type: integer
 
@@ -305,17 +328,31 @@ KPOINT_MESH
 	K-point mesh along the first, second, and third reciprocal lattice vectors.
 
 KPOINT_SHIFT
+	Type: character array
+
+	Default: F F F
+
+	Description:
+
+	Shift for the k-points in the direction of the first, second, and third reciprocal lattice vectors.
+
+	* F/OFF: non-shifted
+
+	* T/ON: shifted
+
+KPOINT_SHIFT_OLD
 	Type: integer array
 
 	Default: 1 1 1
 
 	Description:
 
-	Shift for the k-points in the direction of the first, second, and third reciprocal lattice vectors.
+	Shift for the k-points in the direction of the first, second, and third reciprocal lattice vectors. K-point shifts according to the legacy input (M1, M2, and M3).
 
 	* 1: non-shifted
 
 	* 2: shifted
+
 
 KPOINTS
 	Type: integer array
