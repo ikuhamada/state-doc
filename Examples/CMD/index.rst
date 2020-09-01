@@ -440,6 +440,47 @@ Submitting a job::
 
   $ qsub qsub_cmd.sh
 
+
+As above, ``dos.data`` is automatically generated. In the case of spin polarized system, the first column of ``dos.data`` contains energy, second and third columns contain DOS for spin up and down respectively.
+This can be plotted by using gnuplot as follows:
+
+.. code:: bash
+
+  $ gnuplot
+
+.. code:: bash
+
+  $ gnuplot> set xrange [-10:5]
+  $ gnuplot> set yrange [0:4]
+  $ gnuplot> set xlabel 'E-E_F (eV)'
+  $ gnuplot> set ylabel 'DOS (state/eV)'
+  $ gnuplot> plot 'dos.data_smearing' using ($1):($2) w l title 'Spin-up','dos.data_smearing' using ($1):($3) w l title 'Spin-down'
+
+
+The spin-polarized DOS looks like:
+
+.. image:: ../../img/dos_ni_raw_1.png
+   :scale: 80%
+   :align: center
+
+Or by using the following:
+
+.. code:: bash
+
+  $ gnuplot> set xrange [-10:5]
+  $ gnuplot> set yrange [-4:4]
+  $ gnuplot> set yzeroaxis
+  $ gnuplot> set xlabel 'E-E_F (eV)'
+  $ gnuplot> set ylabel 'DOS (state/eV)'
+  $ gnuplot> plot 'dos.data_smearing' using ($1):($2) w l title 'Spin-up','dos.data_smearing' using ($1):(-$3) w l title 'Spin-down'
+
+One may obtain the spin-polarized DOS like:
+
+.. image:: ../../img/dos_ni_raw_2.png
+   :scale: 80%
+   :align: center
+
+
 Ethylene
 ========
 

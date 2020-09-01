@@ -6,13 +6,16 @@ Examples
 	This page is under construction
 
 In this section how to run the STATE examples is described.
-Download example files from `github <https://github.com/ikuhamada/state-examples>`_ and place them in an appropriate place, say, ``${HOME}/STATE``
-See below for the example used in the Computational Materials Densing workshop
+
+See below for the example used in the Computational Materials Densing (CMD) workshop
 
 .. toctree::
    :maxdepth: 1
 
    CMD/index.rst
+
+First, download example files from `github <https://github.com/ikuhamada/state-examples>`_ and place them in an appropriate place, say, ``${HOME}/STATE``.
+
 
 Silicon
 =======
@@ -31,6 +34,8 @@ and that to the pseudopotential
 .. code:: bash
 
   $ ln -s ${HOME}/STATE/gncpp/pot_Si.pbe1
+
+Choose appropriate paths for the STATE executable and pseudopotential files depending on your environment.
 
 Here we are going to use the input file ``nfinp_scf``.
 Let us have a look at it by typing ``cat nfinp_scf``::
@@ -127,6 +132,8 @@ The resulting DOS looks as follows:
 .. image:: ../img/dos_si_raw.png
    :scale: 80%
    :align: center
+
+NOTE The origin of the energy is set to the Fermi level, but it does not make sense for the molecules and insulating system. In such cases the energy should be shifted properly.
 
 
 Cell optimization
@@ -347,7 +354,46 @@ SCF run
 
 .. code:: bash
 
-  $ mpirun -np ./STATE < nfinp_scf > nfout_scf
+  $ mpirun -np 8 ./STATE < nfinp_scf > nfout_scf
+
+As above, ``dos.data`` is automatically generated. In the case of spin polarized system, the first column of ``dos.data`` contains energy, second and third columns contain DOS for spin up and down respectively.
+This can be plotted by using gnuplot as follows:
+
+.. code:: bash
+
+  $ gnuplot
+
+.. code:: bash
+
+  $ gnuplot> set xrange [-10:5]
+  $ gnuplot> set yrange [0:4]
+  $ gnuplot> set xlabel 'E-E_F (eV)'
+  $ gnuplot> set ylabel 'DOS (state/eV)'
+  $ gnuplot> plot 'dos.data_smearing' using ($1):($2) w l title 'Spin-up','dos.data_smearing' using ($1):($3) w l title 'Spin-down'
+
+
+The spin-polarized DOS looks like:
+
+.. image:: ../img/dos_ni_raw_1.png
+   :scale: 80%
+   :align: center
+
+Or by using the following:
+
+.. code:: bash
+
+  $ gnuplot> set xrange [-10:5]
+  $ gnuplot> set yrange [-4:4]
+  $ gnuplot> set yzeroaxis
+  $ gnuplot> set xlabel 'E-E_F (eV)'
+  $ gnuplot> set ylabel 'DOS (state/eV)'
+  $ gnuplot> plot 'dos.data_smearing' using ($1):($2) w l title 'Spin-up','dos.data_smearing' using ($1):(-$3) w l title 'Spin-down'
+
+One may obtain the spin-polarized DOS like:
+
+.. image:: ../img/dos_ni_raw_2.png
+   :scale: 80%
+   :align: center
 
 
 Ethylene
@@ -795,3 +841,5 @@ and we get the following:
 
 
 We can see that the potentials are flat in the vacuum region. Mind that the slab is locased near the origin (z=0). The discontinuity is by the plotting reason (actually they are disconnected because we do not use the periodic boundary condition with the ESM method). 
+
+
