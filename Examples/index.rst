@@ -7,7 +7,7 @@ Examples
 
 In this section how to run the STATE examples is described.
 
-See below for the example used in the Computational Materials Densing (CMD) workshop
+See below for the examples used in the Computational Materials Densing (CMD) workshop
 
 .. toctree::
    :maxdepth: 1
