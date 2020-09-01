@@ -15,6 +15,17 @@ See below for the examples used in the Computational Materials Densing (CMD) wor
    CMD/index.rst
 
 First, download example files from `github <https://github.com/ikuhamada/state-examples>`_ and place them in an appropriate place, say, ``${HOME}/STATE``.
+It is also suggested that the path to the utility program be set in the .bashrc file as (change path and file names according to your environment):
+
+.. code:: bash
+
+  PATH=${PATH}:${HOME}/STATE/src/state-5.6.6/util/bin
+
+Remember to execute
+
+.. code:: bash
+
+  $ source ~/.bashrc
 
 
 Silicon
