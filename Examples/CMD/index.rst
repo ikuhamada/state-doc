@@ -22,7 +22,8 @@ and
 
 and you are all set!
 
-The source file is located in ``${HOME}/STATE/src`` and examples ``${HOME}/STATE/examples``
+The source file is located in ``${HOME}/STATE/src`` and examples ``${HOME}/STATE/examples``.
+Let us move to ``${HOME}/STATE/examples``.
 
 As the first example, let us use the carbon monoxide (CO) molecule in a box.
 Go to ``CO`` in the examples directory, and  have a look at by ``cat nfinp_1``
