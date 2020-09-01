@@ -179,8 +179,8 @@ Let us have a look at it by typing ``cat nfinp_scf``::
   NSPG      227
   GMAX      4.00
   GMAXP     8.00
-  KPOINT_MESH    8  8  8
-  KPOINT_SHIFT   1  1  1
+  KPOINT_MESH    8   8   8
+  KPOINT_SHIFT   OFF OFF OFF
   WIDTH     0.0002
   EDELTA    0.5000D-09
   NEG    8
@@ -338,8 +338,8 @@ We use the following input file for the SCF calculation.
   NSPG    221
   GMAX    4.00
   GMAXP   8.00
-  KPOINT_MESH   12 12 12
-  KPOINT_SHIFT   1  1  1
+  KPOINT_MESH   12  12  12
+  KPOINT_SHIFT  OFF OFF OFF
   SMEARING MP
   WIDTH   0.0020
   EDELTA  0.5000D-09
@@ -400,8 +400,8 @@ SCF
   NSPG   221
   GMAX    5.00
   GMAXP  15.00
-  KPOINT_MESH   12 12 12
-  KPOINT_SHIFT   1  1  1
+  KPOINT_MESH   12  12  12
+  KPOINT_SHIFT  OFF OFF OFF
   MIX_ALPHA 0.3
   SMEARING MP
   WIDTH  0.0020
@@ -808,8 +808,8 @@ We are going to use the following input file (``nfinp_gdiis_pbc``)::
   NSPG    1
   GMAX    4.00
   GMAXP  10.00
-  KPOINT_MESH    4  4  1
-  KPOINT_SHIFT   2  2  1
+  KPOINT_MESH    4   4   1
+  KPOINT_SHIFT   ON  ON  OFF
   SMEARING  MP
   WIDTH     0.0020
   NEG       16
@@ -862,8 +862,8 @@ We then use ``nfinp_gdiis_esm`` for the structural optimization with the effecti
   NSPG    1
   GMAX    4.00
   GMAXP  10.00
-  KPOINT_MESH    4  4  1
-  KPOINT_SHIFT   2  2  1
+  KPOINT_MESH    4   4   1
+  KPOINT_SHIFT   ON  ON  OFF
   SMEARING  MP
   WIDTH     0.0020
   NEG       16
