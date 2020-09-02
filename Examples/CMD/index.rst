@@ -1011,23 +1011,6 @@ Graphene
 
 In this example, how to optimize the cell parameter, how to calculate the band structure, and how to calculate density of states, are described.
 
-Prep.
------
-
-In the ``GR/Opt`` directory, prepare the executable and pseudopotential.
-
-* STATE executable
-
-.. code:: bash
-
-  $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
-
-* Pseudopotential
-
-.. code:: bash
-
-  $ ln -s ${HOME}/STATE/gncpp/pot_C.pbe3
-
 In this example, input files look like (``nfinp_scf``)::
 
   WF_OPT    DAV
@@ -1418,5 +1401,111 @@ The calculated PDOS for graphene can be visualized as:
 
 .. image:: ../../img/pdos_gr_raw.png
    :scale: 80%
+   :align: center
+
+Benzene
+=======
+
+This example explain how to plot the molecular orbitals by using the benzene (C6H6) molecule.
+
+SCF
+---
+
+Let us start with the SCF calculation by using the following input ``nfinp_scf``::
+
+  WF_OPT DAV
+  NTYP   2
+  NATM   12
+  TYPE   0
+  GMAX    5.00
+  GMAXP  15.00
+  MIX_ALPHA 0.8
+  WIDTH   0.0010
+  EDELTA  0.1000D-08
+  NEG     24
+  CELL   15.00  15.00  15.00  90.00  90.00  90.00
+  &ATOMIC_SPECIES
+   C  12.0107  pot.C_pbe3
+   H   1.0079  pot.H_lda3
+  &END
+  &ATOMIC_COORDINATES XYZ
+  12
+  benzene example from https://openbabel.org/wiki/XYZ_(format)
+    C        0.00000        1.40272        0.00000
+    H        0.00000        2.49029        0.00000
+    C       -1.21479        0.70136        0.00000
+    H       -2.15666        1.24515        0.00000
+    C       -1.21479       -0.70136        0.00000
+    H       -2.15666       -1.24515        0.00000
+    C        0.00000       -1.40272        0.00000
+    H        0.00000       -2.49029        0.00000
+    C        1.21479       -0.70136        0.00000
+    H        2.15666       -1.24515        0.00000
+    C        1.21479        0.70136        0.00000
+    H        2.15666        1.24515        0.00000
+  &END
+  
+Here we show that the XYZ format can be used to give the atomic coordinates.
+
+After the SCF is converged, wave functions in real space can be calculated by using ``nfinp_prtwfc``::
+
+  TASK   PRTWFC
+  WF_OPT DAV
+  NTYP   2
+  NATM   12
+  TYPE   0
+  GMAX    5.00
+  GMAXP  15.00
+  MIX_ALPHA 0.8
+  WIDTH   0.0010
+  EDELTA  0.1000D-08
+  NEG     24
+  CELL   15.00  15.00  15.00  90.00  90.00  90.00
+  &ATOMIC_SPECIES
+   C  12.0107  pot.C_pbe3
+   H   1.0079  pot.H_lda3
+  &END
+  &ATOMIC_COORDINATES XYZ
+  12
+  benzene example from https://openbabel.org/wiki/XYZ_(format)
+    C        0.00000        1.40272        0.00000
+    H        0.00000        2.49029        0.00000
+    C       -1.21479        0.70136        0.00000
+    H       -2.15666        1.24515        0.00000
+    C       -1.21479       -0.70136        0.00000
+    H       -2.15666       -1.24515        0.00000
+    C        0.00000       -1.40272        0.00000
+    H        0.00000       -2.49029        0.00000
+    C        1.21479       -0.70136        0.00000
+    H        2.15666       -1.24515        0.00000
+    C        1.21479        0.70136        0.00000
+    H        2.15666        1.24515        0.00000
+  &END
+  &PLOT
+   IKPT 1
+   IBS  14  
+   IBE  17
+   FORMAT XSF
+  &END
+
+Wave function plot can be activated by setting::
+
+  TASK   PRTWFC
+
+and the k-points and range of bands of the wave functions to be plotted is given by the block::
+
+  &PLOT
+   IKPT 1
+   IBS  14  
+   IBE  17
+   FORMAT XSF
+  &END
+
+where ``IKPT`` is the index of the k-points, ``IBS`` and ``IBE`` are the indices of initial and final bands, respectively, and ``FORMAT`` is to specify the format of the output wave functions.
+Wave functions can be plotted by using XCrySDen, VESTA, VMD, or alike.
+The doubly degenerated highest occupied molecular orbitals (HOMOs) is shown below:
+
+.. image:: ../../img/homo_c6h6.png
+   :scale: 100%
    :align: center
 

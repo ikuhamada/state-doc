@@ -16,3 +16,4 @@ STATE documentation
    Examples/index
    Tutorial/index
    manual
+   references
