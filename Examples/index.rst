@@ -87,6 +87,27 @@ By using the above input file, we perform the SCF calculation as:
 
   $ mpirun -np 8 ./STATE < nfinp_scf > nfout_scf
 
+First, check the output file ``nfout_scf`` and make sure that lattice vectors and atomic positions are correct.
+The primitive lattice vectors are given as::
+
+   PRIM. LAT. VECTOR(BOHR) :        0.000000       5.150000       5.150000
+   PRIM. LAT. VECTOR(BOHR) :        5.150000       0.000000       5.150000
+   PRIM. LAT. VECTOR(BOHR) :        5.150000       5.150000       0.000000
+
+and atomic positions::
+
+   ********************************* ATOMS *******************************
+     ATOM    X(BOHR)    Y(BOHR)    Z(BOHR)     TAUX    TAUY    TAUZ IW  IR
+     1  1    0.00000    0.00000    0.00000   0.0000  0.0000  0.0000  1   0
+     2  1    2.57500    2.57500    2.57500   0.2500  0.2500  0.2500  1   0
+   ***********************************************************************
+
+The exchange-correlation functional used is printed as::
+
+   EXCHANGE CORRELATION FUNCTIONALS : ggapbe
+
+and make sure that this is what you want to use.
+
 The convergence of the total energy can be monitored by executing:
 
 .. code:: bash
