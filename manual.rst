@@ -277,6 +277,20 @@ BRAVIS_TYPE | TYPE
 
 	Type of Bravis lattice.
 
+	* 0: SImple lattice
+
+	* 1: Body-centered cubic
+
+	* 2: Face-centered cubic
+
+	* 3: A-centered lattice
+
+	* 4: B-centered lattice
+
+	* 5: C-centered lattice
+
+	* 6: Rhombohedral lattice
+
 BRAVIS_LATTICE
 	Type: character
 
@@ -1078,6 +1092,20 @@ FRICT
   * 1: Allow to move the ion
 
   * 0: Fix the ion
+
+  * -011: Fix the ion in the x-direction
+
+  * -101: Fix the ion in the y-direction
+
+  * -110: Fix the ion in the z-direction
+
+  * -001: Fix the ion in the xy-direction
+
+  * -100: Fix the ion in the yz-direction
+
+  * -010: Fix the ion in the zx-direction
+
+  NOTE It is adviced to use the quenched molecular dynamics for the geometry optimization, when ionic coordinates are constrained.
 
   It is also possible to define the atomic coordinates in the cartesian coordinate without setting NCOORD or COORD as::
 

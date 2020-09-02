@@ -75,6 +75,8 @@ Let us have a look at it by typing ``cat nfinp_scf``::
         0.250000000000      0.250000000000      0.250000000000    1    1    1
   &END
 
+A line starting with ``#`` or ``!`` is regarded as a comment.
+
 By default wave function optimization (single-point calculation) is performed (``WF_OPT``) with the Davidson algorithm (``DAV``), and structural optimization is not performed.
 
 SCF
