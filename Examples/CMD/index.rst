@@ -1004,3 +1004,419 @@ and we get the following:
 
 
 We can see that the potentials are flat in the vacuum region. Mind that the slab is locased near the origin (z=0). The discontinuity is by the plotting reason (actually they are disconnected because we do not use the periodic boundary condition with the ESM method). 
+
+
+Graphene
+========
+
+In this example, how to optimize the cell parameter, how to calculate the band structure, and how to calculate density of states, are described.
+
+Prep.
+-----
+
+In the ``GR/Opt`` directory, prepare the executable and pseudopotential.
+
+* STATE executable
+
+.. code:: bash
+
+  $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
+
+* Pseudopotential
+
+.. code:: bash
+
+  $ ln -s ${HOME}/STATE/gncpp/pot_C.pbe3
+
+In this example, input files look like (``nfinp_scf``)::
+
+  WF_OPT    DAV
+  NTYP      1
+  NATM      2
+  TYPE      0
+  #NSPG     1017
+  GMAX      5.00
+  GMAXP    15.00
+  KPOINT_MESH   12  12  1
+  KPOINT_SHIFT  F   F   F
+  NSCF      400
+  WAY_MIX   3
+  MIX_ALPHA 0.4
+  SMEARING  MP
+  WIDTH     0.0010
+  EDELTA    0.1000D-11
+  NEG       24
+  CELL      4.6591  4.6591 18.89726878  90.00  90.00 120.00
+  &ATOMIC_SPECIES
+   C  12.0107 pot.C_pbe3
+  &END
+  &ATOMIC_COORDINATES CRYSTAL
+        0.00000000000      0.00000000000      0.00000000000    1    1    1
+        0.33333333333      0.66666666667      0.00000000000    1    1    1
+  &END
+
+Cell optimization
+-----------------
+
+As in the example of silicon, we manually change the in-plane lattice parameter (a and b) by 0.02 Bohr as
+
+.. code:: bash
+
+  CELL      4.54 4.54 18.89726878  90.00  90.00 120.00
+
+
+.. code:: bash
+
+  CELL      4.56 4.56 18.89726878  90.00  90.00 120.00
+
+...
+
+.. code:: bash
+
+  CELL      4.74 4.74 18.89726878  90.00  90.00 120.00
+
+For each lattice constant we prepare an input file as ``nfinp_scf_a4.54``, ``nfinp_scf_a4.56``, ... ``nfinp_scf_4.74`` and execute STATE (min. and max. values, as well as the interval are arbitrary) by
+
+.. code:: bash
+
+  $ qsub qsub_cmd.sh
+
+Alternatively one can use ``qsub_opt_cmd.sh`` to automatically run a set of calculations.
+ 
+
+We then plot the total energy as a function of lattice parameter (use getetot.sh in the same directory), and fit it to any function. In this example, let us use 6th order polynomial. The result looks like:
+
+.. image:: ../../img/etot_gr_raw.png
+   :scale: 80%
+   :align: center
+
+The minimum (equilibrium) can be found at a=4.6591 (Bohr). Compare with the experimental value.
+
+Band structure calculation
+--------------------------
+
+We then use the theoretically optimized lattice parameter to calculate the band structure of graphene.
+Change directory to ``Band/`` and the files ``nfinp_scf`` and ``nfinp_band`` can be found.
+
+To calculate the band structure, first we perform an SCF calculation to obtain a converged charge density (or potential) and perform a fixed charge (potential) non-SCF calculation for the high-symmetry k-points.
+
+First perform the SCF calculation by using the following input file (``nfinp_scf``)::
+
+  WF_OPT    DAV
+  NTYP      1
+  NATM      2
+  TYPE      0
+  #NSPG     1017
+  GMAX      5.00
+  GMAXP    15.00
+  KPOINT_MESH   12  12  1
+  KPOINT_SHIFT  F   F   F
+  NSCF      400
+  WAY_MIX   3
+  MIX_ALPHA 0.4
+  SMEARING  MP
+  WIDTH     0.0010
+  EDELTA    0.1000D-11
+  NEG       24
+  CELL      4.6591  4.6591 18.89726878  90.00  90.00 120.00
+  &ATOMIC_SPECIES
+   C  12.0107 pot.C_pbe3
+  &END
+  &ATOMIC_COORDINATES CRYSTAL
+        0.00000000000      0.00000000000      0.00000000000    1    1    1
+        0.33333333333      0.66666666667      0.00000000000    1    1    1
+  &END
+
+.. code:: bash
+
+  $ qsub qsub_cmd.sh
+
+After converging the charge/potential, we perform the non-SCF band structure calculation by using the following input (``nfinp_band``)::
+
+  TASK      BAND
+  WF_OPT    DAV
+  NTYP      1
+  NATM      2
+  TYPE      0
+  #NSPG     1017
+  GMAX      5.00
+  GMAXP    15.00
+  KPOINT_MESH   12  12  1
+  KPOINT_SHIFT  F   F   F
+  NSCF      400
+  WAY_MIX   3
+  MIX_WHAT  1
+  KBXMIX    20
+  MIX_ALPHA 0.4
+  SMEARING  MP
+  WIDTH     0.0010
+  EDELTA    0.1000D-11
+  NEG       24
+  CELL      4.6591  4.6591 18.89726878  90.00  90.00 120.00
+  &ATOMIC_SPECIES
+   C  12.0107 pot.C_pbe3
+  &END
+  &ATOMIC_COORDINATES CRYSTAL
+        0.00000000000      0.00000000000      0.00000000000    1    1    1
+        0.33333333333      0.66666666667      0.00000000000    1    1    1
+  &END
+  &KPOINTS_BAND
+   NKSEG 3
+   KMESH 20 20 20
+   KPOINTS 
+   0.00000000  0.00000000  0.00000000
+   0.66666667 -0.33333333  0.00000000
+   0.50000000  0.00000000  0.00000000
+   0.00000000  0.00000000  0.00000000
+  &END
+
+For the band structure calculation, we use the following keyword::
+
+  TASK      BAND
+
+To specify the high symmetry k-points, we add the following::
+
+  &KPOINTS_BAND
+   NKSEG 3
+   KMESH 20 20 20
+   KPOINTS 
+   0.00000000  0.00000000  0.00000000
+   0.66666667 -0.33333333  0.00000000
+   0.50000000  0.00000000  0.00000000
+   0.00000000  0.00000000  0.00000000
+  &END
+
+Here we define the number of k-point segments by the keyword ``NKSEG``::
+
+   NKSEG 3
+
+k-point mesh for each segment::
+
+   KMESH 20 20 20
+
+and NKSEG+1 k-points defining each segments::
+
+   KPOINTS 
+   0.00000000  0.00000000  0.00000000
+   0.66666667 -0.33333333  0.00000000
+   0.50000000  0.00000000  0.00000000
+   0.00000000  0.00000000  0.00000000
+
+Here the k-points are given in the unit of the reciprocal lattice vectors.
+To give the k-points in the cartesian coordinate, use:: 
+
+   KPOINTS CARTESIAN
+
+Run the band structure calculation by replacing the input file with ``nfinp_band`` in ``qsub_cmd.sh``
+
+.. code:: bash
+
+  $ qsub qsub_cmd.sh
+
+we obtain the file ``energy.data``, which containg the Kohn-Sham eigenvalues, along with the k-points.
+However, we cannot plot the band structure directory from ``energy.data`` and should be processed properly.
+To convert the ``energy.data`` file into a plottable XY data, we use the ``energy2band`` program.
+Type
+
+.. code:: bash
+
+  $ energy2band
+
+and you will be asked the numbers of bands considered, the number of bands to be plotted (can be the same as the previous one), the number of k-points considered (in this example, the eigenvalues at 61 k-points are calculated), and the energy origin (here, the Fermi level obtained in the SCF calculation will be used).
+If the numbers are given properly, we obtain the file ``band.data``, which can be used to plot the band directory by using gnuplot or grace.
+
+Here is how the band structure looks like:
+
+.. image:: ../../img/band_gr_raw.png
+   :scale: 80%
+   :align: center
+
+Density of states
+-----------------
+
+Now let us calculate the density of states (DOS) and projected DOS (PDOS) onto the atomic orbital.
+
+Change directory to ``DOS/`` and we can find the directory ``12x12/``, ``16x16/``, and ``24x24/``, which indicate the k-point mesh used the calculation.
+
+Let us change directory to ``12x12`` and have a look at the input file::
+
+  WF_OPT    DAV
+  NTYP      1
+  NATM      2
+  TYPE      0
+  #NSPG     1017
+  GMAX      5.00
+  GMAXP    15.00
+  KPOINT_MESH   12  12  1
+  KPOINT_SHIFT  F   F   F
+  NSCF      400
+  WAY_MIX   3
+  MIX_WHAT  1
+  KBXMIX    20
+  MIX_ALPHA 0.4
+  SMEARING  MP
+  WIDTH     0.0010
+  EDELTA    0.1000D-11
+  NEG       24
+  CELL      4.6591  4.6591 18.89726878  90.00  90.00 120.00
+  &ATOMIC_SPECIES
+   C  12.0107 pot.C_pbe3
+  &END
+  &ATOMIC_COORDINATES CRYSTAL
+        0.00000000000      0.00000000000      0.00000000000    1    1    1
+        0.33333333333      0.66666666667      0.00000000000    1    1    1
+  &END
+  &DOS
+   EMIN -20.0
+   EMAX  10.0
+  &END
+
+The total density of states is printed to ``dos.data``, and the default energy window is from -0.5  to + 0.3 Hartree (-13.6057 to 8.1634 eV relative to the Fermi level).
+To change the energy windown, we use the ``&DOS...&END`` block as::
+
+  &DOS
+   EMIN -20.0
+   EMAX  10.0
+  &END
+
+where minimum and maximum energies are given in eV.
+
+By Running the SCF calculation in each directory, we can observe the convergence of the density of states:
+
+.. image:: ../../img/dos_gr_raw.png
+   :scale: 80%
+   :align: center
+
+Finally, in the ``DOS/24x24`` directory, we calculate PDOS.
+The PDOS can be calculated at the end of the SCF calculation, or as a postprocess.
+To compute PDOS in the SCF calculation, we can use the following ``nfinp_scf+pdos``::
+
+  WF_OPT    DAV
+  NTYP      1
+  NATM      2
+  TYPE      0
+  #NSPG     1017
+  GMAX      5.00
+  GMAXP    15.00
+  KPOINT_MESH   24  24  1
+  KPOINT_SHIFT  F   F   F
+  NSCF      400
+  WAY_MIX   3
+  MIX_WHAT  1
+  KBXMIX    20
+  MIX_ALPHA 0.4
+  SMEARING  MP
+  WIDTH     0.0010
+  EDELTA    0.1000D-11
+  NEG       24
+  CELL      4.6591  4.6591 18.89726878  90.00  90.00 120.00
+  &ATOMIC_SPECIES
+   C  12.0107 pot.C_pbe3
+  &END
+  &ATOMIC_COORDINATES CRYSTAL
+        0.00000000000      0.00000000000      0.00000000000    1    1    1
+        0.33333333333      0.66666666667      0.00000000000    1    1    1
+  &END
+  &PDOS
+   NPDOSAO 1
+   IPDOST  1
+   EMIN    -20.00
+   EMAX     10.00
+   EWIDTH    0.10
+   NPDOSE  3001
+   RCUT    1.30
+   RWIDTH  0.10 
+  &END
+
+where the block ``&PDOS...&END`` is added to set the parameters for the PDOS calculation::
+  
+  &PDOS
+   NPDOSAO 1
+   IPDOST  1
+   EMIN    -20.00
+   EMAX     10.00
+   EWIDTH    0.10
+   NPDOSE  3001
+   RCUT    1.30
+   RWIDTH  0.10 
+  &END
+
+For the post-processing PDOS calculation, the following file (``nfinp_pdos``) can be used ::
+
+  TASK      PDOS
+  WF_OPT    DAV
+  NTYP      1
+  NATM      2
+  TYPE      0
+  #NSPG     1017
+  GMAX      5.00
+  GMAXP    15.00
+  KPOINT_MESH   24  24  1
+  KPOINT_SHIFT  F   F   F
+  NSCF      400
+  WAY_MIX   3
+  MIX_WHAT  1
+  KBXMIX    20
+  MIX_ALPHA 0.4
+  SMEARING  MP
+  WIDTH     0.0010
+  EDELTA    0.1000D-11
+  NEG       24
+  CELL      4.6591  4.6591 18.89726878  90.00  90.00 120.00
+  &ATOMIC_SPECIES
+   C  12.0107 pot.C_pbe3
+  &END
+  &ATOMIC_COORDINATES CRYSTAL
+        0.00000000000      0.00000000000      0.00000000000    1    1    1
+        0.33333333333      0.66666666667      0.00000000000    1    1    1
+  &END
+  &PDOS
+   NPDOSAO 1
+   IPDOST  1
+   EMIN    -20.00
+   EMAX     10.00
+   EWIDTH    0.10
+   NPDOSE  3001
+   RCUT    1.30
+   RWIDTH  0.10 
+  &END
+
+where the keyword ``TASK`` is used to perfom the PDOS calculation:
+
+  TASK      PDOS
+
+In the ``&PDOS...&END`` block, number of atoms for which PDOSs are computed is defined by::
+
+   NPDOSAO 1
+
+and corresponding atomic indices::
+
+   IPDOST  1
+
+Number of ``IPDOST`` should equal to ``NPDOSAO``.
+Minimum and maximum energies (in eV) and number of grid points for the energy are defined by::
+
+   EMIN    -20.00
+   EMAX     10.00
+   NPDOSE  3001
+
+and the smearing width (in eV) for the gaussian is defined by::
+
+   EWIDTH    0.10
+
+We cutoff the atomic orbitals at certain radius ``RCUT`` (in Bohr)::
+
+   RCUT    1.30
+
+and the truncated orbital is smoothened by using the Fermi-Dirac type function with the width of ``RWIDTH``::
+
+   RWIDTH  0.10 
+
+The number of ``RCUT`` and ``RWIDTH`` should corresponds to then number of atomic species (``NTYPE``).
+
+The calculated PDOS for graphene can be visualized as:
+
+.. image:: ../../img/pdos_gr_raw.png
+   :scale: 80%
+   :align: center
+
