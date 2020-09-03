@@ -1364,7 +1364,7 @@ For the post-processing PDOS calculation, the following file (``nfinp_pdos``) ca
    RWIDTH  0.10 
   &END
 
-where the keyword ``TASK`` is used to perfom the PDOS calculation:
+where the keyword ``TASK`` is used to perfom the PDOS calculation::
 
   TASK      PDOS
 
