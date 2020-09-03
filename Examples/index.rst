@@ -1386,8 +1386,20 @@ and the k-points and range of bands of the wave functions to be plotted is given
   &END
 
 where ``IKPT`` is the index of the k-points, ``IBS`` and ``IBE`` are the indices of initial and final bands, respectively, and ``FORMAT`` is to specify the format of the output wave functions.
-Wave functions can be plotted by using XCrySDen, VESTA, VMD, or alike.
-The doubly degenerated highest occupied molecular orbitals (HOMOs) is shown below:
+In this example, following files may be created::
+
+  nfwfn_kpt0001_band0014_re.xsf
+  nfwfn_kpt0001_band0014_im.xsf
+  nfwfn_kpt0001_band0015_re.xsf
+  nfwfn_kpt0001_band0015_im.xsf
+  nfwfn_kpt0001_band0016_re.xsf
+  nfwfn_kpt0001_band0016_im.xsf
+  nfwfn_kpt0001_band0017_re.xsf
+  nfwfn_kpt0001_band0017_im.xsf
+
+Real part (*_re*) and image part (*_im*) of the wave functions are generated separately.
+These wave functions can be plotted by using XCrySDen, VESTA, VMD, or alike.
+The real parts of the doubly degenerated highest occupied molecular orbitals (HOMOs) are visualized and shown below:
 
 .. image:: ../img/homo_c6h6.png
    :scale: 100%
