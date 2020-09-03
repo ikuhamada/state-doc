@@ -1515,7 +1515,7 @@ In this example, following files may be created::
   nfwfn_kpt0001_band0017_re.xsf
   nfwfn_kpt0001_band0017_im.xsf
 
-Real part (*_re*) and image part (*_im*) of the wave functions are generated separately.
+Real part (\*_re\*) and image part (\*_im\*) of the wave functions are generated separately.
 These wave functions can be plotted by using XCrySDen, VESTA, VMD, or alike.
 The real parts of the doubly degenerated highest occupied molecular orbitals (HOMOs) are visualized and shown below:
 

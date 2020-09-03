@@ -7,6 +7,10 @@ Electronic structure
 - R. M. Martin, *Electronic Structure: Basic Theory and Practical Methods*.
 - M. C. Payne, M. P. Teter, D. C. Allan, T. A. Arias, and J. D. Joannopoulos, Rev. Mod. Phys. **64**, 1045 (1992).
 
+Ab initio molecular dynamics
+----------------------------
+- D. Marx and J. Hutter, `*Ab Initio Molecular Dynamics* <https://doi.org/10.1017/CBO9780511609633>`_
+
 Density functional theory
 -------------------------
 - P. Hohenberg and W. Kohn, Phys. Rev. **136**, B864 (1964).
@@ -40,6 +44,12 @@ K-point sampling
 ----------------
 - H. J. Monkhorst and J. D. Pack, Phys. Rev. B **13**, 5188 (1976).
 
+Smearing method
+---------------
+- N. Marzari, D. Vanderbilt, A. De Vita, and M. C. Payne, Phys. Rev. Lett. **82**, 3296 (1999).
+- M. Methfessel and A. T. Paxton, Phys. Rev. B **40**, 7312 (1991).
+- `N. Marzari, PhD thesis (University of Cambridge, 1996) <http://theossrv1.epfl.ch/Main/Theses?action=download&upname=Marzari_thesis_1996.pdf>`_
+
 Nudged elastic band and quenched molecular dynamics methods
 -----------------------------------------------------------
 - H. Jonsson, G. Mills, and K. W. Jacobsen, "Nudged elastic band method for finding minimum energy paths of transitions," in *Classical and Quantum Dynamics in Condensed Phase Simulations*, edited by B. J. Berne, G. Ciccotti, and D. F. Coker (World Scientific, Singapore, 1998), p 385.
@@ -53,9 +63,9 @@ Dipole correction
 Effective screening medium (ESM) method
 ---------------------------------------
 - M. Otani, O. Sugino, Phys. Rev. B **73**, 115407 (2006)
-- I. Hamada, M. Otani, O. Sugino, Y. Morikawa, Phys. Rev. B **80**, 165411 (2009)
+- \I. Hamada, M. Otani, O. Sugino, Y. Morikawa, Phys. Rev. B **80**, 165411 (2009)
 
-Eficient implementation of the van der Waals density functional
+Efficient implementation of the van der Waals density functional
 ----------------------------------------------------------------
 - Y. Hamamoto, I. Hamada, K. Inagaki, and Y. Morikawa, Phys. Rev. B **93**, 245440 (2016).
 - G. Roman-Perez and J. M. Soler, Phys. Rev. Lett. **103**, 096102 (2009).
@@ -63,5 +73,5 @@ Eficient implementation of the van der Waals density functional
 
 DFT+U
 -----
-+ H. Sawada, Y. Morikawa, K. Terakura, and N. Hamada, Phys. Rev. B **56**, 12154 (1997).
-+ I. Hamada, J. Phys. Soc. Jpn **82**, 105002 (2013). 
+- H. Sawada, Y. Morikawa, K. Terakura, and N. Hamada, Phys. Rev. B **56**, 12154 (1997).
+- \I. Hamada, J. Phys. Soc. Jpn **82**, 105002 (2013). 
