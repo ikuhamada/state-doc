@@ -193,17 +193,17 @@ For each lattice constant we prepare an input file as ``nfinp_scf_10.10``, ``nfi
 
 .. code:: bash
 
-  $ mpirun -np 8 < nfinp_scf_10.10 > nfout_scf_10.10
+  $ mpirun -np 8 ./STATE < nfinp_scf_10.10 > nfout_scf_10.10
 
 .. code:: bash
 
-  $ mpirun -np 8 < nfinp_scf_10.15 > nfout_scf_10.15
+  $ mpirun -np 8 ./STATE < nfinp_scf_10.15 > nfout_scf_10.15
 
 ...
 
 .. code:: bash
 
-  $ mpirun -np 8 < nfinp_scf_10.50 > nfout_scf_10.50
+  $ mpirun -np 8 ./STATE < nfinp_scf_10.50 > nfout_scf_10.50
 
 To collect the volume-energy (E-V) data, here we use the ``state2ev.sh`` script in ``state-5.6.6/util/`` as
 
@@ -1328,6 +1328,9 @@ Let us start with the SCF calculation by using the following input ``nfinp_scf``
   
 Here we show that the XYZ format can be used to give the atomic coordinates.
 
+Wave function plot
+------------------
+
 After the SCF is converged, wave functions in real space can be calculated by using ``nfinp_prtwfc``::
 
   TASK   PRTWFC
@@ -1390,3 +1393,91 @@ The doubly degenerated highest occupied molecular orbitals (HOMOs) is shown belo
    :scale: 100%
    :align: center
 
+TiO2
+====
+
+This example explains hot to perform a calculation with the on-site Coulomb potential correction (DFT+U) by using rutile.
+
+Input file for the DFT calculation ``nfinp_scf``::
+
+  WF_OPT DAV
+  NTYP 2
+  NATM 6
+  TYPE 0
+  NSPG 136
+  GMAX    5.00
+  GMAXP  15.00
+  KPOINT_MESH    6  6  8
+  KPOINT_SHIFT   T  T  T
+  NSCF    200
+  KBXMIX 10
+  MIX_ALPHA 0.1
+  WIDTH   0.0002
+  EDELTA  0.1000D-09
+  NEG    30
+  CELL    8.68080000   8.68080000   5.58940000  90.00000000  90.00000000  90.00000000
+  XCTYPE  ldapw91
+  &ATOMIC_SPECIES
+   Ti  47.947900 pot.Ti_pbe3
+   O   15.994900 pot.O_pbe3
+  &END
+  &ATOMIC_COORDINATES CRYSTAL
+        0.000000000000      0.000000000000      0.000000000000    1    0    1
+        0.500000000000      0.500000000000      0.500000000000    1    0    1
+        0.304829777700      0.304829777700      0.000000000000    1    1    2
+        0.804829777700      0.195170222300      0.500000000000    1    1    2
+       -0.304829777700     -0.304829777700      0.000000000000    1    1    2
+       -0.804829777700     -0.195170222300      0.500000000000    1    1    2
+  &END
+  &HUBBARD
+   NPROJ     2
+   IPROJ     1    2
+   HUBBARD_U 8.00 8.00
+   RCUT      2.30 1.60
+   RSMEAR    0.20 0.12 
+   NLMU      5
+   LMU       5    6    7    8    9
+  &END
+
+Note for this calculation, PW91 LDA (ldapw91) functional was used by setting::
+
+  XCTYPE  ldapw91
+
+For the on-site Coulomb potential (Hubbard U), the ``&HUBBARD...&END`` block is used::
+
+  &HUBBARD
+   NPROJ     2
+   IPROJ     1    2
+   HUBBARD_U 8.00 8.00
+   RCUT      2.30 1.60
+   RSMEAR    0.20 0.12 
+   NLMU      5
+   LMU       5    6    7    8    9
+  &END
+
+Number of projectors are set by::
+
+   NPROJ     2
+
+Indices for atoms on which the Hubbard U correction is applied::
+
+   IPROJ     1    2
+
+Effective Hubbard U is defined by::
+
+   HUBBARD_U 8.00 8.00
+
+Cutoff radii and smearing width for the localized orbitals are set by::
+
+   RCUT      2.30 1.60
+   RSMEAR    0.20 0.12 
+
+Number of the m components (usually 5 for the d state) is set by::
+
+   NLMU      5
+
+and the indices for the m components are give by::
+
+   LMU       5    6    7    8    9
+
+Compare the result (for instance, density of states written to ``dos.data``)  wihtout the Hubbard U correction.
