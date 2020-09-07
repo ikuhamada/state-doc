@@ -89,7 +89,7 @@ RESTART
 
         * RESTART_FILE: geometry and velocities are read from the restart file ("restart.data"). Wave function are calculated from scratch if not specified.
 
-        * GEOMETRY_ILE: geometry and velocities are read from the GEOMETRY file. Wave function are calculated from scratch if not specified.
+        * GEOMETRY_FILE: geometry and velocities are read from the GEOMETRY file. Wave function are calculated from scratch if not specified.
 
 
 VIBRATION
@@ -330,7 +330,8 @@ CELL
 
 	Description:
 
-	Lengths of first, second, and third vectors (A, B, and C), and angles (in degree) between, second and third, third and first, and first and second vectors (ALPHA, BEGA, GAMMA)
+	Lengths of first, second, and third vectors (A, B, and C), and angles (in degree) between, second and third, third and first, and first and second vectors (ALPHA, BEGA, GAMMA).
+        These parameters define the basic lattice vectors of the conventional unit cell.
 
 KPOINT_MESH
 	Type: integer array

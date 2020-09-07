@@ -7,8 +7,8 @@ In this section, how to run the STATE examples for the Computational Materials D
 Getting started
 ===============
 
-We first set up STATE program, pseudopotential, and example files by logging into the computer node assinged (cmd2, cmd4, for instance)
-To do so, in the ``home`` directory, type
+We first set up STATE program, pseudopotential, and example files by logging into the computer node assinged (cmd2, cmd4, for instance).
+To do so, in the home directory (``${HOME}`` or ``~``), type
 
 .. code:: bash
 

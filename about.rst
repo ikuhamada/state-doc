@@ -39,3 +39,12 @@ Contributers
 - Osamu Sugino (University of Tokyo)
 - Teruo Hirakawa (Osaka University)
 
+How to cite STATE
+-----------------
+
+So far, there are no papers describing STATE.
+However, to acknowledge the efforts, which make the STATE code available to the community,
+we suggest to cite the following paper(s)
+- Y. Morikawa, H. Ishii, and K. Seki, Phys. Rev B *69*, 041403 (2004).
+- Y. Morikawa, Phys. Rev. B *63*, 033405 (2001).
+- Y. Morikawa, Appl. Sur. Sci *169-170*, 11 (2000).
