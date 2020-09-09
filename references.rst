@@ -9,7 +9,7 @@ Electronic structure
 
 Ab initio molecular dynamics
 ----------------------------
-- D. Marx and J. Hutter, `**Ab Initio Molecular Dynamics** <https://doi.org/10.1017/CBO9780511609633>`_
+- D. Marx and J. Hutter, `Ab Initio Molecular Dynamics <https://doi.org/10.1017/CBO9780511609633>`_
 
 Density functional theory
 -------------------------
