@@ -1,8 +1,12 @@
+.. _Manual:
+
 ======
 Manual
 ======
 
 Complete list of STATE input variables. Atomic unit is used unless otherwise specified.
+
+Click :any:`here <Legacy_manual>` for the legacy input manual. 
 
 WF_OPT
 	Type: character
