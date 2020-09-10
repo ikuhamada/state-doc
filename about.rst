@@ -4,7 +4,7 @@ About STATE
 
 STATE is a plane-wave pseudopotetial implementation of the electronic structure
 calculations and ab initio molecular dynamics simulations based on density
-functional theory within the local, semilocal and nonlocal density functional.
+functional theory within the local, semilocal, and nonlocal density functionals.
 
 The code is written in Fortran90 and parallelized using MPI and OpenMP.
 
@@ -45,6 +45,7 @@ How to cite STATE
 So far, there are no papers describing STATE.
 However, to acknowledge the efforts, which make the STATE code available to the community,
 we suggest to cite the following paper(s)
-- Y. Morikawa, H. Ishii, and K. Seki, Phys. Rev B *69*, 041403 (2004).
-- Y. Morikawa, Phys. Rev. B *63*, 033405 (2001).
-- Y. Morikawa, Appl. Sur. Sci *169-170*, 11 (2000).
+
+- Y. Morikawa, H. Ishii, and K. Seki, Phys. Rev B **69**, 041403 (2004).
+- Y. Morikawa, Phys. Rev. B **63**, 033405 (2001).
+- Y. Morikawa, K. Iwata, and K. Terakura, Appl. Sur. Sci **169-170**, 11 (2001).
