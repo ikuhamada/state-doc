@@ -9,7 +9,7 @@ Manual for the legacy STATE input
 .. warning::
 	This page is under construction
 
-Aside from the free format, the current STATE code can also read the legacy fixed input format.
+The current STATE code can also read an input file in the legacy fixed format.
 Here is an example of a CO molecule in a small box with the Gamma-point sampling::
 
   0  0  0  0  0  0                      : dummy line (6 integers)
@@ -353,7 +353,7 @@ Smearing, force threshold, stress
    0.0010  0.10D+02    0                : WIDTH, FORCCR, ISTRESS
 
 - ``WIDTH``: Smearing width. Use negative value (>-10.0) for the Hermite-Gaussian smearing. Use a value < -10.0 for the tetrahedron method.
-- ``FORCCR``: Force threshold for the structural optimization.
+- ``FORCCR``: Force threshold for the structural optimization. Use a large value (1.D+2 - 1.D+3) for an SCF calculation.
 - ISTRESS: 1 for stress calculation (not yet implemented)
 
 Exchange correlation and spin
@@ -371,19 +371,23 @@ ldapw91     Perdew-Wang L(S)DA (1991)
 rpbe        revised PBE of Hammer et al.
 revPBE      revised PBE of Zhang and Yang
 wc          Wu-Cohen GGA
-vdW-DF1     vdW-DF of Dion et al's
+vdW-DF      vdW-DF of Dion et al's (vdW-DF2)
 vdW-DF2     vdW-DF of Lee et al's
 optB88-vdW  vdW-DF of Klimes et al's
+optPBE-vdW  vdW-DF of Klimes et al's
 optB86b-vdW vdW-DF of Klimes et al's
+vdW-DF-C09  vdW-DF-C09 of Cooper
+vdW-DF2-C09 vdW-DF2-C09 of Hamada and Otani
+vdW-DF-cx   vdW-DF-cx of Berland and Hyldgaard
 rev-vdW-DF2 vdW-DF of Hamada's
 =========== ===================================
 
 - ``NSPIN``
 
-= ========================
-1 spin unpolarized system
-2 spin polarzed system
-= ========================
+= =============================
+1 For a spin unpolarized system
+2 For a spin polarzed system
+= =============================
 
 STM
 """
@@ -465,7 +469,7 @@ PDOS option
 
         0                                                   : NPDOSAO
 
-When ``NPDOSAO>0``, the PDOS calculation is performed. NPDOSAO indicates the number of atomic orbitals onto which DOSs are calculated. See below.
+When ``NPDOSAO>0``, the PDOS calculation is performed. NPDOSAO indicates the number of atomic orbitals onto which DOSs are calculated. See below (to be completed).
 
 Empirical parameters for the f electrons (dummy)
 """"""""""""""""""""""""""""""""""""""""""""""""
