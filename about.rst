@@ -42,8 +42,8 @@ Contributers
 How to cite STATE
 -----------------
 
-So far, there are no papers describing STATE.
-However, to acknowledge the efforts, which make the STATE code available to the community,
+So far, there are no papers describing the STATE code.
+However, to acknowledge the efforts devoted to make the code available to the community,
 we suggest to cite the following paper(s)
 
 - Y. Morikawa, H. Ishii, and K. Seki, Phys. Rev B **69**, 041403 (2004).
