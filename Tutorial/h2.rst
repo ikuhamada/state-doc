@@ -2,6 +2,7 @@ Hydrogen molecule
 =================
 
 This tutorial explains how to perform the convergence study with respect to the plane-wave cutoff and unit cell size and how to perform the geometry optimization of molecular system.
+How to compute the atomization energy is briefly discussed.
 With the periodic boundary condition, an isolated molecule is simulated by putting a molecule in a box, which is large enough to avoid the interaction between periodic images.
 Here, we use a hydrogen molecule with the generalized gradient approximation (GGA) and the electron-ion interaction is described by using the Troullier-Martins normconserving pseudopotential (pot.H_pbe1TM).
 Note that the potentials is rather new and still in the experimental stage.
