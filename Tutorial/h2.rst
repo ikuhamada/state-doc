@@ -184,7 +184,7 @@ Note that the GDIIS algorithm is efficient near the equilibrium by construction,
 In our practice, GDIIS works pretty well, when the maximum force (``f_max`` in the output) is smaller that, say, 1.e-2, but this is not the case for the weakly interacting system.
 
 Atomization energy calculation
-==============================
+------------------------------
 
 Finally, let us compute the atomization energy of the hydrogen molecule.
 To do so, we need the energy of a spin-polarized hydrogen atom.
