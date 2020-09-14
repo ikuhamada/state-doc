@@ -9,3 +9,4 @@ Tutorial
    :maxdepth: 1
 
    h2
+   si
