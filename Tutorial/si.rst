@@ -91,7 +91,7 @@ This can be visualized as:
    :align: center
 
 In the above calculations, the k-point shift is switched off and the k-points are Gamma-centered.
-For more efficient calculation, the (shifted) Monkhorst-Pack k-point points can be used.
+For more efficient calculation, the (shifted) Monkhorst-Pack [1]_ k-point points can be used.
 In this case, we use the keyword ``KPOINT_SHIFT`` as::
 
   KPOINT_SHIFT   T     T     T
@@ -157,3 +157,9 @@ Convergence of the equilibrium lattice parameter can also be studied:
    :align: center
 
 We can see that with the current setting, the lattice parameter is well converged, with the error smaller than 1.e-3 Angstrom.
+
+.. warning::
+   The shifted k-point grid should not be used for *hexagonal* systems, because it breaks the symmetry.
+
+
+.. [1] H. J. Monkhorst and J. D. Pack, Phys. Rev. B **13**, 5188 (1976).
