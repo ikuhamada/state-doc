@@ -72,7 +72,7 @@ Convergence with respect to the smearing width
 Total (free) energy of the metallic system is sensitive to the smearing width, in particular, with the Gaussian and Fermi-Dirac function.
 We demonstrate the smearing width dependence of the total energy, following the seminal work by de Gironcoli [1]_.
 
-We calculate the total energy as a function of smearing width by using different smearing function, as shown below.
+We calculate the total energy as a function of smearing width by using different smearing function (Fermi-Dirac ``FD``, Gaussian ``GA``, Hermite-Gaussian of the order one of Methfessel-Paxton ``MP``, and cold smearing of Marzari-Vanderbilt ``MV``), as shown below.
 A cutoff wave vector of 4 and a non-shifted 12x12x12 k-point grid are used.
 
 .. image:: ../img/etot_al_gmax4_k12x12x12_sigma.png
