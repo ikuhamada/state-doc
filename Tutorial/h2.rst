@@ -221,5 +221,22 @@ Note we used ``NSPIN 2`` to allow spin polarization and ``&INITIAL_ZETA...&`` to
 The calculated total energy for the hydrogen atom is -0.50198747 Hartree, and we get the binding energy of -4.460 eV (-430.282 kJ/mol or -102.84 kcal/mol).
 Compare with the all-electron result of 104.8 kcal/mol [1]_.
 
+
+Convergence with respect to the plane-wave cutoff (cont'd)
+----------------------------------------------------------
+When the normconserving pseudopotentials are used, the cutoff wave vector for the (augmented) charge density (``GMAXP``) is two times larger than that for the wave functions (``GMAX``), except when the partial core correction is used.
+However, the normconservation does not hold for the ultrasoft pseudopotentials, and ``GMAXP`` is not always double the ``GMAXP``, in particular, first two-raw or transition metal elements.
+In such a case, we also have to perform a convergence study with respect to the plane-wave cutoff for the charge density.
+In this example, we use ``pot.H_pbe1``, an experimental ultrasoft pseudopotential for H generated using the PBE functional (yet experimental and not distributed publically).
+Below we can find the total energy as a function of the cutoff energy for the wave function (for each cutoff energy for the charge density):
+
+.. image:: ../img/etot_h2_ecutwfc_ecutden_cell10.png
+   :scale: 30%
+   :align: center
+
+In this case of hydrogen, we can see that the dependence of the total energy on the cutoff energy is almost negligible, and we can safely use ``GMAXP=GMAX*2``.
+
 .. [1] F. Tran, R. Laskowski, P. Blaha, and K. Schwarz, Phys. Rev. B **75**, 115131 (2007).
+
+
 
