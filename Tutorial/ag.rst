@@ -111,7 +111,7 @@ and by the high symmetry k-points in the crystal coordinate (in the unit of the 
    0.500 0.500 0.500
    0.000 0.000 0.000
 
-The number of k-points should be ``NKSEG+1``.
+The number of k-points should be NKSEG+1.
 
 The calculated band structure can be drawn as:
 
@@ -175,11 +175,16 @@ To perfrom the density of state calculation, we put the block ``&PDOS...&END``::
 
 See the manual for the description of the block.
 
-The projected density of states is printed to the standard output with the keyword (``STATE``), which can be extracted by running the ``state2pdos.pl`` script as ::
+The projected density of states is printed to the standard output with the keyword (``STATE``), which can be extracted by running the ``state2pdos.pl`` script as :
 
 .. code:: bash
 
   $ state2pdos.pl [STATE output]
+
+PDOS is written to ``pdos_*.data``.
+The order of PDOS is as follows::
+
+   energy      s     px     py     pz    dzz dxx-yy    dxy    dyz    dzx
 
 This can be visualized as:
 
@@ -187,3 +192,25 @@ This can be visualized as:
    :scale: 30%
    :align: center
 
+We can also calculate PDOS with Gaussian.
+In such a case, use
+
+.. code:: bash
+
+  GAUSSDOS
+
+in the ``&PDOS...&END`` block or add the following block in the input file:
+
+.. code:: bash
+
+  &OTHERS
+   GAUSSDOS
+  &END
+
+The (smeared) DOS may look like:
+
+.. image:: ../img/pdos_gauss_ag_raw.png
+   :scale: 30%
+   :align: center
+
+Note for the total density of states, the smearing width used in the SCF calculation ``WIDTH`` is used.
