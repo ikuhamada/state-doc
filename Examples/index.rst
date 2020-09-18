@@ -1402,7 +1402,7 @@ These wave functions can be plotted by using XCrySDen, VESTA, VMD, or alike.
 The real parts of the doubly degenerated highest occupied molecular orbitals (HOMOs) are visualized and shown below:
 
 .. image:: ../img/homo_c6h6.png
-   :scale: 100%
+   :scale: 120%
    :align: center
 
 TiO2
