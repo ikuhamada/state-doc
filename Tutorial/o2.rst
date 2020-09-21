@@ -1,0 +1,128 @@
+.. _tutorial_o2:
+
+===============
+Oxygen molecule
+===============
+This example discusses how to obtain the ground state of a spin polarized system by using oxygen molecule (O2) as an example.
+How to calculate the atomization energy of O2 molecule is also discussed.
+
+SCF calculation and geometry optimization
+=========================================
+
+We use the following input file for this tutorial::
+
+ WF_OPT    DAV
+ NTYP      1
+ NATM      2
+ GMAX      6.0
+ GMAXP     20.0
+ MIX_ALPHA 0.3
+ WIDTH     0.0010
+ EDELTA    1.D-09
+ NSPIN     2
+ NEG       8 
+ CELL   20.00000000  20.00000000  20.00000000  90.00000000  90.00000000  90.00000000
+ &ATOMIC_SPECIES
+  O    15.999 pot.O_pbe1
+ &END
+ &INITIAL_ZETA
+  0.20
+ &END
+ &ATOMIC_COORDINATES CARTESIAN
+       0.000000000000      0.000000000000      0.000000000000    1    1    1
+       2.300000000000      0.000000000000      0.000000000000    1    1    1
+ &END
+
+We obtain the following at the convergence::
+
+                                      ALPHA SPIN DENSITY =      6.9999812
+                                       BETA SPIN DENSITY =      4.9999914
+                                    TOTAL CHARGE DENSITY =     12.0000274
+ 
+                      TOTAL ENERGY AND ITS COMPONENTS 
+                   TOTAL ENERGY     =         -32.31618390 A.U.
+                 KINETIC ENERGY     =          12.98783295 A.U.
+                 HARTREE ENERGY     =          32.57143798 A.U.
+                      XC ENERGY     =          -7.16496195 A.U.
+                   LOCAL ENERGY     =         -86.51787900 A.U.
+                NONLOCAL ENERGY     =          10.31864495 A.U.
+                   EWALD ENERGY     =           5.48874117 A.U.
+                      PC ENERGY     =           0.00000000 A.U.
+                ENTROPIC ENERGY     =           0.00000000 A.U.
+ 
+                                          FERMI ENERGY =      -0.23111258
+  NKP=    1  NGP=     29039  K=(  0.00000  0.00000  0.00000)  WKP= 0.5000
+                               EIGEN VALUE 
+  -1.20406 -0.74971 -0.49279 -0.49279 -0.49041 -0.25128 -0.25128 -0.01077
+                                OCCUPATION 
+   1.00000  1.00000  1.00000  1.00000  1.00000  1.00000  1.00000  0.00000
+  NKP=    2  NGP=     29039  K=(  0.00000  0.00000  0.00000)  WKP= 0.5000
+                               EIGEN VALUE 
+  -1.15786 -0.68167 -0.45602 -0.42074 -0.42074 -0.16178 -0.16178 -0.00659
+                                OCCUPATION 
+   1.00000  1.00000  1.00000  1.00000  1.00000  0.00000  0.00000  0.00000
+
+We can see that we obtain the triplet groud state electronic structure.
+However, if we use the following initial magnetization::
+
+ &INITIAL_ZETA
+  0.00
+ &END
+
+we obtain the following singlet electronic state::
+
+                                     ALPHA SPIN DENSITY =      5.9999863
+                                      BETA SPIN DENSITY =      5.9999863
+                                   TOTAL CHARGE DENSITY =     12.0000274
+
+                     TOTAL ENERGY AND ITS COMPONENTS 
+                  TOTAL ENERGY     =         -32.30151992 A.U.
+                KINETIC ENERGY     =          12.98445516 A.U.
+                HARTREE ENERGY     =          32.55414598 A.U.
+                     XC ENERGY     =          -7.14642514 A.U.
+                  LOCAL ENERGY     =         -86.48538519 A.U.
+               NONLOCAL ENERGY     =          10.30294811 A.U.
+                  EWALD ENERGY     =           5.48874117 A.U.
+                     PC ENERGY     =           0.00000000 A.U.
+               ENTROPIC ENERGY     =           0.00000000 A.U.
+
+                                         FERMI ENERGY =      -0.22902914
+ NKP=    1  NGP=     29039  K=(  0.00000  0.00000  0.00000)  WKP= 0.5000
+                              EIGEN VALUE 
+ -1.18263 -0.71749 -0.48328 -0.47439 -0.43394 -0.23872 -0.17867 -0.00897
+                               OCCUPATION 
+  1.00000  1.00000  1.00000  1.00000  1.00000  1.00000  0.00000  0.00000
+ NKP=    2  NGP=     29039  K=(  0.00000  0.00000  0.00000)  WKP= 0.5000
+                              EIGEN VALUE 
+ -1.18263 -0.71749 -0.48328 -0.47439 -0.43394 -0.23872 -0.17867 -0.00897
+                               OCCUPATION 
+  1.00000  1.00000  1.00000  1.00000  1.00000  1.00000  0.00000  0.00000
+
+This demonstrates the importance of the initial magnetization to obtain the correct ground state electronic state and energy.
+
+By performing structural optimization by adding::
+
+ GEO_OPT   QMD
+
+and::
+
+ DTIO      100
+ FMAX      0.5D-3
+
+we obtain the following spin densities::
+
+                                      ALPHA SPIN DENSITY =      6.9999810
+                                       BETA SPIN DENSITY =      4.9999909
+                                    TOTAL CHARGE DENSITY =     12.0000281
+
+and energy and forces::
+
+                        CONVERGED ENERGY AND FORCES 
+    NIT     TotalEnergy     f_max     f_rms      edel      vdel      fdel
+      9    -32.31646650  0.000451  0.000450  0.24D-10  0.27D-07  0.24D-10
+ 
+     ATOM              COORDINATES                        FORCES
+ MD:    9
+ MD:    1  O  -0.014011   0.000000  -0.000001   0.00045 -0.00000  0.00000
+ MD:    2  O   2.313997   0.000001  -0.000002  -0.00045  0.00000  0.00000
+
