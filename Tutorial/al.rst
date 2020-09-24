@@ -67,6 +67,9 @@ Tetrahedron method::
    :scale: 30%
    :align: center
 
+.. warning::
+ The k-point shift should be switched off for the tetrahedron method.
+
 Convergence with respect to the smearing width
 ----------------------------------------------
 Total (free) energy of the metallic system is sensitive to the smearing width, in particular, with the Gaussian and Fermi-Dirac function.
