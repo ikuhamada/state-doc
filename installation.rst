@@ -33,9 +33,9 @@ Compilation
 
   make a symbolic link to ``make.arch`` as follows, e.g.::
 
-    $ ln -s ../arc/make.arc.intel_smith make.arc
+    $ ln -s ../arc/make.arch.intel_smith make.arch
 
-  and edit ``make.arc`` according to your environment. Then type::
+  and edit ``make.arch`` according to your environment. Then type::
 
     $ make
 
