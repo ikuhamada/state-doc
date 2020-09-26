@@ -47,12 +47,13 @@ In the following, each line/block is described one by one.
 
 Dummy line
 """"""""""
+Dummy 6 integers
 ::
 
   0  0  0  0  0  0                      : dummy line (6 integers)
 
 For historical reason this line remains and needs to be given in the input file.
-Note that this line is used by a utility program "repeat.f."
+Note that this line is/was used by a utility program "repeat.f."
 
 Cuotff energies, number of atomic species, number of atoms
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -161,11 +162,11 @@ Atomic positions and types
   6  0.1500  51577.50 3 1 0.d0          : IATOMN, ALFA, AMION, ILOC, IVAN, ZETA1
   8  0.1500  51577.50 3 1 0.d0          : IATOMN, ALFA, AMION, ILOC, IVAN, ZETA1
 
-- 1st column: ``IATOMN`` Atomic number
-- 2nd column: ALFA Initial charge (dummy)
+- 1st column: ``IATOMN`` Atomic number (real)
+- 2nd column: ALFA Initial charge (dummy real number)
 - 3rd column: ``AMION`` Atomic mass in a.m.u.
-- 4th column: ILOC Angular momentum for the local potential (l_loc +1) (dummy)
-- 5th column: IVAN Integer to specify if ultrasoft pseudopotential is used (1) or not (0) (dummy)
+- 4th column: ILOC Angular momentum for the local potential (l_loc +1) (dummy integer number)
+- 5th column: IVAN Integer to specify if ultrasoft pseudopotential is used (1) or not (0) (dummy integer number)
 - 6th column: ``ZETA1`` Initial magnetization
 
 Restart options for the wave functions
@@ -308,7 +309,7 @@ Mixing parameter
 
   0    8  0.8                           : STARTING_MIXING, KMXMIX, MIX_ALPHA
 
-- STARTING_MIXING: dummy
+- STARTING_MIXING: The step charge/potenial mixing starts
 - ``KBXMIX``: number of previous charges/potentials to be used in the mixing.
 - ``MIX_ALPHA``: mixing parameter.
 
@@ -343,7 +344,7 @@ Time step, MD algorithm, convergence threshold
 -2 Langevin MD
 == ===================================================
 
-- IEXPL: dummy
+- IEXPL: dummy integer (to be used for the wave function extrapolation)
 - ``EDELTA``: Threshold (total energy per atom) for the electronic system. Use 1.d-9 - 1.d-11.
 
 Smearing, force threshold, stress
@@ -405,11 +406,16 @@ Type of sampling of G-vectors for the tetrahedron method
 
 - ``NBZTYP``: specify how to sampel G vectors in the tetrahedron method. NBZTYP=101 is recommended
 
-Dummy lines
-"""""""""""
-::
+Dummy line
+""""""""""
+3 dummy integers::
 
     0   0   0                           : NKX,  NKY,  NKZ  (dummy)
+
+Dummy line
+""""""""""
+3 dummy integers::
+
     0   0   0                           : NKX2, NKY2, NKZ2 (dummy)
 
 Number of bands
