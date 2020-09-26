@@ -17,3 +17,4 @@ STATE documentation
    Tutorial/index
    manual
    references
+   appendix
