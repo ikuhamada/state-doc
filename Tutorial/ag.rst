@@ -1,3 +1,5 @@
+.. _tutorial_ag:
+
 Crystalline silver
 ==================
 This tutorial explains a set of calculations for crystalline silver in the fcc structure, including
@@ -112,6 +114,18 @@ and by the high symmetry k-points in the crystal coordinate (in the unit of the 
    0.000 0.000 0.000
 
 The number of k-points should be NKSEG+1.
+The k-points in the cartesian coordinate and the eigenvalues are printed to ``energy.data``, but it cannot be plotted as it is.
+Use a utility ``energy2band`` to generate a data that can be visualized directory.
+
+Type
+
+.. code:: bash
+
+ $ energy2band
+
+and the number of bands and the number of k-points are asked.
+The origin of the energy is also asked, for which the Fermi level in the previous SCF calculation (for metallic systems) or the valence band maximum (for insulating systems) is often used.
+When ``energy2band`` is successfully terminated, ``band.data`` is created, which can be visualized by using gnuplot or xmgrace.
 
 The calculated band structure can be drawn as:
 

@@ -1,3 +1,5 @@
+.. _tutorial:
+
 ========
 Tutorial
 ========
@@ -15,3 +17,4 @@ Tutorial
    o2
    co
    ag
+   ni

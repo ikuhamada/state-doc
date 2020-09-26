@@ -1,3 +1,5 @@
+.. _tutorial_al:
+
 Crystalline Aluminum
 ====================
 This tutorial explains how to perform the convergence study with respect to the number of k-points with the smearing and tetrahedron methods.

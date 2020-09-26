@@ -1,3 +1,5 @@
+.. _tutorial_co:
+
 Carbon monooxide
 ================
 In this example, how to draw molecular orbital(s) is explained by taking a carbon monooxide (CO) molecule as an example.

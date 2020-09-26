@@ -1,3 +1,5 @@
+.. _tutorial_h2:
+
 Hydrogen molecule
 =================
 

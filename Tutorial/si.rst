@@ -1,3 +1,5 @@
+.. _tutorial_si:
+
 Crystalline Silicon
 ===================
 This tutorial explains how to perform convergence study with respect to the cutoff energy and the number of k-points, and how to obtain the equilibrium cell parameters of crystalline materials by taking the crystalline silicon in the diamond structure.
