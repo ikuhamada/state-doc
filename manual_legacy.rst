@@ -37,11 +37,11 @@ Here is an example of a CO molecule in a small box with the Gamma-point sampling
     0   0   0                           : NKX2, NKY2, NKZ2 (dummy)
     8                                   : NEG (# of bands)
         1                               : NEXTST (1: G-space, 0: R-space)
-        0                               : 0; random numbers, 1; matrix diagon
+        0                               : 0 (dummy, set to 0)
         2                               : IMSD (2: Davidson, 1: RMM)
         0                               : EVAL_EKO_DIFF
         0                               : NPDOSAO
-        0    0.0                        : SM_dopping
+        0    0.0                        : SM_dopping (dummy)
 
 In the following, each line/block is described one by one.
 
