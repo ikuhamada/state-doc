@@ -1,5 +1,7 @@
 .. _tutorial_ag:
 
+:orphan:
+
 Crystalline silver
 ==================
 This tutorial explains a set of calculations for crystalline silver in the fcc structure, including

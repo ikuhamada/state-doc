@@ -1,5 +1,7 @@
 .. _tutorial_h2:
 
+:orphan:
+
 Hydrogen molecule
 =================
 

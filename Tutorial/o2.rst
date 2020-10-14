@@ -1,5 +1,7 @@
 .. _tutorial_o2:
 
+:orphan:
+
 ===============
 Oxygen molecule
 ===============

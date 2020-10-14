@@ -1,5 +1,7 @@
 .. _tutorial:
 
+:orphan:
+
 ========
 Tutorial
 ========
@@ -7,14 +9,18 @@ Tutorial
 .. warning::
 	This page is under construction
 
-.. toctree::
-   :maxdepth: 1
+:doc:`Hydrogen molecule <h2>`
 
-   h2
-   si
-   al
-   no
-   o2
-   co
-   ag
-   ni
+:doc:`Crystalline Silicon <si>`
+
+:doc:`Crystalline Aluminum <al>`
+
+:doc:`Nitric oxide <no>`
+
+:doc:`Oxygen molecule <o2>`
+
+:doc:`Carbon monoxide <co>`
+
+:doc:`Crystalline silver <ag>`
+
+:doc:`Crystalline nickel <ni>`

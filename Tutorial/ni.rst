@@ -1,5 +1,7 @@
 .. _tutorial_ni:
 
+:orphan:
+
 ==================
 Crystalline nickel
 ==================
