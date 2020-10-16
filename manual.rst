@@ -1336,6 +1336,8 @@ FRICT
 
  IK/IKPT: K-point index at which the real-space wave functions are generated.
 
+ IB: Band index at which the wave function is generated
+
  IBS/IBAND_S: The first band index for the wave function plot.
 
  IBE/IBAND_E: The last band index for the wave function plot (IBS-th to IBE-th wave functions at the IK k-point are generated). 
@@ -1347,6 +1349,8 @@ FRICT
  * CUBE: Gaussian Cube format (default)
 
  * XSF: Xcryden Structure File
+
+ * XSF_CHARGE/CHARGE_XSF: Charge densities corresponding to the specified wave functions in the Xcrysden Structure File format
  
 
 .. warning::
