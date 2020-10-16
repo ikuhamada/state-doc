@@ -325,7 +325,7 @@ This can be visualized by using, for example, ``gnuplot`` as
 
   $ gnuplot
 
-.. code:: gnuplot
+.. code:: bash
 
   $ gnuplot> plot 'etot.dat' pt 7
 
