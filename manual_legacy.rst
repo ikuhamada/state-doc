@@ -91,14 +91,101 @@ TYPE Bravis lattice
 6    rhombohedral
 ==== ===============
 
+Definition of the primitive cell vectors:
+
+- ``TYPE=0``
+
+.. math::
+
+  {\mathbf a}_1 = \tilde{\mathbf{a}}_1
+
+  {\mathbf a}_2 = \tilde{\mathbf{a}}_2
+
+  {\mathbf a}_3 = \tilde{\mathbf{a}}_3
+
+
+- ``TYPE=1``
+
+.. math::
+
+  {\mathbf a}_1 = -\tilde{\mathbf{a}}_1 + \tilde{\mathbf{a}}_2 + \tilde{\mathbf{a}}_3
+
+  {\mathbf a}_2 = +\tilde{\mathbf{a}}_1 - \tilde{\mathbf{a}}_2 + \tilde{\mathbf{a}}_3
+
+  {\mathbf a}_3 = +\tilde{\mathbf{a}}_1 + \tilde{\mathbf{a}}_2 - \tilde{\mathbf{a}}_3
+
+- ``TYPE=2``
+
+.. math::
+
+  {\mathbf a}_1 = \tilde{\mathbf{a}}_2 + \tilde{\mathbf{a}}_3
+
+  {\mathbf a}_2 = \tilde{\mathbf{a}}_1 + \tilde{\mathbf{a}}_3
+
+  {\mathbf a}_3 = \tilde{\mathbf{a}}_1 - \tilde{\mathbf{a}}_2
+
+- ``TYPE=3``
+
+.. math::
+
+  {\mathbf a}_1 = \tilde{\mathbf{a}}_1
+
+  {\mathbf a}_2 = \tilde{\mathbf{a}}_2
+
+  {\mathbf a}_3 = \frac12 \left( \tilde{\mathbf{a}}_2 + \tilde{\mathbf{a}}_3 \right)
+
+- ``TYPE=4``
+
+.. math::
+
+  {\mathbf a}_1 = \tilde{\mathbf{a}}_1
+
+  {\mathbf a}_2 = \tilde{\mathbf{a}}_2
+
+  {\mathbf a}_3 = \frac12 \left( \tilde{\mathbf{a}}_1 + \tilde{\mathbf{a}}_3 \right)
+
+- ``TYPE=5``
+
+.. math::
+
+  {\mathbf a}_1 = \tilde{\mathbf{a}}_1
+
+  {\mathbf a}_2 = \frac12 \left( \tilde{\mathbf{a}}_1 + \tilde{\mathbf{a}}_2 \right)
+
+  {\mathbf a}_3 = \tilde{\mathbf{a}}_3
+
+- ``TYPE=6``
+
+.. math::
+
+  {\mathbf a}_1 = +\frac23 \tilde{\mathbf{a}}_1 + \frac13 \tilde{\mathbf{a}}_2 + \frac13 \tilde{\mathbf{a}}_3
+
+  {\mathbf a}_2 = -\frac13 \tilde{\mathbf{a}}_1 + \frac13 \tilde{\mathbf{a}}_2 + \frac13 \tilde{\mathbf{a}}_3
+
+  {\mathbf a}_3 = -\frac13 \tilde{\mathbf{a}}_1 - \frac23 \tilde{\mathbf{a}}_2 + \frac13 \tilde{\mathbf{a}}_3
+
+where :math:`\tilde{\textbf{a}}_1`, :math:`\tilde{\textbf{a}}_2`, :math:`\tilde{\textbf{a}}_3` are the lattice vectors of the conventional unit cell (see below).
+
 Lattice vectors
 """""""""""""""
 ::
 
   6.00  4.00  4.00  90.00  90.00  90.00 : A, B, C, ALPHA, BETA, GAMMA
 
-- ``A``, ``B``, ``C``: length of the first, second, and third lattice vectors.
+- ``A``, ``B``, ``C``: length of the first, second, and third lattice vectors of the conventional cell.
 - ``ALPHA``, ``BETA``, ``GAMMA``: Angles between second and third, third and first, and first and second lattice vectors.
+
+In this way, the first lattice vector of the primitive cell :math:`\tilde{\textbf{a}}_1` is along the x-axis, the second lattice vector :math:`\tilde{\textbf{a}}_2` is in the xy plane, and the third vector :math:`\tilde{\textbf{a}}_3` is determined depending on the angle with :math:`\tilde{\mathbf{a}}_1` and :math:`\tilde{\mathbf{a}}_2`.
+In this example, the lattice vectors are given in the Bohr radius as
+
+.. math::
+
+  \tilde{{\mathbf a}}_1 = (6.0, 0.0, 0.0)
+
+  \tilde{{\mathbf a}}_2 = (0.0, 4.0, 0.0)
+
+  \tilde{{\mathbf a}}_3 = (0.0, 0.0, 4.0)
+
 
 Alternatively, one can define the lattice vectors by using the keyword "Cartesian" followed by the lattice vectors in the Cartesian coordinate as::
 
@@ -106,6 +193,10 @@ Alternatively, one can define the lattice vectors by using the keyword "Cartesia
   6.00  0.00  0.00
   0.00  4.00  0.00
   0.00  0.00  4.00
+
+
+.. note::
+ Use `TYPE=0` when the lattice vectors are given in the cartesian coordinate, if you are unsure about the definition of the lattice vectors other than the cubic cell.
 
 K-point mesh
 """"""""""""

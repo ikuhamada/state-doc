@@ -336,6 +336,7 @@ CELL
 
 	Lengths of first, second, and third vectors (A, B, and C), and angles (in degree) between, second and third, third and first, and first and second vectors (ALPHA, BEGA, GAMMA).
         These parameters define the basic lattice vectors of the conventional unit cell.
+        In this way, the first lattice vector :math:`a_1` is along the x-axis, the second lattice vector :math:`a_2` is in the xy plane, and the third vector :math:`a_3` is determined depending on the angle with :math:`a_1` and :math:`a_2`.
 
 KPOINT_MESH
 	Type: integer array
@@ -1015,7 +1016,7 @@ FRICT
 	 [A3(1)] [A3(2)] [A3(3)]
 	&END
 
-  * A1(1:3): First lattice vector
+  * A1(1:3): First lattice vector 
 
   * A2(1:3): Second lattice vector
 
