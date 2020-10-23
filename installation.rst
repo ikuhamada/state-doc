@@ -10,11 +10,28 @@ Obtaining the code
 
 The code and pseudopotentials can be obtained upon request to the STATE developers.
 
+Prep
+====
+
+  Let us first make the root directory for the STATE. In the home directory, type::
+
+    $ mkdir STATE
+
+  Go to the STATE directory and create a directory as::
+
+    $ mkdir gncpp
+
+  Pseudopotentials are stored in ``gncpp``.
+  Obtaine a set of pseudopotentials (usually named as ``gncpp.tgz``) and unpack it under ``gncpp``
+  Then create a source directory as::
+
+    $ mkdir src
+
 Compilation
 ===========
 
 
-  Unpack the source code::
+  Having obtained the source code, say ``state-5.6.6.tgz``, unpack the source code under ``src`` as::
 
     $ gzip -dc state-5.6.6.tgz | tar xf -
 
