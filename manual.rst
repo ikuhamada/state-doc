@@ -1003,7 +1003,16 @@ FRICT
 	
 	Description:
 	
-	Friction coefficient used to generage random forces for Langevin molecular dynamics
+	Friction coefficient used to generage random forces for Langevin molecular dynamics.
+
+CHARGE
+	Type: real
+
+	Default: 0.D0
+
+	Description:
+
+	Charge of the system. Positive (negative) value indicates the system has deficit (excess) electron(s).
 
 &CELL ... &END
   This block is used to define the unit cell.

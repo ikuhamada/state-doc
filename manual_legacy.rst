@@ -574,3 +574,108 @@ Empirical parameters for the f electrons (dummy)
 
         0    0.0      
 
+
+-------------------------
+Optional input parameters
+-------------------------
+
+Charge of the system
+""""""""""""""""""""
+
+&CHARGE ... &END
+  This block specifies the charge of the system
+
+  Syntax::
+
+	&CHARGE
+	 CHARGE [value]
+	&END
+
+  CHARGE: The charge of the system. Positive (negative) value indicates that the system has deficit (execess) electron(s).
+
+
+Effective screening medium (ESM) method
+"""""""""""""""""""""""""""""""""""""""
+
+&ESM ... &END
+  This block specifies the parameters for the ESM calculation.
+
+  Syntax::
+
+        &ESM
+         BOUNDARY_CONDITION [boundary_condition]
+         Z1 [value]
+         CHARGE [value]
+         Z_WALL [value]
+         BAR_HEIGHT [value]
+         BAR_WIDTH [value]
+         ELECTRIC_FIELD [value]
+        &END
+
+  BOUNDARY_CONDITION: Boundary condition. Available options are BARE (PE0/BC1), PE1 (BC2), and PE2(BC3) for open (vacuum/slab/vacuum), metal/slab/metal, and vacuum/slab/metal boundary conditions, respectively
+
+  Z1: Z position of the cell boundary
+
+  CHARGE: Charge of the system. Note that positive value means deficit charge, while negative, excess charge.
+
+  Z_WALL: Z position of an artifical wall potential for electron
+
+  BAR_HEIGHT: Barrier height for the artifical wall potential for electron
+
+  BAR_WIDTH: Width for the artifical wall potential for electron
+
+  ELECTRIC_FIELD: Electric field (in Ha/Bohr) applied to the system. Use with the boundary condition PE1 (BC2).
+
+Density of states
+"""""""""""""""""
+
+&DOS ... &END
+  This block is used to define the parameters needed to calculate DOS.
+
+  EMIN: Minimum energy in eV.
+
+  EMAX: Maximum energy in eV.
+
+  NDOSE: Energy mesh for the density of states calculation.     
+
+  EWIDTH: Smearing width for the Gaussian broadening 
+
+
+K-points for the band structure calculation
+""""""""""""""""""""""""""""""""""""""""""""
+
+&KPOINTS_BAND ... &END
+  This block is used to define the parameters needed in the band structure calculation.
+
+  NKSEG: Number of k-point segment for the band (the number of symmetry points should be NKSEG+1)
+
+  KMESH: K-point mesh for each segment.
+
+  KPOINTS: High symmetry k-points in the unit of the basic reciprocal lattice vectors (NKSEG+1 k-points should be specified).
+  If 'KPOINTS CART' or 'KPOINTS CARTESIAN' is specified, they should be given in the unit of the cartesian coordinate.
+
+
+Wave function plot
+""""""""""""""""""
+
+&PLOT ... &END
+ This block define the parameters needed in the wave function plot.
+
+ IK/IKPT: K-point index at which the real-space wave functions are generated.
+
+ IB: Band index at which the wave function is generated
+
+ IBS/IBAND_S: The first band index for the wave function plot.
+
+ IBE/IBAND_E: The last band index for the wave function plot (IBS-th to IBE-th wave functions at the IK k-point are generated). 
+
+ FORMAT: Format of the wave function can be specified
+
+ * STATE: STATE format (not yet implemented)
+
+ * CUBE: Gaussian Cube format (default)
+
+ * XSF: Xcryden Structure File
+
+ * XSF_CHARGE/CHARGE_XSF: Charge densities corresponding to the specified wave functions in the Xcrysden Structure File format
+
