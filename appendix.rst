@@ -12,6 +12,18 @@ Utility programs
 
 chkinpf
 -------
+This program performs minimum testing of the input file.
+``chkinpf`` also generates a VESTA or XSF file to check the input geometry.
+
+Usage::
+
+  $ chkinpf [input_file]
+
+Type::
+
+  $ chkinpf -h
+
+for other options.
 
 geom2nfinp
 ----------
