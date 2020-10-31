@@ -49,3 +49,10 @@ we suggest to cite the following paper(s)
 - Y. Morikawa, H. Ishii, and K. Seki, Phys. Rev B **69**, 041403 (2004).
 - Y. Morikawa, Phys. Rev. B **63**, 033405 (2001).
 - Y. Morikawa, K. Iwata, and K. Terakura, Appl. Sur. Sci **169-170**, 11 (2001).
+
+We appreciate if you cite the following paper, when you use the van der Waals functional:
+
+- Y. Hamamoto, I. Hamada, K. Inagaki, and Y. Morikawa, Phys. Rev. B **93**, 245440 (2016).
+
+This paper describes our implementation of the self-consistent vdW-DF of Wu and Gygi [J. Chem. Phys. **136**, 224107 (2012)].
+
