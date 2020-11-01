@@ -24,17 +24,17 @@ and those to pseudopotentials as
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/gncpp/pot_C_pbe1 fort.37
+  $ ln -s ${HOME}/STATE/gncpp/pot_C_pbe1
 
-  $ ln -s ${HOME}/STATE/gncpp/pot_O_pbe1 fort.38
+  $ ln -s ${HOME}/STATE/gncpp/pot_O_pbe1
 
 or
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/gncpp/C_pbe1/#vnew.data fort.37
+  $ ln -s ${HOME}/STATE/gncpp/C_pbe1/#vnew.data
 
-  $ ln -s ${HOME}/STATE/gncpp/O_pbe1/#vnew.data fort.38
+  $ ln -s ${HOME}/STATE/gncpp/O_pbe1/#vnew.data
 
 Then let us prepare the input file. Here we use the following file named ``nfinp_1``
 
@@ -56,7 +56,7 @@ Then let us prepare the input file. Here we use the following file named ``nfinp
   EDELTA    0.1000D-09
   NEG       8
   CELL      6.00  4.00  4.00  90.00  90.00  90.00
-  &ATOMS
+  &ATOMIC_TYPE
    6.00  0.1500  51577.50 3 1  0.0000
    8.00  0.1500  51577.50 3 1  0.0000
   &END
