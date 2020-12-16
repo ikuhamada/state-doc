@@ -278,7 +278,8 @@ Restart options for the wave functions
 11  Print the soft part of the charge density in real space.
 10  Simple STM simulation.
 12  DOS calculation.
-14  Partial density of states (PDOS) calculation.
+14  Partial density of states (PDOS/AO_LDOS) calculation (DOS projected onto the atomic orbitals).
+21  STM simulation with the wave functions reconstructed in the vacuum region
 24  K-point resolved partial density of states (PDOS) calculation.
 15  Print the wave functions in real space.
 115 Print the wave functions in real space. Used for the band structure calculation (``ICOND=22``)
