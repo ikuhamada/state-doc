@@ -10,7 +10,7 @@ The code is written in Fortran90 and parallelized using MPI and OpenMP.
 
 STATE can perform the following calculations:
 
-* Electronic minization with Davidson or RMM-DIIS method
+* Electronic minization with the Davidson or RMM-DIIS method
 * Real-space projection of the nonlocal pseudopotentials for an efficient calculation
 * Various exchange-correlation functional: LDA, GGA, GGA+U, and vdW-DF 
 * Structural optimization with quenched molecular dynamics (aka QuickMin) or GDIIS
