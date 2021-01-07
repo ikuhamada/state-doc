@@ -22,7 +22,7 @@ Prep
     $ mkdir gncpp
 
   Pseudopotentials are stored in ``gncpp``.
-  Obtaine a set of pseudopotentials (usually named as ``gncpp.tgz``) and unpack it under ``gncpp``
+  Obtain a set of pseudopotentials (usually named as ``gncpp.tgz``) and unpack it under ``gncpp``
   Then create a source directory as::
 
     $ mkdir src
