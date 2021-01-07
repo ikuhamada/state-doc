@@ -3,11 +3,12 @@ CMD Examples
 ============
 
 In this section, how to run the STATE examples for the Computational Materials Design (CMD) workshop is described.
+Here let's assume that we are going to use the ``cmd4`` cluster.
 
 Getting started
 ===============
 
-We first set up STATE program, pseudopotential, and example files by logging into the computer node assinged (cmd2, cmd4, for instance).
+First of all, we set up STATE program, pseudopotential, and example files by logging into the computer node assinged (cmd2, cmd4, for instance).
 To do so, in the home directory (``${HOME}`` or ``~``), type
 
 .. code:: bash
@@ -23,6 +24,22 @@ and
 and you are all set!
 
 The source file is located in ``${HOME}/STATE/src`` and examples ``${HOME}/STATE/examples``.
+Go to the STATE directory by typing
+
+.. code:: bash
+
+  $ cd ~/STATE
+
+and 
+
+.. code:: bash
+
+  $ ls
+
+you can find the directories as::
+
+  examples  gncpp  src
+
 Let us move to ``${HOME}/STATE/examples``.
 
 As the first example, let us use the carbon monoxide (CO) molecule in a box.
@@ -154,20 +171,14 @@ This example explains how to perform a self-consistent field (SCF) calculation a
 
 SCF
 ---
-First in the ``Si`` directory, let us create a symbolik link to the STATE executable as follows
+In this example, we are going to use the input file ``nfinp_scf``.
+Let us have a look at it by typing in the ``Si`` directory:
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
+ $ cat nfinp_scf
 
-and that to the pseudopotential
-
-.. code:: bash
-
-  $ ln -s ${HOME}/STATE/gncpp/pot_Si.pbe1
-
-Here we are going to use the input file ``nfinp_scf``.
-Let us have a look at it by typing ``cat nfinp_scf``:: 
+``nfinp_scf``::
 
   #
   # Crystalline silicon in the diamond structure
@@ -194,7 +205,26 @@ Let us have a look at it by typing ``cat nfinp_scf``::
   &END
 
 By default wave function optimization (single-point calculation) is performed (``WF_OPT``) with the Davidson algorithm (``DAV``), and structural optimization is not performed.
-By using the above input file, we submit the job as:
+Let us review the job script ``qsub_cmd.sh``::
+
+  #$ -S /bin/sh
+  #$ -cwd
+  #$ -pe fillup 6
+  #$ -N Si
+  
+  #disable OPENMP parallelism
+  setenv OMP_NUM_THREADS 1
+  
+  # execuable of the STATE code
+  ln -fs ${HOME}/STATE/src/state/src/STATE .
+  
+  # pseudopotential data
+  ln -fs ../gncpp/pot.Si_pbe1
+   
+  # launch STATE
+  mpirun -np $NSLOTS ./STATE < nfinp_scf > nfout_scf
+
+By using the above input file and job script, we submit the job as:
 
 .. code:: bash
 
@@ -352,7 +382,7 @@ In this example, how to deal with a metallic system with the smearing method is 
 
 SCF
 ---
-We use the following input file for the SCF calculation.
+In the ``Al`` directory, we use the following input file for the SCF calculation.
 
 ``nfinp_scf``::
 
@@ -410,6 +440,8 @@ Nickel
 ======
 
 This example shows how to perform a calculation of a spin-polarized system using the ferromagnetic Ni in the fcc structure.
+
+The directory is ``Ni``.
 
 SCF
 ---
@@ -514,6 +546,8 @@ Ethylene
 
 This example explains how to perform the geometry optimization.
 
+* Directory ``C2H4``
+
 * Input file ``nfinp_gdiis``
 
 .. code:: bash
@@ -561,7 +595,7 @@ Geometry optimization
 
 .. code:: bash
 
-  $ qsub qsub_cmd.sh
+  $ qsub qsub_gdiis_cmd.sh
 
 The convergence of the forces can be monitored by:
 
@@ -706,7 +740,7 @@ Submit the job
 
 .. code:: bash
 
-  $ qsub qsub_cmd.sh
+  $ qsub qsub_vib_cmd.sh
 
 and we get ``nfforce.data`` in addition to the standard output files, which contains displaced atomic positions and forces acting on atoms, which can be used to calculate the vibrational frequencies.
 
@@ -816,25 +850,11 @@ To perform a molecular dynamics simulation, we set ``ION_DYN`` `` FTMD`` and how
   NOSY    15
   NDRT    1
 
-The job script ``qsub_cmd.sh`` will be modified as::
+Submit the job
 
-  #$ -S /bin/sh
-  #$ -cwd
-  #$ -pe fillup 6
-  #$ -N C2H4
-  
-  #disable OPENMP parallelism
-  setenv OMP_NUM_THREADS 1
-  
-  # execuable of the STATE code
-  ln -fs ${HOME}/STATE/src/state-5.6.6_beta/src/STATE .
-  
-  # pseudopotential data
-  ln -fs ${HOME}/STATE/gncpp/pot.C_pbe3
-  ln -fs ${HOME}/STATE/gncpp/pot.H_lda3
-   
-  # launch STATE
-  mpirun -np $NSLOTS ./STATE < nfinp_nhc > nfout_nhc
+.. code:: bash
+
+  $ qsub qsub_nhc_cmd.sh
 
 In this example, we perform 200 MD steps (default value).
 When the calculation is terminated, we get ``TRAJECTORY`` containing the trajectory and ``ENERGIES`` containing information on temperature and energies.
@@ -865,7 +885,7 @@ and how to address the issue by using the effective screening medium (ESM) metho
 Geometry optimization with PBC
 ------------------------------
 
-We are going to use the following input file (``nfinp_gdiis_pbc``)::
+Go to ``ClonAl100`` and use the following input file (``nfinp_gdiis_pbc``)::
 
   #
   # Cl on Al(100)
@@ -1009,9 +1029,11 @@ We can see that the potentials are flat in the vacuum region. Mind that the slab
 Graphene
 ========
 
-In this example, how to optimize the cell parameter, how to calculate the band structure, and how to calculate density of states, are described.
+In this example (``GR``), how to optimize the cell parameter, how to calculate the band structure, and how to calculate density of states, are described.
 
-In this example, input files look like (``nfinp_scf``)::
+* Sample input file ``nfinp_scf``
+
+.. code:: bash
 
   WF_OPT    DAV
   NTYP      1
@@ -1041,7 +1063,7 @@ In this example, input files look like (``nfinp_scf``)::
 Cell optimization
 -----------------
 
-As in the example of silicon, we manually change the in-plane lattice parameter (a and b) by 0.02 Bohr as
+Go to the subdirectory ``Opt/`` and as in the example of silicon, we manually change the in-plane lattice parameter (a and b) by 0.02 Bohr as
 
 .. code:: bash
 
@@ -1408,6 +1430,7 @@ Benzene
 =======
 
 This example explain how to plot the molecular orbitals by using the benzene (C6H6) molecule.
+The directory is ``C6H6/``
 
 SCF
 ---
@@ -1529,7 +1552,11 @@ TiO2
 
 This example explains hot to perform a calculation with the on-site Coulomb potential correction (DFT+U) by using rutile.
 
-Input file for the DFT calculation ``nfinp_scf``::
+* Directory ``TiO2/``
+
+* Input file for the DFT calculation ``nfinp_scf``
+
+.. code:: bash
 
   WF_OPT DAV
   NTYP 2
