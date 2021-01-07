@@ -46,9 +46,9 @@ Go to ``CO`` in the examples directory, and  have a look at by ``cat nfinp_1``
   EDELTA    0.1000D-09
   NEG       8
   CELL      6.00  4.00  4.00  90.00  90.00  90.00
-  &ATOMS
-   6.00  0.1500  51577.50 3 1  0.0000
-   8.00  0.1500  51577.50 3 1  0.0000
+  &ATOMIC_SPECIES
+   C  12.011  pot.C_pbe1
+   O  15.999  pot.O_pbe1
   &END
   &ATOMIC_COORDINATES
     0.0000  0.0000  0.0000  1  1  1
@@ -68,14 +68,14 @@ and review the job script by ``cat qsub_cmd.sh``
   setenv OMP_NUM_THREADS 1
   
   # execuable of the STATE code
-  ln -fs ${HOME}/STATE/src/state-5.6.6_beta/src/STATE .
+  ln -fs ${HOME}/STATE/src/state-5.6.6/src/STATE .
   
   # pseudopotential data
-  ln -fs ${HOME}/STATE/gncpp/pot.C_pbe1 fort.37
-  ln -fs ${HOME}/STATE/gncpp/pot.O_pbe1 fort.38
+  ln -fs ${HOME}/STATE/gncpp/pot.C_pbe1
+  ln -fs ${HOME}/STATE/gncpp/pot.O_pbe1
    
   # launch STATE
-  mpirun -np $NSLOTS ./STATE < nfinp_1 > nfout_1
+  mpirun -np $NSLOTS ./STATE < nfinp_scf > nfout_scf
 
 And submit!
 
