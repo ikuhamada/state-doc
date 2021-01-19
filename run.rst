@@ -56,9 +56,9 @@ Then let us prepare the input file. Here we use the following file named ``nfinp
   EDELTA    0.1000D-09
   NEG       8
   CELL      6.00  4.00  4.00  90.00  90.00  90.00
-  &ATOMIC_TYPE
-   6.00  0.1500  51577.50 3 1  0.0000
-   8.00  0.1500  51577.50 3 1  0.0000
+  &ATOMIC_SPECIES
+   C  12.011  pot.C_pbe1
+   O  15.999  pot.O_pbe1
   &END
   &ATOMIC_COORDINATES
     0.0000  0.0000  0.0000  1  1  1
