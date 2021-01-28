@@ -108,31 +108,27 @@ The exchange-correlation functional used is printed as::
 
 and make sure that this is what you want to use.
 
-The convergence of the total energy can be monitored by executing:
+The convergence of the total energy can be monitored from the output. It looks like::
 
-.. code:: bash
+   NSCF NADR            ETOTAL          EDEL          CDEL CONV      TCPU
+      1    0       -6.05513096   0.60551E+01   0.32033E-02    0      0.40
+      2    1       -7.84013758   0.17850E+01   0.50625E-02    0      0.08
+      3    2       -7.87244596   0.32308E-01   0.45624E-02    1      0.08
+      4    3       -7.87086756   0.15784E-02   0.76306E-02    1      0.08
+      5    4       -7.87352176   0.26542E-02   0.13466E-02    1      0.08
+      6    5       -7.87351941   0.23528E-05   0.56367E-03    2      0.08
+      7    6       -7.87353730   0.17887E-04   0.40389E-03    2      0.08
+      8    7       -7.87355183   0.14538E-04   0.21148E-03    2      0.08
+      9    8       -7.87355489   0.30598E-05   0.15435E-03    2      0.08
+     10    9       -7.87355832   0.34247E-05   0.95948E-05    3      0.08
+     11   10       -7.87355833   0.93097E-08   0.45654E-05    3      0.08
+     12   11       -7.87355833   0.29345E-08   0.19696E-05    3      0.08
+     13   12       -7.87355833   0.57462E-09   0.17709E-06    4      0.08
+     14   13       -7.87355833   0.11322E-10   0.10973E-06    5      0.08
+     15   14       -7.87355833   0.90061E-12   0.54074E-07    6      0.08
 
-  $ grep ETOT\: nfout_scf
 
-The result looks like::
-
-  ETOT:   1     -6.05513096  0.6055E+01  0.3203E-02
-  ETOT:   2     -7.84013758  0.1785E+01  0.5062E-02
-  ETOT:   3     -7.87244596  0.3231E-01  0.4562E-02
-  ETOT:   4     -7.87086756  0.1578E-02  0.7631E-02
-  ETOT:   5     -7.87352176  0.2654E-02  0.1347E-02
-  ETOT:   6     -7.87351941  0.2353E-05  0.5637E-03
-  ETOT:   7     -7.87353730  0.1789E-04  0.4039E-03
-  ETOT:   8     -7.87355183  0.1454E-04  0.2115E-03
-  ETOT:   9     -7.87355489  0.3060E-05  0.1543E-03
-  ETOT:  10     -7.87355832  0.3425E-05  0.9595E-05
-  ETOT:  11     -7.87355833  0.9310E-08  0.4565E-05
-  ETOT:  12     -7.87355833  0.2934E-08  0.1970E-05
-  ETOT:  13     -7.87355833  0.5746E-09  0.1771E-06
-  ETOT:  14     -7.87355833  0.1131E-10  0.1097E-06
-  ETOT:  15     -7.87355833  0.9033E-12  0.5407E-07
-
-Converged total energy and its componets are printed as::
+At the convergence, total energy and its componets are printed as::
 
                        TOTAL ENERGY AND ITS COMPONENTS 
                     TOTAL ENERGY     =          -7.87355833 A.U.
