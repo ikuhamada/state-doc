@@ -1014,6 +1014,30 @@ CHARGE
 
 	Charge of the system. Positive (negative) value indicates the system has deficit (excess) electron(s).
 
+VERBOSITY
+	Type: character
+
+	Default: LOW
+
+	Description:
+
+	Output level.
+
+	* LOW: minimum output
+
+	* MEDIUM: standard level of output (as in the legacy STATE with IPRI=1)
+
+	* HIGH: more output (for debugging)
+
+	The variable ``IPRI`` can be used to control the output level as:
+
+	* IPRI < 0: minimum output level
+
+	* IPRI = 1: standard output level
+
+	* IPRI > 1: more output level 
+
+
 &CELL ... &END
   This block is used to define the unit cell.
 
