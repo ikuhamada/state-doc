@@ -1376,6 +1376,10 @@ VERBOSITY
 
  IBE/IBAND_E: The last band index for the wave function plot (IBS-th to IBE-th wave functions at the IK k-point are generated). 
 
+ CHG_WFN: Calculate the wave function densities
+
+ ADD_SIGN/ADD_SIGN_MO_DEN/ADD_SIGN_WF_DEN: Option to add the sign to the wave function densities
+
  FORMAT: Format of the wave function can be specified
 
  * STATE: STATE format (not yet implemented)

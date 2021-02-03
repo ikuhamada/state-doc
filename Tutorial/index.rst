@@ -33,6 +33,10 @@ Calculation of a spin polarized molecule
 
 Calculation of molecular orbitals
 
+:doc:`Water <h2o>`
+
+Calculation of molecular orbital / wave function densities
+
 :doc:`Crystalline silver <ag>`
 
 Calculations of band structure and density of states
