@@ -7,7 +7,7 @@ Water
 In this example, how to draw orbital/wave function densities, i.e., square moduli of the wave functions. We use a water molecule in a box as an example.
 
 SCF calculation
------------------------
+---------------
 
 First we obtain the self-consistent electron density and wave functions of water molecule by using the following input file::
 
