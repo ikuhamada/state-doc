@@ -4,7 +4,7 @@
 
 Water
 =====
-In this example, how to draw orbital/wave function densities, i.e., square moduli of the wave functions by using a water molecule as an example
+In this example, how to draw orbital/wave function densities, i.e., square moduli of the wave functions. We use a water molecule in a box as an example.
 
 SCF calculation
 -----------------------
@@ -32,7 +32,7 @@ First we obtain the self-consistent electron density and wave functions of water
 
 Wave function density plot
 --------------------------
-We then modify the input file ``nfinp_mo`` as::
+We then modify the input file (``nfinp_mo``) as::
 
   TASK       PRTWFC
   WF_OPT     DAV
@@ -66,7 +66,7 @@ Similar to the wave function plot, we use the option::
 
   TASK      PRTWFC
 
-and the following block is used to plot the wave function in real space::
+and the following block is added to the input file to plot the wave function in real space::
 
   &PLOT
    IKPT 1
@@ -77,12 +77,12 @@ and the following block is used to plot the wave function in real space::
    FORMAT XSF
   &END
 
-In this case, we are going to plot 4th (HOMO) and 5th wave function densities.
-by using the keyword ``CHG_WFN``, the wave function density is calculated.
-Furthermore, by using ``ADD_SIGN`` the sign of the wave function is added to the wave function density.
+In this case, we are going to plot 4th (HOMO) and 5th (LUMO) wave function densities.
+by using the keyword ``CHG_WFN``, the wave function density is calculated (``FORMAT CHARGE_XSF`` can be used instead).
+Furthermore, by using the option ``ADD_SIGN`` the sign of the wave function is added to the wave function density.
 Note that the sign is meaningful only at the Gamma-point.
 
-By executing STATE by using the above input file, you may obtain the following wave functions::
+By executing STATE by using the above input file, you may obtain the following files for the orbital densities::
 
   nfwfn_kpt0001_band0004.xsf  
   nfwfn_kpt0001_band0005.xsf  
