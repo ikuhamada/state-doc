@@ -33,7 +33,7 @@ Calculation of a spin polarized molecule
 
 Calculation of molecular orbitals
 
-:doc:`Water <h2o>`
+:doc:`Water molecule <h2o>`
 
 Calculation of molecular orbital / wave function densities
 
@@ -45,6 +45,6 @@ Calculations of band structure and density of states
 
 Calculation of band structure and density of states for a metallic system
 
-:doc:`Carbon oxide on platinum (111) surface <pt111-co>`
+:doc:`Carbon monoxide on platinum (111) surface <pt111-co>`
 
 Crystal orbital overlap population analysis of an adsorption system
