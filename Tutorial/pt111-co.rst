@@ -249,7 +249,10 @@ The 3rd line is for the adsobate #1, the 4th, the adsorbate #2 (if available, ot
         0      0      0      0 : NPDOSMO2 KPDOSMO2 KATM2 KLMTA_2
        56     56      9    180 : NPDOSMO3 KPDOSMO3 KATM3 KLMTA_3
 
-The last line is the density of states calculation. The 1st column is for min. energy w.r.t. the Fermi level, 2nd column, max. energy, smearing width, and energy mesh::
+In the COOP analysis, ``NPDOSMO?`` can differ from ``KPDOSMO?`` as long as the sum of ``NPDOSMO1``, ``NPDOSMO2`` and ``NPDOSMO3`` is large enough to expand the wave functions of the combined system.
+
+The last line is for the density of states calculation.
+The 1st column is for min. energy (in eV) with respect to the Fermi level, 2nd column, max (in eV). energy, smearing width (in eV), and energy mesh::
 
    -15.00   5.00   0.10   2001 : EMIN EMAX EWIDTH NPDOSE
 
@@ -261,7 +264,7 @@ Having prepared ``nfcoop.data``, execute ``coop_analysis``
 
   $ coop_analysis > coop.out
 
-The standard output (now, ``coop.out``) contains PDOS projected onto MO (PDOS), PDOS weighted by gross population (GPOP), and PDOS weighted by coop (COOP2).
+The standard output (now, ``coop.out``) contains PDOS projected onto MO (``PDOS``), PDOS weighted by gross population (``GPOP``), and PDOS weighted by coop (``COOP2``).
 They can be found by searching the keywrod ``PDOS``, ``GPOP``, and ``COOP2``, respectively.
 For instance, if PDOS is required, one may type
 
@@ -270,5 +273,65 @@ For instance, if PDOS is required, one may type
   $ grep 'PDOS\:' coop.out | awk -F\: '{print $2}' > pdos.dat
 
 and we obtain ``pdos.data``, which contains the energy and PDOS data.
+For COOP::
+
+  $ grep 'COOP2\:' coop.out | awk -F\: '{print $2}' > coop2.dat
+
+The output ``coop2.dat`` may look like::
+
+    -15.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000
+    -14.9900    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000
+    -14.9800    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000
+
+                                          ....
+  
+     -0.0100   -0.0016   -0.0011   -0.0028   -0.0006   -0.0113    0.0126    0.0022   -0.0030
+      0.0000   -0.0015   -0.0012   -0.0026   -0.0006   -0.0117    0.0122    0.0019   -0.0029
+      0.0100   -0.0015   -0.0012   -0.0024   -0.0005   -0.0124    0.0119    0.0018   -0.0028
 
 
+                                          ....
+
+  
+      4.9800   -0.0007   -0.0123   -0.0006   -0.0060   -0.0595   -0.0136   -0.0470    0.0058
+      4.9900   -0.0007   -0.0144   -0.0007   -0.0067   -0.0689   -0.0162   -0.0528    0.0069
+      5.0000   -0.0007   -0.0166   -0.0008   -0.0074   -0.0791   -0.0188   -0.0582    0.0080
+  # INTEGRATED OVERLAP POPULATION
+  #   -0.013980   -0.013834   -0.023962   -0.009495    0.121428    0.112076    0.093046   -0.012216
+
+In this example, we consider 8 MOs, and ``pdos.dat`` and ``coop2.dat`` have 9 columns.
+The first column is energy with respect to the Fermi level (in eV), and 2nd to 9th columns are COOPs (PDOSs) for 1st to 8th MOs.
+By inspecting the molecular orbitals, it is found that 2nd and 5th MOs are 4 sigma and 5 sigma, and 3rd and 4th (6 and 7th) MOs are 1 pi (2 pi) orbitals.
+The last 2 lines sho the integrated COOP (PDOS in the case of MOPDOS), but the value depends on the energy mesh and the width to approximate the delta function with the gaussian and the absolute values should be assessed very carefully.
+
+Having assingned the orbitals, we are able to plot and understand the interaction of MOs and substrate states (wave functions).
+The MOPDOS may be visualized like:
+
+.. image:: ../img/pdos_co_pt111.png
+   :scale: 30%
+   :align: center
+
+and COOP can be visualized like:
+
+.. image:: ../img/coop2_co_pt111.png
+   :scale: 30%
+   :align: center
+
+In density of states weighted by COOP, the postive peaks indicate the bonding interaction of MO with the substrate state, whereas negative peaks, antibonding interaction.
+In this example, both positve and negative peaks (states) for the CO 4 sigma state appear in the occupied states (below the Fermi level), implying the Pauli repulsion.
+On the other hand, positve (negative) peak for the 5 sigma appeas in the occupied (unoccupied) states.
+In such a case the CO 5 sigma state hybridized with the substrate states, suggesting the strong interaction or bond formation with the substrate.
+For further understanding, we may want to visualize the MO/wave function densities corresponding to the characteristic peaks in PDOS and COOP.
+
+Further consideration
+---------------------
+To expand the wave functions of the combined system in terms of the subsystem wave functions, the number of bands considered are arbitrary.
+Usually we consider the localized MOs only (both occupied and unoccipied) by inspecting the MOs of adsorbate before the COOP calculation.
+We also change the number of the bands considered by chainging ``NPDOSMO1`` (number of MOs) and ``NPDOSMO3`` (number of bands for the substrate) in ``nfcoop.data`` and inspect the calculated PDOS and COOP.
+
+
+References
+----------
+- R. Hoffman, Rev. Mod. Phys. **60**, 601 (1988).
+- H. Aizawa and S. Tsuneyuki, Surf. Sci. **399**, L364 (1998).
+- Y. Hamamoto, S. A. Wella, K. Inagaki, F. Abild-Pedersen, T. Bligaard, I. Hamada, and Y. Morikawa, Phys. Rev. B **102**, 075408 (2020).
