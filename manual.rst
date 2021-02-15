@@ -522,20 +522,20 @@ INIACC
 NSCF
 	Type: integer
 	
-	Default: none
+	Default: 200
 
 	Description: 
 
-	Number of SCF steps.
+	Number of maximum SCF steps.
 
 NSTEP
 	Type: integer
 	
-	Default: none
+	Default: 200
 
 	Description:
 
-	Number of ionic steps.
+	Number of maximu ionic steps.
 
 CPUMAX
 	Type: real
