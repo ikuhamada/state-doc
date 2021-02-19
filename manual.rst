@@ -1269,6 +1269,7 @@ VERBOSITY
 
   J_LDAU: Habbard J value
 
+
 &VDW_CORRECTION ... &END
  This block is used to add the van der Waals correction of Grimme's DFT-D2.
  C6 parameters are hard coded in VanDerWaals.f90.
@@ -1286,6 +1287,7 @@ VERBOSITY
   S6: s6 parameter in DFT-D2
 
   CUTOFF: Cutoff parameters in the directions of the first, second, and third lattice vectors.
+
 
 &SYMM ... &END
  This block is used to set the symmetry manually.
@@ -1308,6 +1310,7 @@ VERBOSITY
   OP_NUM(1:NSPG): Symmetry operation number (see opgr.f90)
 
   TAU(1:NSPG): Fractional translation associated with the symmetry operation.
+
 
 &ESM ... &END
   This block specifies the parameters for the ESM calculation.
@@ -1339,6 +1342,27 @@ VERBOSITY
   ELECTRIC_FIELD: Electric field (in Ha/Bohr) applied to the system. Use with the boundary condition PE1 (BC2).
 
 
+&FIRE ... &END
+  This block is used to set the parameters for the FIRE method
+
+  Syntax::
+
+	&FIRE
+	&END
+
+  NMIN: Minimum number of steps when P > 0 (default: 5)
+
+  F_INC: Factor to increase the time step (default: 1.1)
+
+  F_DEC: Factor to decrease the time step (default: 0.5)
+
+  ALPHA_START: Mixing parameter for the velocity and its starting value (default: 0.1)
+
+  F_ALPHA: Factor to decrease the mixing parameter alpha (default: 0.99)
+
+  DTIO_MAX: Maximum time step (default: 20 atomic unit)
+
+
 &OCCUPATION ... &END
   This block is used to specify the occupations for the fixed occupation calculation (Gamma-point only).
 
@@ -1357,6 +1381,7 @@ VERBOSITY
 
   where OCC(n) is the occupation of the n-th band.
   
+
 &DOS ... &END
   This block is used to define the parameters needed to calculate DOS.
 
@@ -1369,13 +1394,13 @@ VERBOSITY
          EWIDTH [value]
 	&END
 
-  EMIN: Minimum energy in eV.
+  EMIN: Minimum energy in eV (default: -0.5 Hartree ~ -13.6 eV)
 
-  EMAX: Maximum energy in eV.
+  EMAX: Maximum energy in eV (default: 0.3 Hartree ~ 8.2 eV)
 
-  NDOSE: Energy mesh (integer) for the density of states calculation.	
+  NDOSE: Energy mesh (integer) for the density of states calculation (default: 2000)
 
-  EWIDTH: Smearing width for the Gaussian broadening in eV.
+  EWIDTH: Smearing width for the Gaussian broadening in eV (default: 0.01 Hartree ~ 0.3 eV)
 
 
 &KPOINTS_BAND ... &END
@@ -1404,13 +1429,23 @@ VERBOSITY
 &PLOT ... &END
   This block define the parameters needed in the wave function plot.
 
-  IK/IKPT: K-point index at which the real-space wave functions are generated.
+  Syntax::
 
-  IB: Band index at which the wave function is generated
+	&PLOT
+	 IKPT [value]
+	 IB [value]
+	 [CHG_WFN]
+	 [ADD_SIGN]
+	 FORMAT [value]
+	&END
 
-  IBS/IBAND_S: The first band index for the wave function plot.
+  IK/IKPT: K-point index at which the real-space wave functions are generated (default: 1)
 
-  IBE/IBAND_E: The last band index for the wave function plot (IBS-th to IBE-th wave functions at the IK k-point are generated). 
+  IB: Band index at which the wave function is generated (default: 1)
+
+  IBS/IBAND_S: The first band index for the wave function plot (default: 1)
+
+  IBE/IBAND_E: The last band index for the wave function plot (default: 1: IBS-th to IBE-th wave functions at the IK k-point are generated)
 
   CHG_WFN/CHG_WFC: Calculate the wave function densities
 
@@ -1445,9 +1480,9 @@ VERBOSITY
 &OTHERS ... &END
   This block is used to set other parameters
 
-  GAUSSDOS: Density of states is calculated by using the Gaussian smearing (default: unset).
+  GAUSSDOS: Density of states is calculated by using the Gaussian smearing (default: unset)
 
-  PRTCHGPRO: IF OFF, the charge profile is disabled (default: ON). 
+  PRTCHGPRO: IF OFF, the charge profile is disabled (default: ON)
  
 
 .. warning::
