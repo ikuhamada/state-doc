@@ -3,12 +3,11 @@ CMD Examples
 ============
 
 In this section, how to run the STATE examples for the Computational Materials Design (CMD) workshop is described.
-Here let's assume that we are going to use the ``cmd4`` cluster.
 
 Getting started
 ===============
 
-First of all, we set up STATE program, pseudopotential, and example files by logging into the computer node assinged (cmd2, cmd4, for instance).
+First of all, we set up STATE program, pseudopotential, and example files by logging into the computer cluster assinged (rl/cmd2/cmd4, depending on your course).
 To do so, in the home directory (``${HOME}`` or ``~``), type
 
 .. code:: bash

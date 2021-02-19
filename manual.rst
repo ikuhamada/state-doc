@@ -215,15 +215,15 @@ TASK
 
 	* VIB : Vibrational mode analysis
 
-	* PRTRHO : Print the charge density in real space
+	* PRTRHO | PRTCHG : Print the charge density in real space
 
 	* DOS : Print the total density of states
 
 	* PDOS : Print the density of states projected onto atomic orbital (AOLDOS)
 
-	* PRTWFC : Print wave function(s) in real space
+	* PRTWFC | PRTWFN : Print wave function(s) in real space
 
-	* PRTWFC_BAND : Print wave function(s) in real space
+	* PRTWFC_BAND | PRTWFN_BAND : Print wave function(s) in real space
 
 	* COOP : Crystal orbital overlap population analysis (post-processing required)
 
@@ -1341,21 +1341,57 @@ VERBOSITY
 
 &OCCUPATION ... &END
   This block is used to specify the occupations for the fixed occupation calculation (Gamma-point only).
+
+  Syntax (nspin=1)::
+
+	&OCCUPATION
+	 [OCC(1)] [OCC(2)] ... [OCC(N)]
+	&END
+
+  Syntax (nspin=2)::
+
+	&OCCUPATION
+	 [OCC(1)] [OCC(2)] ... [OCC(Nup)]
+	 [OCC(1)] [OCC(2)] ... [OCC(Ndw)]
+	&END
+
+  where OCC(n) is the occupation of the n-th band.
   
 &DOS ... &END
   This block is used to define the parameters needed to calculate DOS.
+
+  Syntax::
+
+	&DOS
+	 EMIN [value]
+	 EMAX [value]
+         NDOSE [value]
+         EWIDTH [value]
+	&END
 
   EMIN: Minimum energy in eV.
 
   EMAX: Maximum energy in eV.
 
-  NDOSE: Energy mesh for the density of states calculation.	
+  NDOSE: Energy mesh (integer) for the density of states calculation.	
 
-  EWIDTH: Smearing width for the Gaussian broadening 
+  EWIDTH: Smearing width for the Gaussian broadening in eV.
 
 
 &KPOINTS_BAND ... &END
   This block is used to define the parameters needed in the band structure calculation.
+
+  Syntax::
+
+	&KPOINTS_BAND
+	 NKSEG [value]
+	 KMESH [value1] [value2] ... [valueN]
+	 KPOINTS
+	 [kx1] [ky1] [kz1]
+	 [kx2] [ky2] [kz2]
+	        ...
+	 [kxN] [kyN] [kzN]
+	&END
 
   NKSEG: Number of k-point segment for the band (the number of symmetry points should be NKSEG+1)
 
@@ -1366,29 +1402,52 @@ VERBOSITY
 
 
 &PLOT ... &END
- This block define the parameters needed in the wave function plot.
+  This block define the parameters needed in the wave function plot.
 
- IK/IKPT: K-point index at which the real-space wave functions are generated.
+  IK/IKPT: K-point index at which the real-space wave functions are generated.
 
- IB: Band index at which the wave function is generated
+  IB: Band index at which the wave function is generated
 
- IBS/IBAND_S: The first band index for the wave function plot.
+  IBS/IBAND_S: The first band index for the wave function plot.
 
- IBE/IBAND_E: The last band index for the wave function plot (IBS-th to IBE-th wave functions at the IK k-point are generated). 
+  IBE/IBAND_E: The last band index for the wave function plot (IBS-th to IBE-th wave functions at the IK k-point are generated). 
 
- CHG_WFN: Calculate the wave function densities
+  CHG_WFN/CHG_WFC: Calculate the wave function densities
 
- ADD_SIGN/ADD_SIGN_MO_DEN/ADD_SIGN_WF_DEN: Option to add the sign to the wave function densities
+  ADD_SIGN/ADD_SIGN_MO_DEN/ADD_SIGN_WF_DEN: Option to add the sign to the wave function densities
 
- FORMAT: Format of the wave function can be specified
+  FORMAT: Format of the wave function can be specified
 
- * STATE: STATE format (not yet implemented)
+  * STATE: STATE format (not yet implemented)
 
- * CUBE: Gaussian Cube format (default)
+  * CUBE: Gaussian Cube format (default)
 
- * XSF: Xcryden Structure File
+  * XSF: Xcryden Structure File
 
- * XSF_CHARGE/CHARGE_XSF: Charge densities corresponding to the specified wave functions in the Xcrysden Structure File format
+  * XSF_CHARGE/CHARGE_XSF: Charge densities corresponding to the specified wave functions in the Xcrysden Structure File format
+
+
+&VIBRATION ... &END
+  This block is used to set parameters for the finite difference method.
+
+  Syntax::
+
+	&VIBRATION
+	 DISP [value]
+	 ATOM [valueN1]-[valueN2]
+	&END
+
+  DISP/DISPLACMENT: Displacement (default: 0.02 Bohr)
+
+  ATOM: Used to specify the atoms to be displaced (default: 1-N, where N is the number of atoms)
+
+
+&OTHERS ... &END
+  This block is used to set other parameters
+
+  GAUSSDOS: Density of states is calculated by using the Gaussian smearing (default: unset).
+
+  PRTCHGPRO: IF OFF, the charge profile is disabled (default: ON). 
  
 
 .. warning::
