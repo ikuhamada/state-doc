@@ -43,13 +43,10 @@ Then let us prepare the input file. Here we use the following file named ``nfinp
   WF_OPT    DAV
   NTYP      2
   NATM      2
-  TYPE      0
   GMAX      5.50
   GMAXP     20.00
-  NCORD     1
   NSCF      200
   WAYMIX    3
-  MIX_WHAT  1
   KBXMIX    8
   MIX_ALPHA 0.8
   WIDTH     0.0010
@@ -67,7 +64,7 @@ Then let us prepare the input file. Here we use the following file named ``nfinp
 
 In the current working directory, let us execute::
 
-  $ mpirun -np 2 ./STATE < nfinp_1 > nfout_1
+  $ mpirun -np 6 ./STATE < nfinp_1 > nfout_1
 
 where we use 2 processors and the output is written to ``nfout_1``. The MPI command depends on the system and a job script is necessary when we use a supercomputer facility.
 
@@ -86,7 +83,7 @@ Once your job starts, the following greeting is printed in ``nfout_1``::
    *                ***      **   **********   **    ******              *
    *                  **     **  **        **  **    **                  *
    *             ********    ** **          ** **    ********            *
-   *              ******     ** VERSION 5.6.6  **    ********            *
+   *              ******     ** VERSION 5.6.8  **    ********            *
    *                               RICS-AIST                             *
    *                           OSAKA UNIVERSITY                          *
    *                                                                     *
@@ -100,36 +97,30 @@ and the following when the SCF starts::
    *                                                                     *
    ***********************************************************************
 
-The convergence of the total energy can be monitored by executing
+This message is followed by the following lines, which show the convergence of the total energy (ETOTAL)::
 
-.. code:: bash
-
-  $ grep ETOT\: nfout
-
-and we get the following::
-
-  ETOT:   1    -16.71058056  0.1671E+02  0.8965E-01
-  ETOT:   2    -20.04069483  0.3330E+01  0.6387E-01
-  ETOT:   3    -21.96017776  0.1919E+01  0.4847E-01
-  ETOT:   4    -22.11633389  0.1562E+00  0.3198E-01
-  ETOT:   5    -22.20286500  0.8653E-01  0.1510E-01
-  ETOT:   6    -22.21912414  0.1626E-01  0.3085E-02
-  ETOT:   7    -22.21938566  0.2615E-03  0.7750E-03
-  ETOT:   8    -22.21941988  0.3422E-04  0.2094E-03
-  ETOT:   9    -22.21942413  0.4249E-05  0.4735E-04
-  ETOT:  10    -22.21942395  0.1857E-06  0.4811E-04
-  ETOT:  11    -22.21942422  0.2798E-06  0.1838E-04
-  ETOT:  12    -22.21942425  0.2761E-07  0.6088E-05
-  ETOT:  13    -22.21942426  0.3338E-08  0.3279E-06
-  ETOT:  14    -22.21942426  0.8036E-11  0.8071E-07
-  ETOT:  15    -22.21942426  0.1084E-11  0.1565E-07
-  ETOT:  16    -22.21942426  0.3197E-13  0.7047E-08
+   NSCF NADR            ETOTAL          EDEL          CDEL CONV      TCPU
+      1    0      -16.71058056   0.16711E+02   0.89648E-01    0      0.06
+      2    0      -20.04069483   0.33301E+01   0.63872E-01    0      0.05
+      3    1      -21.45761599   0.14169E+01   0.68300E-01    0      0.05
+      4    2      -22.15338988   0.69577E+00   0.28216E-01    0      0.05
+      5    3      -22.21588778   0.62498E-01   0.76543E-02    1      0.05
+      6    4      -22.21907373   0.31860E-02   0.18453E-02    1      0.05
+      7    5      -22.21941896   0.34522E-03   0.49141E-03    2      0.05
+      8    6      -22.21942378   0.48220E-05   0.10308E-03    2      0.05
+      9    7      -22.21942425   0.46409E-06   0.15783E-04    3      0.05
+     10    8      -22.21942426   0.98760E-08   0.48605E-05    3      0.05
+     11    1      -22.21942426   0.29124E-09   0.22363E-05    3      0.05
+     12    2      -22.21942425   0.62312E-09   0.30180E-05    3      0.05
+     13    3      -22.21942426   0.99714E-09   0.79766E-06    3      0.05
+     14    4      -22.21942426   0.72873E-10   0.58032E-07    4      0.05
+     15    5      -22.21942426   0.11724E-12   0.20083E-07    5      0.05
+     16    6      -22.21942426   0.85265E-13   0.69021E-08    6      0.05
 
 When the SCF convergence is reached, total energy and its componets are printed as follows::
 
                        TOTAL ENERGY AND ITS COMPONENTS 
                     TOTAL ENERGY     =         -22.21942426 A.U.
-                     FREE ENERGY     =         -22.21942426 A.U.
                   KINETIC ENERGY     =           9.92111448 A.U.
                   HARTREE ENERGY     =           5.12121891 A.U.
                        XC ENERGY     =          -5.89585656 A.U.
@@ -139,7 +130,7 @@ When the SCF convergence is reached, total energy and its componets are printed 
                        PC ENERGY     =           0.00000000 A.U.
                  ENTROPIC ENERGY     =           0.00000000 A.U.
 
-Forces acting on atoms::
+Forces acting on atoms are::
 
       ATOM              COORDINATES                        FORCES
   MD:    1
