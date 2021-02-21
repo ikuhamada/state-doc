@@ -7,8 +7,23 @@ In this section, how to run the STATE examples for the Computational Materials D
 Getting started
 ===============
 
-First of all, we set up STATE program, pseudopotential, and example files by logging into the computer cluster assinged (rl/cmd2/cmd4, depending on your course).
-To do so, in the home directory (``${HOME}`` or ``~``), type
+First of all, we login the cluster system.
+In the case of the beginner's course:
+
+.. code:: bash
+
+  $ ssh -Y [user_name]@cmd2.phys.sci.osaka-u.ac.jp
+
+and for the avanced course:
+
+.. code:: bash
+
+  $ ssh -Y [user_name]@rl.phys.sci.osaka-u.ac.jp
+
+where [user_name] is your user name assigned.
+
+Then, set up the STATE program, pseudopotentials, and example files.
+This is done by executing the following command in the home directory (``${HOME}`` or ``~``) as:
 
 .. code:: bash
 
@@ -114,7 +129,7 @@ The output ``nfout_1`` starts with the header
    *                ***      **   **********   **    ******              *
    *                  **     **  **        **  **    **                  *
    *             ********    ** **          ** **    ********            *
-   *              ******     ** VERSION 5.6.6  **    ********            *
+   *              ******     ** VERSION 5.6.8  **    ********            *
    *                               RICS-AIST                             *
    *                           OSAKA UNIVERSITY                          *
    *                                                                     *
