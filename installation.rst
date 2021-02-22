@@ -13,53 +13,71 @@ The code and pseudopotentials can be obtained upon request to the STATE develope
 Prep
 ====
 
-  Let us first make the root directory for the STATE. In the home directory, type::
+Let us first make the root directory for the STATE. In the home directory, type
 
-    $ mkdir STATE
+.. code:: bash
 
-  Go to the STATE directory and create a directory as::
+  $ mkdir STATE
 
-    $ mkdir gncpp
+Go to the STATE directory and create a directory as
 
-  Pseudopotentials are stored in ``gncpp``.
-  Obtain a set of pseudopotentials (usually named as ``gncpp.tgz``) and unpack it under ``gncpp``
-  Then create a source directory as::
+.. code:: bash
+
+  $ cd STATE
+   
+.. code:: bash
+
+  $ mkdir gncpp
+
+Pseudopotentials are stored in ``gncpp``.
+Obtain a set of pseudopotentials (usually named as ``gncpp.tgz``) and unpack it under ``gncpp``
+Then create a source directory as
+
+.. code:: bash
 
     $ mkdir src
 
 Compilation
 ===========
 
+Having obtained the source code, say ``state-5.6.6.tgz``, unpack the source code under ``src`` as
 
-  Having obtained the source code, say ``state-5.6.6.tgz``, unpack the source code under ``src`` as::
+.. code:: bash
 
     $ gzip -dc state-5.6.6.tgz | tar xf -
 
-  or::
+or
+
+.. code:: bash
 
     $ tar zxf state-5.6.6.tgz
 
-  state-5.6.6/ contains the following file and directories::
+``state-5.6.6/`` contains the following file and directories::
 
     README  arch/   build/  src/    util/
 
-  Go to the source directory::
+Go to the source directory
+
+.. code:: bash
 
     $ cd state-5.6.6/src
 
 
-  make a symbolic link to ``make.arch`` as follows, e.g.::
+make a symbolic link to ``make.arch`` as follows, e.g.
+
+.. code:: bash
 
     $ ln -s ../arc/make.arch.intel_smith make.arch
 
-  and edit ``make.arch`` according to your environment. Then type::
+and edit ``make.arch`` according to your environment. Then type
+
+.. code:: bash
 
     $ make
 
-  You will get the executable ``STATE`` in the source directory.
+You will get the executable ``STATE`` in the source directory.
 
-
-  For example, ``make.arch`` for the supercomputer (ohtaka) at ISSP, The University of Tokyo looks like::
+For example, ``make.arch`` for the supercomputer (ohtaka) at ISSP, The University of Tokyo looks like::
 
     F90     = mpiifort
     LINKER  = mpiifort
@@ -78,7 +96,7 @@ Compilation
     CPP     = $(CPPDIR)/cpp -P -C -traditional
     P_FLAGS = -D_INTEL_DAVIDSON_ -D_FFTW3_ -D_MKL_FFTW_ -D_TIMER_ -D_OPENMP_FUNC_ -D_TEST_
 
-  The ``make.arch`` for ohtaka with SCALAPACK looks like::
+The ``make.arch`` for ohtaka with SCALAPACK looks like::
 
     F90     = mpiifort
     LINKER  = mpiifort
@@ -98,7 +116,9 @@ Compilation
     CPP     = $(CPPDIR)/cpp -P -traditional
     P_FLAGS = -D_INTEL_DAVIDSON_ -D_FFTW3_ -D_MKL_FFTW_ -D_TIMER_ -D_OPENMP_FUNC_ -D_SCALAPACK_
 
-  To compile the utilities, go to the ``util`` directory, edit ``make.inc``, and type ::
+To compile the utilities, go to the ``util`` directory, edit ``make.inc``, and type :
+
+.. code:: bash
 
     $ make
 
