@@ -143,8 +143,8 @@ The input files for the subsystems look like the followings.
         5.276218670000      6.092452540000     -8.616029010000    1    0    1
   &END
   
-.. warning::
-	The sum of the numbers of the bands of subsystems MUST equal to that of the combined system. 
+.. note::
+	The sum of the numbers of the bands of subsystems MUST be equal to that of the combined system. 
 
 .. note::
 	The atomic positions of the subsystems should be the same as those of the combined system.
