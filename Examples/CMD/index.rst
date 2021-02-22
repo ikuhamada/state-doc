@@ -64,13 +64,10 @@ Go to ``CO`` in the examples directory, and  have a look at by ``cat nfinp_1``
   WF_OPT    DAV
   NTYP      2
   NATM      2
-  TYPE      0
   GMAX      5.50
   GMAXP     20.00
-  NCORD     1
   NSCF      200
   WAYMIX    3
-  MIX_WHAT  1
   KBXMIX    8
   MIX_ALPHA 0.8
   WIDTH     0.0010
