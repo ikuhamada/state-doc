@@ -18,23 +18,23 @@ Let us create symbolic link to a STATE command by executing
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
+  $ ln -s ${HOME}/STATE/src/state-5.6.x/src/STATE
 
 and those to pseudopotentials as
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/gncpp/pot_C_pbe1
+  $ ln -s ${HOME}/STATE/gncpp/pot.C_pbe1
 
-  $ ln -s ${HOME}/STATE/gncpp/pot_O_pbe1
+  $ ln -s ${HOME}/STATE/gncpp/pot.O_pbe1
 
 or
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/gncpp/C_pbe1/#vnew.data
+  $ ln -s ${HOME}/STATE/gncpp/C_pbe1/#vnew.data pot.C_pbe1
 
-  $ ln -s ${HOME}/STATE/gncpp/O_pbe1/#vnew.data
+  $ ln -s ${HOME}/STATE/gncpp/O_pbe1/#vnew.data pot.O_pbe1
 
 Then let us prepare the input file. Here we use the following file named ``nfinp_1``
 
