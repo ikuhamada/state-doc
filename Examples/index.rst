@@ -19,7 +19,7 @@ It is also suggested that the path to the utility program be set in the .bashrc 
 
 .. code:: bash
 
-  PATH=${PATH}:${HOME}/STATE/src/state-5.6.6/util/bin
+  PATH=${PATH}:${HOME}/STATE/src/state/util/bin
 
 Remember to execute
 
@@ -38,7 +38,7 @@ First in the ``Si`` directory, let us create a symbolik link to the STATE execut
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
+  $ ln -s ${HOME}/STATE/src/state/src/STATE
 
 and that to the pseudopotential
 
@@ -201,7 +201,7 @@ For each lattice constant we prepare an input file as ``nfinp_scf_10.10``, ``nfi
 
   $ mpirun -np 8 ./STATE < nfinp_scf_10.50 > nfout_scf_10.50
 
-To collect the volume-energy (E-V) data, here we use the ``state2ev.sh`` script in ``state-5.6.6/util/`` as
+To collect the volume-energy (E-V) data, here we use the ``state2ev.sh`` script in ``state/util/`` as
 
 .. code:: bash
 
@@ -250,7 +250,7 @@ and the STATE executable as
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
+  $ ln -s ${HOME}/STATE/src/state/src/STATE
 
 We use the following input file for the SCF calculation.
 
@@ -321,7 +321,7 @@ Prep.
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
+  $ ln -s ${HOME}/STATE/src/state/src/STATE
 
 * Pseudopotential ``pot.Ni_pbe4``
 
@@ -440,7 +440,7 @@ In the ``C2H4`` directory:
 
 .. code:: bash
 
-  $ ln -fs ${HOME}/STATE/src/state-5.6.6/src/STATE
+  $ ln -fs ${HOME}/STATE/src/state/src/STATE
 
 * Pseudopotentials
 
@@ -716,7 +716,7 @@ In the ``ClonAl100`` directory
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
+  $ ln -s ${HOME}/STATE/src/state/src/STATE
 
 * Pseudopotentials
 
@@ -887,7 +887,7 @@ In the ``GR/Opt`` directory, prepare the executable and pseudopotential.
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/src/state-5.6.6/src/STATE
+  $ ln -s ${HOME}/STATE/src/state/src/STATE
 
 * Pseudopotential
 
