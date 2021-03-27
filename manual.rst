@@ -1288,6 +1288,23 @@ VERBOSITY
 
   CUTOFF: Cutoff parameters in the directions of the first, second, and third lattice vectors.
 
+&VDW-DF ... &END
+ This block is used to set the option(s) for the vdW-DF calculation.
+
+  Syntax::
+
+	&VDW-DF
+	 SVDW-DF | NON-SVDW-DF 
+         QCUT [value]
+         NQ   [value]
+	&END
+
+  SVDW-DF | NON-SVDW-DF: Keyword to set svdW-DF [default for nspin=1 (nspin=2): NON-SVDW-DF (SVDW-DF)]
+
+  QCUT: cutoff for the q0 function (default: 10.0)
+
+  NQ: grid for the q0 (default: 20)
+
 
 &SYMM ... &END
  This block is used to set the symmetry manually.
@@ -1380,6 +1397,32 @@ VERBOSITY
 	&END
 
   where OCC(n) is the occupation of the n-th band.
+
+
+&FIXED_MOMENT (&SPIN) ... &END 
+  This block is used to activate the fixed spin moment calculation and to specify the spin multiplicity
+
+  Syntax (A)::
+
+	&FIXED_MOMENT
+	 SPIN_MULTIPLICITY [value]
+	&END
+
+  The value is the integer, which specifies the spin multiplicity. For instance, use 1 for singlet and use 3 for triplet.
+
+  Syntax (B)::
+
+	&FIXED_MOMENT
+	 SPIN [SINGLET|DOUBLET|TRIPLET|...|OCTET]
+	&END
+
+  Syntax (C)::
+
+	&FIXED_MOMENT
+	 MOMENT [value]
+	&END
+
+  The value is a real number, which specifies the magnetic (spin) moment of the system.
   
 
 &DOS ... &END
