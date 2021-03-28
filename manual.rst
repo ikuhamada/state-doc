@@ -1541,6 +1541,49 @@ VERBOSITY
 
   ATOM: Used to specify the atoms to be displaced (default: 1-N, where N is the number of atoms)
 
+&COOP ... &END
+  This block is used to set the parameters for the COOP analysis (calculations of overlap matrices to be used by the program ``coop_analysis``).
+
+  Syntax::
+
+	&COOP
+	 KPDOSMO_MOL1 [value]
+	 KPDOSMO_MOL2 [value]
+	 KPDOSMO_SUB  [value]
+	 KATM_MOL1    [value]
+	 KATM_MOL2    [value]
+	 KATM_SUB     [value]
+	 KLMTA_MOL1   [value]
+	 KLMTA_MOL2   [value]
+	 KLMTA_SUB    [value]
+	 WFN_MOL1     [value]
+	 WFN_SUB      [value]
+	&END
+
+  KPDOSMO_MOL1: Number of bands (MOs) for the molecule #1 used in the COOP analysis
+
+  KPDOSMO_MOL2: (optional) Number of bands (MOs) for the molecule #2 used in the COOP analysis
+
+  KPDOSMO_SUB: Number of bands for the substrate used in the COOP analysis
+
+  KATM_MOL1: Number of atoms for the molecule #1 
+
+  KATM_MOL2: (optional) Number of atoms for the molecule #2
+
+  KATM_SUB: Number of atoms for the substrate
+
+  KLMTA_MOL1: Number of projectors (l, m, tau) for the molecule #1 (search KLMTA in calculation of the sub system)
+
+  KLMTA_MOL2: (optional) Number of projectors (l, m, tau) for the molecule #2 (search KLMTA in calculation of the sub system)
+
+  KLMTA_SUB: Number of projectors (l, m, tau) for the substrate (search KLMTA in calculation of the sub system)
+
+  WFN_MOL1: Wave function file (zaj.data) for the molecule #1 (default: zak1.data)
+
+  WFN_MOL2: Wave function file (zaj.data) for the molecule #2 (default: zak2.data)
+
+  WFN_SUB: Wave function file (zaj.data) for the substrate (default: zak3.data)
+
 
 &OTHERS ... &END
   This block is used to set other parameters
