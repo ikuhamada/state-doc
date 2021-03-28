@@ -327,6 +327,28 @@ NSPG
 
 	Space group number.
 
+        Following space group numbers are used for 2D systems.
+
+        * 1001: *p1*
+
+        * 1002: *p2*
+
+        * 1003: *p1m1*
+
+        * 1004: *p1g1*
+
+        * 1005: *c1m1*
+
+        * 1006: *p2mm*
+       
+        * 1007: *p2mg*
+
+        * 1008: *p2gg*
+
+        * 1009: *c2mm*
+
+        * 1010: *p4*
+
 CELL
 	Type: real array
 
