@@ -1542,7 +1542,7 @@ VERBOSITY
   ATOM: Used to specify the atoms to be displaced (default: 1-N, where N is the number of atoms)
 
 &COOP ... &END
-  This block is used to set the parameters for the COOP analysis (calculations of overlap matrices to be used by the program ``coop_analysis``).
+  This block is used to specify the parameters for the COOP analysis (prep for the COOP analysis by using the ``coop_analysis`` program) when ``TASK COOP`` is set. 
 
   Syntax::
 
@@ -1580,7 +1580,7 @@ VERBOSITY
 
   WFN_MOL1: Wave function file (zaj.data) for the molecule #1 (default: zak1.data)
 
-  WFN_MOL2: Wave function file (zaj.data) for the molecule #2 (default: zak2.data)
+  WFN_MOL2: (optional) Wave function file (zaj.data) for the molecule #2 (default: zak2.data)
 
   WFN_SUB: Wave function file (zaj.data) for the substrate (default: zak3.data)
 
