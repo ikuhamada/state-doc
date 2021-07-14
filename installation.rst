@@ -122,6 +122,6 @@ To compile the utilities, go to the ``util`` directory, edit ``make.inc``, and t
 
     $ make
 
-  Symbolic links to the utilities are created in the ``bin`` directory.
+Symbolic links to the utilities are created in the ``bin`` directory.
 
-  Use `Intel Math Kernel Library Link Line Advisor <https://software.intel.com/content/www/us/en/develop/articles/intel-mkl-link-line-advisor.html>`_ to find recommended libries for Intel fortran.
+Use `Intel Math Kernel Library Link Line Advisor <https://software.intel.com/content/www/us/en/develop/articles/intel-mkl-link-line-advisor.html>`_ to find recommended libries for Intel fortran.
