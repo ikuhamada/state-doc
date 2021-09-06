@@ -67,7 +67,7 @@ make a symbolic link to ``make.arch`` as follows, e.g.
 
 .. code:: bash
 
-    $ ln -s ../arc/make.arch.intel_smith make.arch
+    $ ln -s ../arch/make.arch.intel_smith make.arch
 
 and edit ``make.arch`` according to your environment. Then type
 
