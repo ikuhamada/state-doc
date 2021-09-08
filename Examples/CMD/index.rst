@@ -29,11 +29,17 @@ This is done by executing the following command in the home directory (``${HOME}
 
   $ git clone https://github.com/ikuhamada/state-setup.git STATE
 
-and
+Then, go to the STATE directory 
 
 .. code:: bash
 
-  $ source ~/.bashrc
+  $ cd STATE
+
+and execute the following
+
+.. code:: bash
+
+  $ ./state-setup.sh
 
 and you are all set!
 
