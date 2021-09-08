@@ -12,7 +12,7 @@ In the case of the beginner's course:
 
 .. code:: bash
 
-  $ ssh -Y [user_name]@cmd2.phys.sci.osaka-u.ac.jp
+  $ ssh -Y [user_name]@pyxis.mp.es.osaka-u.ac.jp
 
 and for the avanced course:
 
@@ -22,12 +22,12 @@ and for the avanced course:
 
 where [user_name] is your user name assigned.
 
-Then, set up the STATE program, pseudopotentials, and example files.
+Then, we are going to set up the STATE program, pseudopotentials, and example files.
 This is done by executing the following command in the home directory (``${HOME}`` or ``~``) as:
 
 .. code:: bash
 
-  $ ~teac21/STATE/util/setup-state-cmd.sh
+  $ git clone https://github.com/ikuhamada/state-setup.git STATE
 
 and
 
