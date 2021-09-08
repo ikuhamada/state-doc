@@ -58,7 +58,7 @@ and
 
 you can find the directories as::
 
-  examples  gncpp  src
+  examples/  gncpp/  src/
 
 Let us move to ``${HOME}/STATE/examples``.
 
@@ -95,7 +95,8 @@ and review the job script by ``cat qsub_cmd.sh``
 
   #$ -S /bin/sh
   #$ -cwd
-  #$ -pe fillup 6
+  #$ -q all.q
+  #$ -pe smp 6
   #$ -N CO
   
   # Disable OPENMP parallelism
