@@ -63,7 +63,7 @@ you can find the directories as::
 Let us move to ``${HOME}/STATE/examples``.
 
 As the first example, let us use the carbon monoxide (CO) molecule in a box.
-Go to ``CO`` in the examples directory, and  have a look at by ``cat nfinp_1``
+Go to ``CO`` in the examples directory, and  have a look at by ``cat nfinp_scf``
 
 .. code:: bash
 
@@ -142,7 +142,7 @@ The output ``nfout_1`` starts with the header
    *                ***      **   **********   **    ******              *
    *                  **     **  **        **  **    **                  *
    *             ********    ** **          ** **    ********            *
-   *              ******     ** VERSION 5.6.8  **    ********            *
+   *              ******     ** VERSION 5.6.9  **    ********            *
    *                               RICS-AIST                             *
    *                           OSAKA UNIVERSITY                          *
    *                                                                     *
