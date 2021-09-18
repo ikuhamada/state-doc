@@ -1,3 +1,5 @@
+.. _CMD_example:
+
 ============
 CMD Examples
 ============
@@ -89,7 +91,9 @@ Go to ``CO`` in the examples directory, and  have a look at by ``cat nfinp_scf``
     2.2000  0.0000  0.0000  1  1  2
   &END
 
-and review the job script by ``cat qsub_cmd.sh``
+Short description of the input variables can be found :doc:`here <co>`
+
+Let us review the job script by ``cat qsub_cmd.sh``
 
 .. code:: bash
 
@@ -121,7 +125,7 @@ and review the job script by ``cat qsub_cmd.sh``
 
   mpirun -np $NSLOTS ./STATE < ${INPUT_FILE} > ${OUTPUT_FILE}
 
-And submit!
+and submit!
 
 .. code:: bash
 
