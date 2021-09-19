@@ -235,7 +235,8 @@ Let us have a look at it by typing in the ``Si`` directory:
         0.250000000000      0.250000000000      0.250000000000    1    1    1
   &END
 
-By default wave function optimization (single-point calculation) is performed (``WF_OPT``) with the Davidson algorithm (``DAV``), and structural optimization is not performed.
+By default wave function optimization (single-point calculation) is performed (``WF_OPT``) with the Davidson algorithm (``DAV``), and structural optimization is not performed (Short description of the input variables can be found :doc:`here <si2>`).
+
 Let us review the job script ``qsub_cmd.sh``::
 
   #$ -S /bin/sh

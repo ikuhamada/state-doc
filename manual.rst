@@ -568,7 +568,7 @@ CPUMAX
 
 	Max. CPU time in second.
 
-WAY_MIX
+WAY_MIX | WAYMIX
 	Type: integer
 
 	Default: none
@@ -635,14 +635,14 @@ MIXOBJ
 	* POTENTIAL: potential
 
 
-KBXMIX
+KBXMIX | NMIX
 	TYpe: integer
 
 	Default: none
 
 	Description:
 
-	Number of charges/potentials to be stored for the mixing.
+	Number of charges/potentials to be stored for the mixing. After ``KBXMIX`` iteration, the mixing information is reset.
 
 
 MIX_ALPHA
@@ -683,7 +683,7 @@ EDELTA
 
 	Descritoin:
 
-	Convergence threshold for the total energy.
+	Convergence threshold (Hartree/atom) for the total energy.
 
 
 NBZTYP
