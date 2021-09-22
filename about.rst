@@ -56,3 +56,8 @@ We appreciate if you cite the following paper, when you use the van der Waals fu
 
 This paper describes our implementation of the self-consistent vdW-DF of Wu and Gygi [J. Chem. Phys. **136**, 224107 (2012)].
 
+Credit
+------
+
+Sasfan Arman Wella created the STATE logo.
+
