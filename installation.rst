@@ -1,6 +1,6 @@
-============
-Installation
-============
+============================
+Compilation and installation
+============================
 
 .. warning::
 	This page is under construction
