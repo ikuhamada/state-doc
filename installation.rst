@@ -10,6 +10,8 @@ Obtaining the code
 
 The code and pseudopotentials can be obtained upon request to the STATE developers.
 
+Platform specific information can be found by following :any:`this link <platform>`.
+
 Prep
 ====
 
@@ -125,3 +127,15 @@ To compile the utilities, go to the ``util`` directory, edit ``make.inc``, and t
 Symbolic links to the utilities are created in the ``bin`` directory.
 
 Use `Intel Math Kernel Library Link Line Advisor <https://software.intel.com/content/www/us/en/develop/articles/intel-mkl-link-line-advisor.html>`_ to find recommended libries for Intel fortran.
+
+.. _platform:
+
+Platform specific information
+=============================
+
+smith @ Morikawa group 
+----------------------
+
+ohtaka @ ISSP
+-------------
+

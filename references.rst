@@ -55,6 +55,10 @@ Nudged elastic band and quenched molecular dynamics methods
 - H. Jonsson, G. Mills, and K. W. Jacobsen, "Nudged elastic band method for finding minimum energy paths of transitions," in *Classical and Quantum Dynamics in Condensed Phase Simulations*, edited by B. J. Berne, G. Ciccotti, and D. F. Coker (World Scientific, Singapore, 1998), p 385.
 - G. Henkelman, B. P. Uberuaga, and H. Jonsson, J. Chem. Phys. **113**, 9901 (2000).
 
+Fast inertial relaxation engine
+-------------------------------
+- E. Bitzek, P. Koskinen, F. Gahler, M. Moseler, P. Gumbsch, Phys. Rev. Lett. **97**, 170201 (2006).
+
 Dipole correction
 -----------------
 - J. Neugebauer and M. Scheffler, Phys. Rev. B **46**, 16067 (1992).

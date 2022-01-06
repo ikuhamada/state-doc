@@ -13,7 +13,7 @@ STATE can perform the following calculations:
 * Electronic minization with the Davidson or RMM-DIIS method
 * Real-space projection of the nonlocal pseudopotentials for an efficient calculation
 * Various exchange-correlation functional: LDA, GGA, GGA+U, and vdW-DF 
-* Structural optimization with quenched molecular dynamics (aka QuickMin) or GDIIS
+* Structural optimization with quenched molecular dynamics (aka QuickMin), GDIIS, or FIRE (experimental)
 * Reaction path search via the CINEB method
 * Born-Oppenheimer molecular dynamics simulation with NVE or NVT ensemble
 * Blue-moon ensemble or metadynamics for free energy sampling
