@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'STATE'
-copyright = u'2018-2021, Ikutaro Hamada'
+copyright = u'2018-2022, Ikutaro Hamada'
 author = u'Ikutaro Hamada'
 
 # The short X.Y version
