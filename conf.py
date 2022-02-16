@@ -76,6 +76,8 @@ pygments_style = 'sphinx'
 #
 html_theme = 'sphinx_rtd_theme'
 
+html_theme_path = ['_themes', ]
+
 html_logo = './img/state_logo_1.png'
 
 # Theme options are theme-specific and customize the look and feel of a theme
