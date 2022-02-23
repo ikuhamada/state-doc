@@ -37,6 +37,10 @@ Calculation of molecular orbitals
 
 Calculation of molecular orbital / wave function densities
 
+:doc:`H2+H <h2+h>`
+
+Nudged elastic band calculation
+
 :doc:`Crystalline silver <ag>`
 
 Calculations of band structure and density of states
