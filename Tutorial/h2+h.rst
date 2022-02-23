@@ -24,7 +24,68 @@ In the following, we consider the following reaction
 Optimization of the initial and final state
 -------------------------------------------
 
-To save time for this example, input files created using the optmized geometries for the initial ``Initial/nfinp_ini`` and final ``Initial/nfinp_fin`` are prepared.
+To save time for this example, input files created using the optmized geometries for the initial ``Initial/nfinp_ini`` and final ``Initial/nfinp_fin`` will be prepared as follows:
+
+Initial/nfinp_ini::
+
+  #
+  # H2 + H
+  #
+  WF_OPT   DAV
+  NTYP     1
+  NATM     3
+  TYPE     0
+  NSPG     1
+  GMAX    6.00
+  GMAXP  20.00
+  WAY_MIX  3
+  MIX_ALPHA  0.2
+  EDELTA  1.D-10
+  NSPIN 2
+  NEG     4
+  CELL   15.00000000  15.00000000  15.00000000  90.00000000  90.00000000  90.00000000
+  CPUMAX 1500.0
+  &ATOMIC_SPECIES
+   H   2.000000  pot.H_pbe1_sp_new
+  &END
+  &INITIAL_ZETA
+    0.5000
+  &END
+  &ATOMIC_COORDINATES CARTESIAN
+        0.0000000000        0.000000000000      0.000000000000    1    1    1
+        1.4237027235        0.000000000000      0.000000000000    1    1    1
+        5.6566329776        0.000000000000      0.000000000000    1    1    1
+  &END
+
+Final/nfinp_fin::
+
+  #
+  # H2 + H
+  #
+  WF_OPT   DAV
+  NTYP     1
+  NATM     3
+  TYPE     0
+  NSPG     1
+  GMAX    6.00
+  GMAXP  20.00
+  WAY_MIX  3
+  MIX_ALPHA  0.5
+  EDELTA  1.D-10
+  NSPIN 2
+  NEG     4
+  CELL   15.00000000  15.00000000  15.00000000  90.00000000  90.00000000  90.00000000
+  &ATOMIC_SPECIES
+   H   2.000000  pot.H_pbe1_sp_new
+  &END
+  &INITIAL_ZETA
+    0.5000
+  &END
+  &ATOMIC_COORDINATES CARTESIAN
+        0.0000000000        0.000000000000      0.000000000000    1    1    1
+        4.23293025414       0.000000000000      0.000000000000    1    1    1
+        5.6566329776        0.000000000000      0.000000000000    1    1    1
+  &END
 
 Run single-point (SCF) calculations in ``Initial`` and ``Final`` directories and confirm that the forces acting on the atoms are small enough and these state can be metastable states.
 
@@ -39,7 +100,7 @@ Supposing that we have :math:`p-1` images between the initial (:math:`r_i^\alpha
 
 In the current implementation, each image is optimized using an input file (``nfinp.data``) and geometry file (``nudged_2``) in a subdirectory. In addition, initial (final) state geometries should be given in ``nudged_terminal_s`` (``nudged_terminal_e``) in the subdirectory next to the initial (final) image. Furthermore, we use image (replica) parallel NEB, i.e., the parallelization is done over the images, and the number of cores should be divisable by the number of images.
 
-Preparation can be done using a utility ``prepneb``. In the ``NEB`` directory, execute
+Preparation can be done using a utility ``prepneb``. Create and go to a subdirectory ``NEB`` and execute
 
 .. code:: bash
 
