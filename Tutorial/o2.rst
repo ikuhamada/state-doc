@@ -5,8 +5,9 @@
 ===============
 Oxygen molecule
 ===============
-This example discusses how to obtain the ground state of a spin polarized system by using oxygen molecule (O2) as an example.
-How to calculate the atomization energy of O2 molecule is also discussed.
+This example discusses how to obtain the ground state of a spin polarized system by using oxygen molecule (O\ :sub:`2`\) as an example.
+How to calculate the atomization energy of O\ :sub:`2`\  molecule is also discussed.
+In addition, how to perform the fixed moment calculation is described.
 
 SCF calculation and geometry optimization
 =========================================
@@ -213,5 +214,79 @@ then we obtain::
 
 In addition to the electronic configuration, we can see that the energy is lower than the former one.
 By using the total energies obtained as above (Oxygen molecule and atom), we obtain the binding energy of -5.81 eV, which is in good agreement with a literature value [1]_.
+
+Fixed moment calculation
+========================
+
+In a recent version of STATE, the fixed moment calculation is enabled, and the spin multiplicity can be also specified. In the following example, how to set the spin multiplicity by using the oxygen molecule as an example:
+
+For the oxygen molecule in the spin triple state, following input file can be used::
+
+ WF_OPT    DAV
+ NTYP      1
+ NATM      2
+ GMAX      6.0
+ GMAXP     20.0
+ MIX_ALPHA 0.3
+ WIDTH     0.0010
+ EDELTA    1.D-09
+ NSPIN     2
+ SPIN      TRIPLET
+ NEG       8 
+ CELL   20.00000000  20.00000000  20.00000000  90.00000000  90.00000000  90.00000000
+ &ATOMIC_SPECIES
+  O    1.007940 pot.O_pbe1
+ &END
+ &INITIAL_ZETA
+  0.20
+ &END
+ &ATOMIC_COORDINATES CARTESIAN
+       0.000000000000      0.000000000000      0.000000000000    1    1    1
+       2.300000000000      0.000000000000      0.000000000000    1    1    1
+ &END
+
+The following line allows the spin triplet calculation::
+
+ SPIN      TRIPLET
+
+As for the spin multiplicity, ``SIGLET``, ``DOUBLET``, ``TRIPLET``, ... ``OCTET`` are allowed.
+For other cases, the key word ``SPMULT`` followed by the integer value can be used (for e.g. ``SMULT 3`` for spin triplet).
+
+Likewise for the spin singlet, we may use the following input file::
+
+ WF_OPT    DAV
+ NTYP      1
+ NATM      2
+ GMAX      6.0
+ GMAXP     20.0
+ MIX_ALPHA 0.3
+ WIDTH     0.0010
+ EDELTA    1.D-09
+ NSPIN     2
+ SPIN      SINGLET
+ NEG       8 
+ CELL   20.00000000  20.00000000  20.00000000  90.00000000  90.00000000  90.00000000
+ &ATOMIC_SPECIES
+  O    1.007940 pot.O_pbe1
+ &END
+ &INITIAL_ZETA
+  0.20
+ &END
+ &ATOMIC_COORDINATES CARTESIAN
+       0.000000000000      0.000000000000      0.000000000000    1    1    1
+       2.300000000000      0.000000000000      0.000000000000    1    1    1
+ &END
+
+We get the total energy for the singlet state::
+
+                   TOTAL ENERGY     =         -32.30152055 A.U.
+
+and for the triplet state::
+
+                   TOTAL ENERGY     =         -32.31618390 A.U.
+
+We can see that the triplet state is more stable than the single state as it should.
+
+In addition to the spin multiplicity, it is possible to specify the magnetic moment using the keyword ``MAGMOM``, which is desribed elsewhere.
 
 .. [1] B. Hammer, L. B. Hanse, and J. K. Norskov, Phys. Rev. B **59**, 7413 (1999).
