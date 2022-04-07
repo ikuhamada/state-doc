@@ -5,7 +5,7 @@ Appendix B
 ==========
 
 .. warning::
-        This page is under constructio
+        This page is under construction!
 
 GNCPP
 -----
@@ -18,7 +18,7 @@ It is safe to use slightly larger cutoff wave vectors than those listed below.
 The list is tentative and shoul be polished (obsolete ones or those exhibiting ghotst states can be included), and the list itself as well as the pseudopotentials must be updated with more information (and may be with new naming convention).
 
 +---------------+-------+-----+------+-------------+--------------+
-| Potential     | Type  | PCC | lmax | target GMAX | target GMAXP |
+|  Potential    |  Type | PCC | lmax | target GMAX | target GMAXP |
 +===============+=======+=====+======+=============+==============+
 | Ag_lda3TM     | NC    | Yes | 2    | 4.3         | 17.0         |
 +---------------+-------+-----+------+-------------+--------------+
