@@ -1,8 +1,8 @@
 .. _appendix:
 
-========
-Appendix
-========
+==========
+Appendix A
+==========
 
 .. warning::
         This page is under construction
