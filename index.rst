@@ -19,4 +19,4 @@ STATE documentation
    utility
    references
    appendix
-   gncpp_tmp
+   GNCPP/index
