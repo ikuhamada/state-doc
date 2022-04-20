@@ -429,7 +429,7 @@ One may obtain the spin-polarized DOS like:
 Ethylene
 ========
 
-This example explains how to perform the geometry optimization.
+This example explains how to perform geometry optimization and vibrational by using ethylene (C\ :sub:`2`\H\ :sub:`4`\).
 
 Prep.
 -----
@@ -1283,7 +1283,7 @@ The calculated PDOS for graphene can be visualized as:
 Benzene
 =======
 
-This example explain how to plot the molecular orbitals by using the benzene (C6H6) molecule.
+This example explain how to plot the molecular orbitals by using the benzene (C\ :sub:`6`\H\ :sub:`6`\) molecule.
 
 SCF
 ---
@@ -1401,8 +1401,8 @@ The real parts of the doubly degenerated highest occupied molecular orbitals (HO
    :scale: 120%
    :align: center
 
-TiO2
-====
+TiO\ :sub:`2`
+=============
 
 This example explains hot to perform a calculation with the on-site Coulomb potential correction (DFT+U) by using rutile.
 
