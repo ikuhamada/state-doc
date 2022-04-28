@@ -7,7 +7,7 @@ Utility
 .. warning::
         This page is under construction
 
-There are several utility programs for pre- and post-processing for the STATE code, which are located in the ``utility/`` directory.
+There are several utility programs for pre- and post-processing for the STATE code, which are located in the ``utility`` directory.
 
 chkinpf
 -------
@@ -56,7 +56,8 @@ Usage::
 
 	$ eosfit [E-V data]
 
-where [E-V data] should contain volume (Bohr^3, 1st column) and total energy (Hartree, 2nd column)
+where [E-V data] should contain volume (Bohr^3, 1st column) and total energy (Hartree, 2nd column).
+Estimated total energy, volume, bulk modulus at the equilibrium are printed to ``eosfit.param``.
 
 energy2band
 -----------
