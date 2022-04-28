@@ -11,7 +11,7 @@ There are several utility programs for pre- and post-processing for the STATE co
 
 chkinpf
 -------
-This program performs the minimum test of the input file.
+This program performs a very minimum test of the input file.
 ``chkinpf`` also generates a VESTA or XSF file to check the input geometry.
 
 Usage::
