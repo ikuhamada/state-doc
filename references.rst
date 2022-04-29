@@ -50,8 +50,8 @@ Smearing method
 - M. Methfessel and A. T. Paxton, Phys. Rev. B **40**, 7312 (1991).
 - `N. Marzari, PhD thesis (University of Cambridge, 1996). <http://theossrv1.epfl.ch/Main/Theses?action=download&upname=Marzari_thesis_1996.pdf>`_
 
-Nudged elastic band and quenched molecular dynamics methods
------------------------------------------------------------
+Nudged elastic band and quenched molecular dynamics method
+----------------------------------------------------------
 - `H. Jonsson, G. Mills, and K. W. Jacobsen, "Nudged elastic band method for finding minimum energy paths of transitions," in *Classical and Quantum Dynamics in Condensed Phase Simulations*, edited by B. J. Berne, G. Ciccotti, and D. F. Coker (World Scientific, Singapore, 1998), p 385. <https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.31.531&rep=rep1&type=pdf>`_
 - G. Henkelman, B. P. Uberuaga, and H. Jonsson, J. Chem. Phys. **113**, 9901 (2000).
 
