@@ -15,7 +15,7 @@ Note that the mixed NC/US scheme in GNCPP is independent and was used before the
 Below, a list of the pseudopotentials is given (as of April 7th 2022) with the type and target cutoff wave vectors (GMAX and GMAXP) for the wave functions and augmented charge.
 It is safe to use slightly larger cutoff wave vectors than those listed below.
 
-The list is tentative and shoul be polished (obsolete ones or those exhibiting ghotst states can be included), and the list itself as well as the pseudopotentials must be updated with more information (and may be with new naming convention).
+The list is tentative and should be polished and updated (obsolete ones and those exhibiting ghotst states should be excluded), and the list itself as well as the pseudopotentials must be updated with more information, such as cutoff radii and reference energies (and may be with new naming convention).
 
 +---------------+-------+-----+------+-------------+--------------+
 |  Potential    |  Type | PCC | lmax | target GMAX | target GMAXP |
