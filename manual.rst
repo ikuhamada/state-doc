@@ -1299,10 +1299,13 @@ VERBOSITY
   Syntax::
 
 	&VDW_CORRECTION
+         GRIMME
 	 DVDW [DVDW value]
 	 S6   [S6 value]
 	 CUTOFF [R1] [R2] [R3] 
 	&END
+
+  GRIMME/DFT-D2/DFTD2: The method of the dispersion correction. Only these options (Grimme's DFT-D2) are available.
 
   DVDW: d parameter in DFT-D2
 
