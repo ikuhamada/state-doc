@@ -1142,6 +1142,8 @@ VERBOSITY
 	
   CARTESIAN/CART: If set, atomic coordinates are given in the cartesian coordinate
 
+  ANGSTROM: If set, atomic coordinates are given in Angstrom (cartesian)
+
   CRYSTAL/CRYS: If set, atomic coordinates are given in the crystal coordinate
 
   CPS: Atomic coordinate in the cartesian (NCORD=1 or COORD=CARTESIAN) or in the crystal (NCORD=0 or COORD=CRYSTAL) coordinate
