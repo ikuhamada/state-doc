@@ -49,7 +49,11 @@ GEO_OPT
 
 	* GDIIS: generalized DIIS method
 
-	* FIRE: Fast Inertial Relaxation Engine
+	* FIRE: Fast Inertial Relaxation Engine (original)
+
+	* FIRE_OLD|FIRE_IH: Fast Inertial Relaxation Engine (old implementation by Hamada)
+
+	* FIRE2|FIRE2.0: Fast Inertial Relaxation Engine 2.0
 
 	* NEB: Nudged elastic band method to find saddle points and minimum energy paths
 
