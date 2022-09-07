@@ -1,4 +1,4 @@
-.. _tutorial_ni:
+.. _tutorial_mos2:
 
 :orphan:
 
