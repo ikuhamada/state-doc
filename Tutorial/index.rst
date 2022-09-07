@@ -47,7 +47,7 @@ Calculations of band structure and density of states
 
 :doc:`Crystalline nickel <ni>`
 
-Calculation of band structure and density of states for a metallic system
+Calculation of band structure and density of states for a magnetic system
 
 :doc:`Carbon monoxide on platinum (111) surface <pt111-co>`
 
