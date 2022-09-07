@@ -52,3 +52,7 @@ Calculation of band structure and density of states for a magnetic system
 :doc:`Carbon monoxide on platinum (111) surface <pt111-co>`
 
 Crystal orbital overlap population analysis of an adsorption system
+
+:doc:`Monolayer molybdenum disulfied <mos2>`
+
+Optimization of the lattice constant of a layered material with internal degree of freedom
