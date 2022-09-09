@@ -98,7 +98,7 @@ Total energy and the fitting function obtained are as follows:
    :scale: 15%
    :align: center
 
-Obtained equilibrium lattice parameters are :math:`a=2.63` (Angstrom) [:math:`a=4.977` (Bohr)] and :math:`c=5.26` (Angstrom) [:math:`c=9.948` (Bohr)].
+Obtained equilibrium lattice parameters are :math:`a=2.63` (Angstrom) [:math:`a=4.977` (Bohr)] and :math:`c=5.26` (Angstrom) [:math:`c=9.948` (Bohr)], which are in good agreement with the all-electron PBE values of :math:`a=2.65` (Angstrom) and :math:`c=5.12` (Angstrom) by Wedig and co-workers [Phys. Rev. B **75**, 205123 (2007)].
 
 Alternatively, we can perform calculations at a fixed volume, by optimizing the :math:`c/a` parameter, and obtain the total energy as a function of volume.
 In this case, we optimize :math:`c/a` at the optimized (equilibrium) volume again.
