@@ -21,6 +21,10 @@ Convergence study with respect to the plane-wave cutoff and number of k-points, 
 
 Convergence study with respect to the number of k-points with smearing and tetrahedron methods for a metallic system
 
+:doc:`Crystalline Zinc <zn_hcp>`
+
+Optimization of a crystal with two or more lattice parameters
+
 :doc:`Nitric oxide <no>`
 
 Calculation of a spin polarized molecule
