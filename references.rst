@@ -62,12 +62,12 @@ Fast inertial relaxation engine
 Dipole correction
 -----------------
 - J. Neugebauer and M. Scheffler, Phys. Rev. B **46**, 16067 (1992).
-- L. Bengtsson, Phys. Rev. B **59**, 12301 (1999)
+- L. Bengtsson, Phys. Rev. B **59**, 12301 (1999).
 
 Effective screening medium (ESM) method
 ---------------------------------------
-- M. Otani, O. Sugino, Phys. Rev. B **73**, 115407 (2006)
-- \I. Hamada, M. Otani, O. Sugino, Y. Morikawa, Phys. Rev. B **80**, 165411 (2009)
+- M. Otani, O. Sugino, Phys. Rev. B **73**, 115407 (2006).
+- \I. Hamada, M. Otani, O. Sugino, Y. Morikawa, Phys. Rev. B **80**, 165411 (2009).
 
 Efficient implementation of the van der Waals density functional
 ----------------------------------------------------------------

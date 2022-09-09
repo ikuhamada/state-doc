@@ -56,3 +56,7 @@ Crystal orbital overlap population analysis of an adsorption system
 :doc:`Monolayer molybdenum disulfied <mos2>`
 
 Optimization of the lattice constant of a layered material with internal degree of freedom
+
+:doc:`Aluminum adsorbed silicon (111) surface <si111-al>`
+
+Calculation of an electrified surface with the effective screening medium method
