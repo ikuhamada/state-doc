@@ -11,7 +11,7 @@ Rather, it is better to write a script and automate the calculations.
 Here is an example of (a part of) a script::
 
   #
-  # A list of a and c lattice vector
+  # A list of a and c lattice parameters
   # 
   A_LIST='4.80 4.85 4.90 4.95 5.00 5.05 5.10'
   C_LIST='9.50 9.55 9.60 9.65 9.70 9.75 9.80 9.85 9.90 9.95 10.00'
