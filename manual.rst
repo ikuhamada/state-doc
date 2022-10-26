@@ -1313,11 +1313,13 @@ VERBOSITY
 
   GRIMME/DFT-D2/DFTD2: The method of the dispersion correction. Only these options (Grimme's DFT-D2) are available.
 
-  DVDW: d parameter in DFT-D2
+  DVDW: d parameter in DFT-D2 (default: 20)
 
-  S6: s6 parameter in DFT-D2
+  S6: s6 parameter in DFT-D2 (default: 0.75 for PBE/RPBE/revPBE)
 
-  CUTOFF: Cutoff parameters in the directions of the first, second, and third lattice vectors.
+  CUTOFF: Cutoff parameters in the directions of the first, second, and third lattice vectors (default: 0 (no supercell))
+
+  DEBUG/VERBOSE/VERBOSE_OUTPUT: verbose output for the van der Waals correction 
 
 &VDW-DF ... &END
  This block is used to set the option(s) for the vdW-DF calculation.
