@@ -149,7 +149,7 @@ Furthermore, ``replica.cmd`` is required to run the image-parallel NEB. For this
   03
   04
   05
-  05
+  06
 
 The first line specify if the images are syncronized or not, and should ``ASYNC`` or ``NEB`` for the NEB calculation. The following lines specify the directories containing the intermediate images (excluding the initial and final images).
 
