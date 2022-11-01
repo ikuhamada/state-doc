@@ -5,15 +5,8 @@ Examples
 .. warning::
 	This page is under construction
 
-In this section how to run the STATE examples is described.
-
-See below for the examples used in the Computational Materials Densing (CMD) workshop
-
-.. toctree::
-   :maxdepth: 1
-
-   CMD/index.rst
-
+In this section how to run the STATE examples is described. See `this page <https://state-tutorial.readthedocs.io/>`_ for the examples used in the Computational Materials Densing (CMD) and asia CMD workshops.
+   
 First, download example files from `github <https://github.com/ikuhamada/state-examples>`_ and place them in an appropriate place, say, ``${HOME}/STATE``.
 It is also suggested that the path to the utility program be set in the .bashrc file as (change path and file names according to your environment):
 
