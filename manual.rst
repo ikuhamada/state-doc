@@ -1063,6 +1063,18 @@ VERBOSITY
 
 	* IPRI > 1: more output level 
 
+VERBOSITY_NEB
+	Type: character
+
+	Default: LOW
+
+	Description:
+
+	Output level for the NEB calculation
+
+	* LOW: minimum output
+
+	* HIGH: more output (for debugging)
 
 &CELL ... &END
   This block is used to define the unit cell.
