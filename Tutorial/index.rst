@@ -31,7 +31,7 @@ Calculation of a spin polarized molecule
 
 :doc:`Oxygen molecule <o2>`
 
-Calculation of spin polarized molecule and atom (for atomization energy)
+Calculation of a spin polarized molecule and atom (for atomization energy)
 
 :doc:`Carbon monoxide <co>`
 
