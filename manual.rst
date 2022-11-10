@@ -1063,6 +1063,15 @@ VERBOSITY
 
 	* IPRI > 1: more output level 
 
+NNEB
+	Type: integer
+
+	Default: 0
+
+	Description:
+
+	The number of standard NEB steps before the climbing-image NEB calculation	
+	
 VERBOSITY_NEB
 	Type: character
 
