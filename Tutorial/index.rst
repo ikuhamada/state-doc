@@ -53,6 +53,10 @@ Calculations of band structure and density of states
 
 Calculation of band structure and density of states for a magnetic system
 
+:doc:`Crystalline iron <fe>`
+
+Calculation of band structure and density of states for a magnetic system
+
 :doc:`Carbon monoxide on platinum (111) surface <pt111-co>`
 
 Crystal orbital overlap population analysis of an adsorption system

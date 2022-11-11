@@ -125,7 +125,7 @@ Type
 
  $ energy2band
 
-and the number of bands and the number of k-points are asked.
+and the number of bands and the number of k-points are asked (number of k-point may be found by ``grep nfout_band`` and the Fermi level, ``grep FERMI nfout_scf``).
 The origin of the energy is also asked, for which the Fermi level in the previous SCF calculation (for metallic systems) or the valence band maximum (for insulating systems) is often used.
 When ``energy2band`` is successfully terminated, ``band.data`` is created, which can be visualized by using gnuplot or xmgrace.
 
