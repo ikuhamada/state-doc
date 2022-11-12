@@ -845,7 +845,7 @@ XCTYPE
 
 	* rev-vdw-df2/lmkllh (vdW-DF) rev-vdW-DF2 of Hamada
 
-	* vdw-df-cx/bh (vdW-DF) Berland and Hyldgaard
+	* vdw-df-cx/bh (vdW-DF) of Berland and Hyldgaard
 
 NSPIN
 	Type: integer
