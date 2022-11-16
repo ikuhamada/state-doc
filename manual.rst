@@ -361,7 +361,7 @@ CELL
 	Description:
 
 	Lengths of first, second, and third vectors (A, B, and C), and angles (in degree) between, second and third, third and first, and first and second vectors (ALPHA, BEGA, GAMMA).
-        These parameters define the basic lattice vectors of the conventional unit cell and actual lattice vectors of the conventional lattice vectors depends on ``BRAVIS_TYPE`` or ``TYPE``.
+        These parameters define the basic lattice vectors of the *conventional* unit cell and the lattice vectors of the  *primitive* lattice vectors used in the actual calculation depends on ``BRAVIS_TYPE`` or ``TYPE``.
         In this way, the first lattice vector :math:`a_1` is along the x-axis, the second lattice vector :math:`a_2` is in the xy plane, and the third vector :math:`a_3` is determined depending on the angle with :math:`a_1` and :math:`a_2`.
 
 KPOINT_MESH
