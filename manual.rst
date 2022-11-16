@@ -361,7 +361,7 @@ CELL
 	Description:
 
 	Lengths of first, second, and third vectors (A, B, and C), and angles (in degree) between, second and third, third and first, and first and second vectors (ALPHA, BEGA, GAMMA).
-        These parameters define the basic lattice vectors of the conventional unit cell.
+        These parameters define the basic lattice vectors of the conventional unit cell and actual lattice vectors of the conventional lattice vectors depends on ``BRAVIS_TYPE`` or ``TYPE``.
         In this way, the first lattice vector :math:`a_1` is along the x-axis, the second lattice vector :math:`a_2` is in the xy plane, and the third vector :math:`a_3` is determined depending on the angle with :math:`a_1` and :math:`a_2`.
 
 KPOINT_MESH
@@ -1157,7 +1157,7 @@ VERBOSITY_NEB
 
   Syntax::
 
-	&ATOMIC_COORDINATES [CRYSTAL|CRYS|CARTESIAN|CART]
+	&ATOMIC_COORDINATES [CRYSTAL|CRYS|CARTESIAN|CART|CONVENTIONLAL|CONV]
 	 CPS(1,1) CPS(1,2) CPS(1,3) IWEI(1) IMDTYP(1) ITYP(1)
 	 CPS(2,1) CPS(2,2) CPS(2,3) IWEI(2) IMDTYP(2) ITYP(2)
 	 ...
@@ -1170,6 +1170,8 @@ VERBOSITY_NEB
   ANGSTROM: If set, atomic coordinates are given in Angstrom (cartesian)
 
   CRYSTAL/CRYS: If set, atomic coordinates are given in the crystal coordinate
+
+  CONVENTIONLAL|CONV: If set, atomic coordinates are given in the unit of the conventional lattice vectors
 
   CPS: Atomic coordinate in the cartesian (NCORD=1 or COORD=CARTESIAN) or in the crystal (NCORD=0 or COORD=CRYSTAL) coordinate
 
