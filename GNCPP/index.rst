@@ -9,7 +9,7 @@ GNCPP
 	This page is under construction
 
 STATE uses genelized normconserving pseudopotentials (GNCPPs), which are normconserving (NC), ultrasoft (US), or mixed normconserving/ultrasoft (NC/US) pseudopotentials.
-GNCPPs have been generated using an in-house code developped by Yoshitada Morikawa.
+GNCPPs have been generated using an in-house code developed by Yoshitada Morikawa.
 Note that the mixed NC/US scheme in GNCPP is independent and was used before the publication by Stokbro [Phys. Rev. B 53, 6869 (1996)].
 
 
