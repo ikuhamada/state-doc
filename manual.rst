@@ -1216,6 +1216,10 @@ VERBOSITY_NEB
 	 CPS(NATM,1) CPS(NATM,2) CPS(NATM,3) IWEI(NATM) IMDTYP(NATM) ITYP(NATM)
 	&END
 
+.. warning::
+
+  If ``CRYSTAL``, ``CARTESIAN``, or ``CONVENTIONAL`` is specified in the &ATOMIC_COORDINATES ... &END block and at the same time ``NCORD`` or ``CORD`` is also used, the latter is overwritten. Do not use these options together.
+
 
 &INITIAL_ZETA ... &END
   This block is used to define the initial magnetizations. Default values are zero.
