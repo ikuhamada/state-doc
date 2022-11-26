@@ -575,7 +575,7 @@ CPUMAX
 WAY_MIX | WAYMIX
 	Type: integer
 
-	Default: none
+	Default: 6
 
 	Description:
 
