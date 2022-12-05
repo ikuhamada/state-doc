@@ -136,6 +136,9 @@ Platform specific information
 smith @ Morikawa group 
 ----------------------
 
+sb100 @ Morikawa group 
+----------------------
+
 ohtaka @ ISSP
 -------------
 
