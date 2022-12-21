@@ -42,19 +42,19 @@ Then create a source directory as
 Compilation
 ===========
 
-Having obtained the source code, say ``state-5.6.6.tgz``, unpack the source code under ``src`` as
+Having obtained the source code, say ``state-5.6.10.tgz``, unpack the source code under ``src`` as
 
 .. code:: bash
 
-    $ gzip -dc state-5.6.6.tgz | tar xf -
+    $ gzip -dc state-5.6.10.tgz | tar xf -
 
 or
 
 .. code:: bash
 
-    $ tar zxf state-5.6.6.tgz
+    $ tar zxf state-5.6.10.tgz
 
-``state-5.6.6/`` contains the following file and directories::
+``state-5.6.10/`` contains the following file and directories::
 
     README  arch/   build/  src/    util/
 
@@ -62,7 +62,7 @@ Go to the source directory
 
 .. code:: bash
 
-    $ cd state-5.6.6/src
+    $ cd state-5.6.10/src
 
 
 make a symbolic link to ``make.arch`` as follows, e.g.
@@ -136,9 +136,169 @@ Platform specific information
 smith @ Morikawa group 
 ----------------------
 
+First, make sure modules are loaded as appropriate. Type:
+
+.. code:: bash
+
+    $ module avail
+
+and you can see as follows::
+
+      1) intel/2020.2.254      2) intelmpi/2020.2.254   
+
+If not, type the following:
+
+.. code:: bash
+
+    $ module load intel/2020.2.254
+    $ module load intelmpi/2020.2.254
+
+Change the directory to ``STATE/src`` and copy the source code ``state-5.6.10.tgz`` from my directory, and unpack the source code there:
+
+.. code:: bash
+
+    $ gzip -dc state-5.6.10.tgz | tar xf -
+
+or
+
+.. code:: bash
+
+    $ tar zxf state-5.6.10.tgz
+
+``state-5.6.10/`` contains the following file and directories::
+
+    README  arch/   build/  src/    util/
+
+Go to the source directory:
+
+.. code:: bash
+
+    $ cd state-5.6.10/src
+
+
+make a symbolic link to ``make.arch`` as follows, e.g.
+
+.. code:: bash
+
+    $ ln -s ../arch/make.arch.intel_smith make.arch
+
+and edit ``make.arch`` according to your need. Then type
+
+.. code:: bash
+
+    $ make
+
+You will get the executable ``STATE`` in the source directory.
+
+
 sb100 @ Morikawa group 
 ----------------------
 
+As in the case of smith, make sure modules are loaded as appropriate. Type:
+
+.. code:: bash
+
+    $ module avail
+
+and you can see as follows::
+
+     1) intel/2021.2.0   2) intelmpi/2021.2.0  
+
+If not, type the following:
+
+.. code:: bash
+
+    $ module load intel/2021.2.0
+    $ module load intelmpi/2021.2.0
+
+Change the directory to ``STATE/src`` and copy the source code ``state-5.6.10.tgz`` from my directory, and unpack the source code there:
+
+.. code:: bash
+
+    $ gzip -dc state-5.6.10.tgz | tar xf -
+
+or
+
+.. code:: bash
+
+    $ tar zxf state-5.6.10.tgz
+
+``state-5.6.10/`` contains the following file and directories::
+
+    README  arch/   build/  src/    util/
+
+Go to the source directory:
+
+.. code:: bash
+
+    $ cd state-5.6.10/src
+
+
+make a symbolic link to ``make.arch`` as follows, e.g.
+
+.. code:: bash
+
+    $ ln -s ../arch/make.arch.intel_sb100 make.arch
+
+and edit ``make.arch`` according to your need. Then type
+
+.. code:: bash
+
+    $ make
+
+You will get the executable ``STATE`` in the source directory.
+
+
 ohtaka @ ISSP
 -------------
+
+On ohtaka at ISSP, there are several options for the compiler. As of now (December 21, 2022), we have confirmed that the following compilers can be used:
+
+.. code:: bash
+
+     1) intel_mpi/2020.4.304   2) intel_compiler/2020.4.304   3) intel_mkl/2020.4.304  
+
+.. code:: bash
+
+     1) openapi_compiler/2022.1.2   2) openapi_mpi/2022.1.2   3) openapi_mkl/2022.1.2 
+
+.. note: warning
+
+	STATE runs very slowly with openAPI for some reason (we are workin on this issue).
+
+Change the directory to ``STATE/src`` and copy the source code ``state-5.6.10.tgz`` from my directory, and unpack the source code there:
+
+.. code:: bash
+
+    $ gzip -dc state-5.6.10.tgz | tar xf -
+
+or
+
+.. code:: bash
+
+    $ tar zxf state-5.6.10.tgz
+
+``state-5.6.10/`` contains the following file and directories::
+
+    README  arch/   build/  src/    util/
+
+Go to the source directory:
+
+.. code:: bash
+
+    $ cd state-5.6.10/src
+
+
+make a symbolic link to ``make.arch`` as follows, e.g.
+
+.. code:: bash
+
+    $ ln -s ../arch/make.arch.intel_ohtaka_scalapack make.arch
+
+and edit ``make.arch`` according to your need. Then type
+
+.. code:: bash
+
+    $ make
+
 
