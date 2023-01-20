@@ -1085,6 +1085,39 @@ VERBOSITY_NEB
 
 	* HIGH: more output (for debugging)
 
+PRTCHGPRO | PRT_CHGPRO | PRINT_CHGPRO
+	Type: character
+
+	Default: ON
+
+	Description:
+
+	Output level for the charge profile
+
+	* OFF: No output
+
+	* ON: Minimum output
+
+	* ALL|EVERY_STEP: Output the charge profile at every step
+
+GNCPP_DIR | GNCPPDIR
+	Type: character
+
+	Default: "."
+
+	Description:
+
+	GNCPP (pseudopotential) directory
+
+OUT_DIR | OUTDIR
+	Type: character
+
+	Default: "."
+
+	Description:
+
+	Full path to the output directory (default: "." means the directory where the STATE executable is located)
+
 &CELL ... &END
   This block is used to define the unit cell.
 
