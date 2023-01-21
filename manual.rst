@@ -1118,6 +1118,50 @@ OUT_DIR | OUTDIR
 
 	Full path to the output directory (default: "." means the directory where the STATE executable is located)
 
+ESM | ESM_BC
+	Type: character
+
+	Default: None
+
+	Description:
+
+	This keyword activate the effective screening medium (ESM) method and specify the periodic boundary condition used
+
+	* BC1 | PE0 | BARE: Vacuum/slab/vacuum boundary condition (Bare Coulomb)
+
+	* BC2 | PE1: Metal/slab/metal boundary condition
+
+	* BC3 | PE2: Vacuum/slab/metal boundary condition
+
+	* BC4 | PE3: Vacuum/slab/metal boundary condition (smooth ESM)
+
+ESM_Z1
+	Type: real
+
+	Default: c / 2 (c is the length of the unit cell vector in the surface normal direction)
+
+	Description:
+
+	Z-coordinate of the boundary between vacuum and ESM
+
+ESM_E_FIELD | ESM_EFIELD | ESM_ELECTRIC_FIELD  
+	Type: real
+
+	Default: None
+
+	Description:
+
+	Electric field used with BC2 of the ESM method in Hartree/Bohr
+
+ESM_E_FIELD_EVA | ESM_EFIELD_EVA | ESM_ELECTRIC_FIELD_EVA
+	Type: real
+
+	Default: None
+
+	Description:
+
+	Electric field used with BC2 of the ESM method in eV/Angstrom
+
 &CELL ... &END
   This block is used to define the unit cell.
 
