@@ -1162,6 +1162,15 @@ ESM_E_FIELD_EVA | ESM_EFIELD_EVA | ESM_ELECTRIC_FIELD_EVA
 
 	Electric field used with BC2 of the ESM method in eV/Angstrom
 
+ESM_NEW_EWALD
+	Type: None
+
+	Default: None
+
+	Description:
+
+	An alternative implementation of the Ewald method. Try this option when the system is highly anisotoropic.
+
 &CELL ... &END
   This block is used to define the unit cell.
 
