@@ -111,7 +111,7 @@ Then the similar input file (``nfinp_vib_2``) to the first one is used to perfor
 
 and run ``gif`` after finishing the second STATE run as:
 
-.. code:: bas
+.. code:: bash
 
   $ gif -f nfvibrata.data > gif.out_2
 
