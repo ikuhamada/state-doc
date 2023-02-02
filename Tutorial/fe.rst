@@ -1,4 +1,4 @@
-.. _tutorial_ni:
+.. _tutorial_fe:
 
 :orphan:
 

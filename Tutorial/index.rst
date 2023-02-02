@@ -41,6 +41,10 @@ Calculation of molecular orbitals
 
 Calculation of molecular orbital / wave function densities
 
+:doc:`Water molecule <h2o_vib>`
+
+Vibrational mode analysis
+
 :doc:`H2+H <h2+h>`
 
 Nudged elastic band calculation
