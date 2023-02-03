@@ -9,18 +9,16 @@ This example explains how to perform the vibrational mode analysis using the fin
 First vibrational mode analysis
 -------------------------------
 
-First we perfom a series of SCF calculations by displacing the atoms in each cartesian direction. In the legacy STATE code, we needed to prepare a ``nfvibrate.data`` file to define the atomic displacement, but it is automatically generated (default displacement is 0.01 Bohr). Following is the input file (``nfinp_vib_1``)::
+First we perfom a series of SCF calculations by displacing the atoms in each cartesian direction. Here, it is assumed that the geometry is fully assumed (Maximum force should be less than 5.e-4 Hatree/Bohr or less). In the legacy STATE code, we needed to prepare a ``nfvibrate.data`` file to specify the atomic displacements, but it is automatically generated (default displacement is 0.01 Bohr). Following is the input file (``nfinp_vib_1``)::
 
   TASK       VIB
   WF_OPT     DAV
-  FMAX       1.D-3
-  DTIO       200.00
   NTYP       2
   NATM       3
   GMAX        6.00
   GMAXP      20.00
-  MIX_ALPHA   0.5
-  EDELTA      1.D-10
+  MIX_ALPHA  0.5
+  EDELTA     1.D-10
   NEG        12
   CELL       15.00 15.00 15.00  90.00  90.00  90.00
   &ATOMIC_SPECIES
@@ -49,7 +47,7 @@ to perform the vibrational analysis. If you want to change the displacement use 
 By running STATE, you may find ``nfforce.data`` in the working directory, which contains the data of displacements and forces. If the calculation is not interrupted, it should contain 6 times N displacement and force data, where N is the number of atoms.
 
 .. warning::
-        Displacements and forces are appended when ``nfforce.data`` exists. Rename the existing ``nfforce.data`` file, if you do not want to.
+        Displacements and forces are appended when ``nfforce.data`` exists. Rename the existing ``nfforce.data`` file, if you do not want to append a data.
 
 To obtain the vibrational frequencies and modes, use ``gif`` as follows:
 
@@ -75,19 +73,20 @@ In the present case, vibrational frequencies are printed like::
       9  0.556815D+00 :  473.87   3821.99
 
 
-and the vibrational modes are printed in ``vib.data``
+and the vibrational modes are printed in ``vib.data``. In the case of a nonlinear molecule, 3N-6 modes correspond to the molecular vibrations.
 
 
 Refining the vibrational frequencies and modes
 ----------------------------------------------
 
-To check if the displacement is small enough (so that we obtain the harmonic vibrational frequencies, we usually change the displacement in the cartesian directions and repeat the calculations. Rather, we perform the following calculation(s). Instead of using the cartesian coordinate, we generate new displacements using the vibrationa mode (eigenmode) obtained in the previous step. That is, the dynamical matrix is now constructed using the eigenmode as a basis. We first rename ``vib.data`` ``vib.data_1`` (``nfforce.data`` ``nfforce.data_1`` and ``nfvibrate.data`` ``nfvibrate.data_1``) and execute ``duplicate`` as
+To check if the displacement is appropriate (so that we obtain the harmonic vibrational frequencies), we usually change the displacement in the cartesian directions and repeat the calculations. Rather, we can perform the following calculation(s): Instead of using the cartesian coordinate, we generate new displacements using the vibrationa mode (eigenmode) obtained in the previous step. That is, the dynamical matrix is now constructed using the eigenmodes as a basis. Let us rename ``vib.data`` ``vib.data_1`` (``nfforce.data`` ``nfforce.data_1`` and ``nfvibrate.data`` ``nfvibrate.data_1``) and execute ``duplicate`` as
 
 .. code:: bash
 
   $ duplicate vib.data_1 nfvibrate.data
 
-Then the similar input file (``nfinp_vib_2``) to the first one is used to perform a new set of the calculations::
+This generates a new set of displacements in the negative and positive directions for each eigenmode.
+Then a similar input file (``nfinp_vib_2``) to the first one is used to perform a new set of the calculations::
 
   TASK       VIB
   WF_OPT     DAV
@@ -109,13 +108,13 @@ Then the similar input file (``nfinp_vib_2``) to the first one is used to perfor
         0.000000000000      0.000000000000      0.000000000000    1    1    2
   &END
 
-and run ``gif`` after finishing the second STATE run as:
+Run ``gif`` after finishing the second STATE run with new ``nfforce.data`` as:
 
 .. code:: bash
 
-  $ gif -f nfvibrata.data > gif.out_2
+  $ gif -f nfforce.data > gif.out_2
 
-and obtain the following vibrational frequencies::
+and you many obtain the following vibrational frequencies::
 
                    =========             
                     SUMMARY              

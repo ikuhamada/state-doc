@@ -4,7 +4,7 @@
 
 Water
 =====
-In this example, how to draw orbital/wave function densities, i.e., square moduli of the wave functions. We use a water molecule in a box as an example.
+In this example, how to draw orbital/wave function densities, i.e., square moduli of the wave functions, is described. We use a water molecule in a box as an example.
 
 SCF calculation
 ---------------
