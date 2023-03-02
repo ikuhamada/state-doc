@@ -1121,7 +1121,7 @@ OUT_DIR | OUTDIR
 ESM | ESM_BC
 	Type: character
 
-	Default: None
+	Default: none
 
 	Description:
 
@@ -1147,7 +1147,7 @@ ESM_Z1
 ESM_E_FIELD | ESM_EFIELD | ESM_ELECTRIC_FIELD  
 	Type: real
 
-	Default: None
+	Default: none
 
 	Description:
 
@@ -1156,16 +1156,16 @@ ESM_E_FIELD | ESM_EFIELD | ESM_ELECTRIC_FIELD
 ESM_E_FIELD_EVA | ESM_EFIELD_EVA | ESM_ELECTRIC_FIELD_EVA
 	Type: real
 
-	Default: None
+	Default: none
 
 	Description:
 
 	Electric field used with BC2 of the ESM method in eV/Angstrom
 
 ESM_NEW_EWALD
-	Type: None
+	Type: none
 
-	Default: None
+	Default: none
 
 	Description:
 
@@ -1174,7 +1174,7 @@ ESM_NEW_EWALD
 STMOPT
 	Type: integer
 
-	Default: None
+	Default: none
 
 	Description:
 
@@ -1198,7 +1198,7 @@ DESTM | BIAS | STM_BIAS
 Z0STM | Z0_STM | STM_Z0
 	Type: real
 
-	Default: None
+	Default: none
 
 	Description:
 
@@ -1207,7 +1207,7 @@ Z0STM | Z0_STM | STM_Z0
 VAC | STM_VAC | VACUUM_LEVEL
 	Type: real
 
-	Default: None
+	Default: none
 
 	Description:
 
