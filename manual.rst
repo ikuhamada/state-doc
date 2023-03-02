@@ -1171,6 +1171,48 @@ ESM_NEW_EWALD
 
 	An alternative implementation of the Ewald method. Try this option when the system is highly anisotoropic.
 
+STMOPT
+	Type: integer
+
+	Default: None
+
+	Description:
+
+	An integer to specify how to reconstruct the wave function in the vacuum region for an STM simulation.
+
+	* 0: No wave function reconstruction
+
+	* 1: Reconstruction of wave functions so that they decay exponentially in the vacuum region.
+
+	* 2: Reconstruction of wave functions by solving them using the planar average electrostatic potential in the vacuum region (experimental).
+
+DESTM | BIAS | STM_BIAS
+	Type: real
+
+	Default: 0
+
+	Description:
+
+	STM bias in eV.
+
+Z0STM | Z0_STM | STM_Z0
+	Type: real
+
+	Default: None
+
+	Description:
+
+	Z-coordinate (in Bohr) at which the charge density is negligiblly small in the vacuum region. Used for STM simulations (``STMOPT>0``)
+
+VAC | STM_VAC | VACUUM_LEVEL
+	Type: real
+
+	Default: None
+
+	Description:
+
+	Vacuum level used for STM simulations.
+
 &CELL ... &END
   This block is used to define the unit cell.
 
