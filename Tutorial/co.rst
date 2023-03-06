@@ -95,6 +95,7 @@ We then modify the input file ``nfinp_prtwfc`` as::
         2.188120977445      0.000000097882     -0.000000268744    1    1    2
   &END
   &PLOT
+   IK     1
    IBS    5
    IBE    7
    FORMAT XSF
@@ -108,6 +109,7 @@ In addition you can find the line::
 to tell the code to plot the wave function in real space and the block::
 
   &PLOT
+   IK     1
    IBS    5
    IBE    7
    FORMAT XSF
