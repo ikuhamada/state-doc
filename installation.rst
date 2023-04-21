@@ -252,19 +252,12 @@ You will get the executable ``STATE`` in the source directory.
 ohtaka @ ISSP
 -------------
 
-On ohtaka at ISSP, there are several options for the compiler. As of now (December 21, 2022), we have confirmed that the following compilers can be used:
+On ohtaka at ISSP, we have confirmed that the following modules can be used safely (as of April 24, 2023):
 
 .. code:: bash
 
-     1) intel_mpi/2020.4.304   2) intel_compiler/2020.4.304   3) intel_mkl/2020.4.304  
+ 1) oneapi_compiler/2023.0.0   2) oneapi_mkl/2023.0.0   3) openmpi/4.1.5-oneapi-2023.0.0-classic  
 
-.. code:: bash
-
-     1) openapi_compiler/2022.1.2   2) openapi_mpi/2022.1.2   3) openapi_mkl/2022.1.2 
-
-.. note: warning
-
-	STATE runs very slowly with openAPI for some reason (we are workin on this issue).
 
 Change the directory to ``STATE/src`` and copy the source code ``state-5.6.10.tgz`` from my directory, and unpack the source code there:
 
@@ -295,7 +288,21 @@ make a symbolic link to ``make.arch`` as follows, e.g.
 
     $ ln -s ../arch/make.arch.intel_ohtaka_scalapack make.arch
 
-and edit ``make.arch`` according to your need. Then type
+and edit ``make.arch`` according to your need. We typically need the following changes in ``make.arch``::
+
+
+  F90    = mpif90
+  LINKER = mpif90
+  OMP    = -qopenmp
+
+and
+
+.. code:: bash
+
+  LIBS   = -lmkl_scalapack_lp64 -lmkl_blacs_openmpi_lp64 \
+           -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core
+
+After the edit, type
 
 .. code:: bash
 
