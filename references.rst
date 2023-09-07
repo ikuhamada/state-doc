@@ -58,6 +58,7 @@ Nudged elastic band and quenched molecular dynamics method
 Fast inertial relaxation engine
 -------------------------------
 - E. Bitzek, P. Koskinen, F. Gahler, M. Moseler, P. Gumbsch, Phys. Rev. Lett. **97**, 170201 (2006).
+- J. Guenole, W. G. Nohring, A. Vaid, F. Houlle, Z. Xie, A. Prakash, and E. Bitzek, Comput. Mater. Sci. **175, 109584 (2020).
 
 Dipole correction
 -----------------
