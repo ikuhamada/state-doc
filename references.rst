@@ -85,3 +85,7 @@ Crystal orbital overlap analysis
 - R. Hoffman, Rev. Mod. Phys. **60**, 601 (1988).
 - H. Aizawa and S. Tsuneyuki, Surf. Sci. **399**, L364 (1998).
 - Y. Hamamoto, S. A. Wella, K. Inagaki, F. Abild-Pedersen, T. Bligaard, I. Hamada, and Y. Morikawa, Phys. Rev. B **102**, 075408 (2020).
+
+Vibrational analysis
+--------------------
+- E. Bright Wilson Jr., J. C. Decius, and Paul C. Cross, *Molecular Vibrations: The Theory of Infrared and Raman Vibrational Spectra*
