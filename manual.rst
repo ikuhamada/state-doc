@@ -642,7 +642,7 @@ MIXOBJ
 KBXMIX | NMIX
 	TYpe: integer
 
-	Default: none
+	Default: 30
 
 	Description:
 
