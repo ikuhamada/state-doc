@@ -1667,6 +1667,7 @@ VAC | STM_VAC | VACUUM_LEVEL
 	 IB [value]
 	 [CHG_WFN]
 	 [ADD_SIGN]
+         [PRT_VLOC]
 	 FORMAT [value]
 	&END
 
@@ -1692,8 +1693,7 @@ VAC | STM_VAC | VACUUM_LEVEL
 
   * XSF_CHARGE/CHARGE_XSF: Charge densities corresponding to the specified wave functions in the Xcrysden Structure File format
 
-  * PRTVLOC/PRT_VLOC/PRINT_VLOC: Local potential (sum of the local and Hartree potentials) in the Xcrysden Structure File format
-
+  PRTVLOC/PRT_VLOC/PRINT_VLOC: Local potential (sum of the local and Hartree potentials) in the Xcrysden Structure File format
 
 &VIBRATION ... &END
   This block is used to set parameters for the finite difference method.
