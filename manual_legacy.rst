@@ -278,6 +278,7 @@ Restart options for the wave functions
 11  Print the soft part of the charge density in real space.
 10  Simple STM simulation.
 12  DOS calculation.
+13  Old ALDOS
 14  Partial density of states (PDOS/AO_LDOS) calculation (DOS projected onto the atomic orbitals).
 21  STM simulation with the wave functions reconstructed in the vacuum region
 24  K-point resolved partial density of states (PDOS) calculation.
@@ -288,7 +289,6 @@ Restart options for the wave functions
 22  Band structure calculation.
 23  Restart the band structure calculation.
 33  Atomic layer resolved density of states (ALDOS) calculation.
-133 Old ALDOS
 40  Generate wave functions and potential.data for GWST (version 5.3.8b)
 41  Generate wave functions along the high symmetry points and potentials for GWST (version 5.3.8b)
 === ===========================================================================================================================
