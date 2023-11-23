@@ -1,1 +1,1 @@
-sphix_rtd_theme==1.2.2
+sphix-rtd-theme==1.2.2
