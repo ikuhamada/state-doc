@@ -22,7 +22,7 @@ CUR_DIR = os.path.dirname(os.path.abspath(__file__))
 # -- Project information -----------------------------------------------------
 
 project = u'STATE'
-copyright = u'2018-2022, Ikutaro Hamada'
+copyright = u'2018-2023, Ikutaro Hamada'
 author = u'Ikutaro Hamada'
 
 # The short X.Y version
