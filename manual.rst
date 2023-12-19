@@ -621,6 +621,8 @@ MIX
 
 	* BROYDEN2: Broyden2 mixing
 
+	* DFP: DFP mixing
+
 	* PULAY: Pulay mixing
 
 	* BLUGEL: Bluegel-Ishida mixing scheme 
