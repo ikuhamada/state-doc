@@ -29,12 +29,22 @@ Ultrasoft pseudopotential
 Iterative diagonalization
 -------------------------
 - G. Kresse and J. Furthmuller, Phys. Rev. B **54**, 11169 (1996).
-- G. Kresse and J. Furthmuller, Comp. Mat. Sci. **6**. 15 (1996).
+- G. Kresse and J. Furthmuller, Comp. Mat. Sci. **6**, 15 (1996).
 
 Original references for Davidson method and RMM-DIIS
 
 - E. R. Davidson, J. Comp. Phys. **17**. 87 (1975).
 - D. M. Wood and A. Zunger, J. Phys. A: Math. Gen. **18**, 1343 (1985).
+
+Charge density mixing
+---------------------
+- G. Kresse and J. Furthmuller, Comp. Mat. Sci. **6**, 15 (1996).
+
+Original references for the improved Broyden's second method
+
+- D. D. Johnson, Phys. Rev. B **38**, 12807 (1988).
+- G. P. Srivastava, J. Phys. A: Math. Gen. **17**, L317 (1984).
+- D. Vanderbilt and S. G. Louie, Phys. Rev. B **30**, 6118 (1984).
 
 Real-space projection of the nolocal pseudopotential
 ----------------------------------------------------
