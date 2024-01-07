@@ -545,6 +545,25 @@ INIACC
 	
 	* 1: From restart.data
 
+INITIALIZE
+	Type: character
+
+	Default: none
+
+	Description:
+
+	Initialization
+
+	* WF: Wave functions are initialized (``ICOND=0``)
+
+	* POS: Atomic positions are read from the input file (``INIPOS=0``)
+
+	* VEL: Velocity is initialized (``INIVEL=0``)
+
+	* NOSE: Nose variables are initialized (``ININOS=0``)
+
+	* ACC: Accumulators are initialized (``INIACC=0``)
+
 NSCF
 	Type: integer
 	
