@@ -1121,6 +1121,30 @@ PRTCHGPRO | PRT_CHGPRO | PRINT_CHGPRO
 
 	* ALL|EVERY_STEP: Output the charge profile at every step
 
+PRTELE | PRT_ELE | PRINT_ELE
+	Type: character
+
+	Default: none
+
+	Description:
+
+	Output level for the wave functions and charge density /potential
+
+	* OFF: No output
+
+	* ON: Minimum output (at the end of SCF/structural optimization steps)
+
+	* ALL | EVERY_STEP: Output wave functions and charge density / potential at every structural optimization / molecular dynamics steps
+
+NSTEPS_PRINT_ELE
+	Type: integer
+
+	Default: 0
+
+	Description:
+
+	Frequency of the wave function/charge density/potntial output. They are printed out every ``NSTEP_PRINT_ELE`` steps.
+
 GNCPP_DIR | GNCPPDIR
 	Type: character
 
