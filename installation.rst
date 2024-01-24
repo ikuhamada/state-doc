@@ -153,19 +153,19 @@ If not, type the following:
     $ module load intel/2020.2.254
     $ module load intelmpi/2020.2.254
 
-Change the directory to ``STATE/src`` and copy the source code ``state-5.6.10.tgz`` from my directory, and unpack the source code there:
+Change the directory to ``STATE/src`` and copy the source code ``state-5.6.14.tgz`` from my directory, and unpack the source code there:
 
 .. code:: bash
 
-    $ gzip -dc state-5.6.10.tgz | tar xf -
+    $ gzip -dc state-5.6.14.tgz | tar xf -
 
 or
 
 .. code:: bash
 
-    $ tar zxf state-5.6.10.tgz
+    $ tar zxf state-5.6.14.tgz
 
-``state-5.6.10/`` contains the following file and directories::
+``state-5.6.14/`` contains the following file and directories::
 
     README  arch/   build/  src/    util/
 
@@ -173,7 +173,7 @@ Go to the source directory:
 
 .. code:: bash
 
-    $ cd state-5.6.10/src
+    $ cd state-5.6.14/src
 
 
 make a symbolic link to ``make.arch`` as follows, e.g.
@@ -211,19 +211,19 @@ If not, type the following:
     $ module load intel/2021.2.0
     $ module load intelmpi/2021.2.0
 
-Change the directory to ``STATE/src`` and copy the source code ``state-5.6.10.tgz`` from my directory, and unpack the source code there:
+Change the directory to ``STATE/src`` and copy the source code ``state-5.6.14.tgz`` from my directory, and unpack the source code there:
 
 .. code:: bash
 
-    $ gzip -dc state-5.6.10.tgz | tar xf -
+    $ gzip -dc state-5.6.14.tgz | tar xf -
 
 or
 
 .. code:: bash
 
-    $ tar zxf state-5.6.10.tgz
+    $ tar zxf state-5.6.14.tgz
 
-``state-5.6.10/`` contains the following file and directories::
+``state-5.6.14/`` contains the following file and directories::
 
     README  arch/   build/  src/    util/
 
@@ -231,7 +231,7 @@ Go to the source directory:
 
 .. code:: bash
 
-    $ cd state-5.6.10/src
+    $ cd state-5.6.14/src
 
 
 make a symbolic link to ``make.arch`` as follows, e.g.
@@ -252,26 +252,26 @@ You will get the executable ``STATE`` in the source directory.
 ohtaka @ ISSP
 -------------
 
-On ohtaka at ISSP, we have confirmed that the following modules can be used safely (as of April 24, 2023):
+On ohtaka at ISSP, we have confirmed that the following modules can be used safely (see a note below):
 
 .. code:: bash
 
- 1) oneapi_compiler/2023.0.0   2) oneapi_mkl/2023.0.0   3) openmpi/4.1.5-oneapi-2023.0.0-classic  
+ 1) oneapi_compiler/2023.0.0   2) oneapi_mkl/2023.0.0   3) openapi_mpi/2023.0.0
 
 
-Change the directory to ``STATE/src`` and copy the source code ``state-5.6.10.tgz`` from my directory, and unpack the source code there:
+Change the directory to ``STATE/src`` and copy the source code ``state-5.6.14.tgz`` from my directory, and unpack the source code there:
 
 .. code:: bash
 
-    $ gzip -dc state-5.6.10.tgz | tar xf -
+    $ gzip -dc state-5.6.14.tgz | tar xf -
 
 or
 
 .. code:: bash
 
-    $ tar zxf state-5.6.10.tgz
+    $ tar zxf state-5.6.14.tgz
 
-``state-5.6.10/`` contains the following file and directories::
+``state-5.6.14/`` contains the following file and directories::
 
     README  arch/   build/  src/    util/
 
@@ -279,7 +279,7 @@ Go to the source directory:
 
 .. code:: bash
 
-    $ cd state-5.6.10/src
+    $ cd state-5.6.14/src
 
 
 make a symbolic link to ``make.arch`` as follows, e.g.
@@ -288,21 +288,69 @@ make a symbolic link to ``make.arch`` as follows, e.g.
 
     $ ln -s ../arch/make.arch.intel_ohtaka_scalapack make.arch
 
-and edit ``make.arch`` according to your need. We typically need the following changes in ``make.arch``::
-
-
-  F90    = mpif90
-  LINKER = mpif90
-  OMP    = -qopenmp
-
-and
+and type
 
 .. code:: bash
 
-  LIBS   = -lmkl_scalapack_lp64 -lmkl_blacs_openmpi_lp64 \
-           -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core
+    $ make
 
-After the edit, type
+.. warning::
+	When running a code build with Intel MPI (``oneapi_mpi/2023.0.0``), set ``export FI_PROVIDER=psm3`` in the job script, along with the modules used above.
+
+SQUID @ Cybermedia Center, Osaka University
+-------------------------------------------
+
+On SQUID at Cybermedia Center, Osaka University, we use the following modules:
+
+- BaseCPU
+- BasePy
+
+Current default modules are ``BaseCPU/2023`` and ``BasePy/2023``. Type or write the following to use these modules
+
+.. code:: bash
+
+	module load BaseCPU/2023
+	module load BasePy/2023
+
+Loaded modules are followings:
+
+.. code:: bash
+
+	 1) inteloneAPI/2023.0   5) compiler/latest   9) dal/latest                13) mkl/latest       17) BaseCPU/2023(default)  
+	 2) tbb/latest           6) mpi/latest       10) inspector/latest          14) vtune/latest     18) python3/3.6            
+	 3) compiler-rt/latest   7) advisor/latest   11) intel_ipp_intel64/latest  15) debugger/latest  19) BasePy/2023(default)   
+	 4) oclfpga/latest       8) clck/latest      12) itac/latest               16) dpl/latest       
+
+Change the directory to ``STATE/src`` and copy the source code ``state-5.6.14.tgz`` from my directory, and unpack the source code there:
+
+.. code:: bash
+
+    $ gzip -dc state-5.6.14.tgz | tar xf -
+
+or
+
+.. code:: bash
+
+    $ tar zxf state-5.6.14.tgz
+
+``state-5.6.14/`` contains the following file and directories::
+
+    README  arch/   build/  src/    util/
+
+Go to the source directory:
+
+.. code:: bash
+
+    $ cd state-5.6.14/src
+
+
+make a symbolic link to ``make.arch`` as follows, e.g.
+
+.. code:: bash
+
+    $ ln -s ../arch/make.arch.intel_squid make.arch
+
+Then, type
 
 .. code:: bash
 
