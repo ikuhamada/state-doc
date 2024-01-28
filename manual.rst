@@ -1143,7 +1143,7 @@ NSTEPS_PRINT_ELE
 
 	Description:
 
-	Frequency of the wave function/charge density/potntial output. They are printed out every ``NSTEP_PRINT_ELE`` steps.
+	Frequency of the wave function/charge density/potntial output. They are printed out every ``NSTEP_PRINT_ELE`` steps and if negative, they are not printed at all.
 
 GNCPP_DIR | GNCPPDIR
 	Type: character
