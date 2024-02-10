@@ -1679,6 +1679,36 @@ VAC | STM_VAC | VACUUM_LEVEL
   EWIDTH: Smearing width for the Gaussian broadening in eV (default: 0.01 Hartree ~ 0.3 eV)
 
 
+&ALDOS ... &END
+  This block is used to define the parameters needed to calculate atomic layer resolved DOS (ALDOS).
+
+  Syntax::
+
+	&ALDOS
+	 ZMIN [value]
+	 ZMAX [value]
+	 NLAY [value]
+	 EMIN [value]
+	 EMAX [value]
+         NDOSE [value]
+         EWIDTH [value]
+	&END
+
+  ZMIN: Minimum z-position for ALDOS in Bohr
+  
+  ZMAX: Maximum z-position for ALDOS in Bohr
+
+  NLAY: Number of atomic layers to be considered between `ZMIN` and `ZMAX`
+
+  EMIN: Minimum energy in eV (default: -0.5 Hartree ~ -13.6 eV)
+
+  EMAX: Maximum energy in eV (default: 0.3 Hartree ~ 8.2 eV)
+
+  NDOSE: Energy mesh (integer) for the density of states calculation (default: 2000)
+
+  EWIDTH: Smearing width for the Gaussian broadening in eV (default: 0.01 Hartree ~ 0.3 eV)
+
+
 &KPOINTS_BAND ... &END
   This block is used to define the parameters needed in the band structure calculation.
 
