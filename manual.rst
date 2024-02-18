@@ -98,6 +98,8 @@ RESTART
         * RESTART_FILE: geometry and velocities are read from the restart file ("restart.data"). Wave function are calculated from scratch if not specified.
 
         * GEOMETRY_FILE: geometry and velocities are read from the GEOMETRY file. Wave function are calculated from scratch if not specified.
+.. warning::
+	Be aware that using the keyword ``RESTART`` and ``ICOND`` may result in a conflict. It is recommended `not` to use these keywords at the same time.
 
 
 VIBRATION
