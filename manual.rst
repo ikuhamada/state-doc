@@ -99,7 +99,7 @@ RESTART
 
         * GEOMETRY_FILE: geometry and velocities are read from the GEOMETRY file. Wave function are calculated from scratch if not specified.
 .. warning::
-	Be aware that using the keyword ``RESTART`` and ``ICOND`` may result in a conflict. It is recommended `not` to use these keywords at the same time.
+	Be aware that using the keyword ``RESTART`` and ``ICOND`` may result in a conflict. It is recommended `not` to use these keywords at the same time. Also, ``RESTART`` and ``TASK`` cannot be used at the same time. See the ``TASK`` section for restart options.
 
 
 VIBRATION
@@ -205,21 +205,39 @@ TASK
 
 	* SCF | WF_OPT : SCF calculation
 
+	* RESTART_SCF | RESTART_WF_OPT : Restarting the previous SCF calculation
+
 	* NSCF : Non-SCF calculation
 
 	* BAND : Band structure calculation
 
 	* OPT | GEO_OPT : Structural optimization
 
-	* MD | FTMD : Finite temperature molecular dynamics
+	* RESTART_OPT | RESTART_GEO_OPT : Restarting the previous structural optimization
 
-	* ZTMD : Zero temperature molecular dynamics
+	* MD | FTMD : Finite temperature molecular dynamics (FTMD)
 
-	* NEB : Nudged elastic band calculation
+	* RESTART_MD | RESTART_FTMD : Restarting the previous FTMD simulation
 
-	* CINBE : Climbing-image nudged elastic band calculation
+	* ZTMD : Zero temperature molecular dynamics (ZTMD)
+
+	* RESTART_ZTMD: Restarting the previous ZTMD simulation
+
+	* NEB : Nudged elastic band (NEB) calculation
+
+	* RESTART_NEB : Restarting the previous NEB calculation
+
+	* CINBE : Climbing-image nudged elastic band (CINEB) calculation
+
+	* RESTART_CINEB: Restarting the previous CINEB calculation
 
 	* VIB : Vibrational mode analysis
+
+	* RESTART_VIB: Restarting the previous vibrational mode analysis
+
+	* VIB_DPL: Calculate and print the dipole moments in the z-direction at given atomic displacements
+
+	* RESTART_VIB_DPL: Restartin the previous calculations of the dipole moments in the z-direction at given displacements
 
 	* PRTRHO | PRTCHG : Print the charge density in real space
 
