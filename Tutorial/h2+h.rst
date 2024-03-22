@@ -125,7 +125,7 @@ This creates 7 images (subdirectories ``01``, ``02``, ... ``07``) including init
   07:
   nfinp.data  nudged_2
 
-In each ``nfinp.data``, we need to use declare::
+In each ``nfinp.data``, we need to declare::
 
   GEO_OPT NEB
 
