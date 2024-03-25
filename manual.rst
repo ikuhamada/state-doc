@@ -57,7 +57,7 @@ GEO_OPT
 
 	* NEB: Nudged elastic band method to find saddle points and minimum energy paths
 
-	* CINEB: Climbing-image NEB method
+	* CINEB: Climbing-image NEB method (this keyword should be used only for the image to be climed or that at the transision state, not all the images)
 
 
 ION_DYN
