@@ -243,7 +243,7 @@ TASK
 
 	* DOS : Print the total density of states
 
-	* PDOS : Print the density of states projected onto atomic orbital (AOLDOS)
+	* PDOS | AOLDOS : Print the density of states projected onto atomic orbital (AOLDOS)
 
 	* PRTWFC | PRTWFN : Print wave function(s) in real space
 
@@ -1429,8 +1429,8 @@ VAC | STM_VAC | VACUUM_LEVEL
   ZETA1: Initial magnetization for each type of element
 
 
-&PDOS ... &END
-  This block is used to define the parameters needed to calculated PDOS in the legacy STATE format.
+&PDOS ... &END | &AOLDOS ... &END
+  This block is used to define the parameters needed to calculated PDOS (AOLDOS) in the legacy STATE format.
 
   Syntax::
 	
