@@ -1776,7 +1776,7 @@ VAC | STM_VAC | VACUUM_LEVEL
 
   CHG_WFN/CHG_WFC: Calculate the wave function densities
 
-  ADD_SIGN/ADD_SIGN_MO_DEN/ADD_SIGN_WF_DEN: Option to add the sign to the wave function densities
+  ADD_SIGN/ADD_SIGN_MO_DEN/ADD_SIGN_WF_DEN: Option to add the sign to the wave function densities. Valid only for the wave functions at the Gamma point.
 
   FORMAT: Format of the wave function can be specified
 
