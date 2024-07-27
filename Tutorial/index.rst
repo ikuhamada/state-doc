@@ -51,7 +51,7 @@ Nudged elastic band calculation
 
 :doc:`Crystalline silver <ag>`
 
-Calculations of band structure and density of states
+Calculations of band structure, density of states, and densities of states projected onto atomic(-like) orbitals.
 
 :doc:`Crystalline nickel <ni>`
 
