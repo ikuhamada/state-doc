@@ -62,7 +62,7 @@ Smearing method
 
 Nudged elastic band and quenched molecular dynamics method
 ----------------------------------------------------------
-- `H. Jonsson, G. Mills, and K. W. Jacobsen, "Nudged elastic band method for finding minimum energy paths of transitions," in *Classical and Quantum Dynamics in Condensed Phase Simulations*, edited by B. J. Berne, G. Ciccotti, and D. F. Coker (World Scientific, Singapore, 1998), p 385. <https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.31.531&rep=rep1&type=pdf>`_
+- `H. Jonsson, G. Mills, and K. W. Jacobsen, "Nudged elastic band method for finding minimum energy paths of transitions," in *Classical and Quantum Dynamics in Condensed Phase Simulations*, edited by B. J. Berne, G. Ciccotti, and D. F. Coker (World Scientific, Singapore, 1998), p 385. <https://hj.hi.is/papers/paperNEBleri.pdf>`_
 - G. Henkelman, B. P. Uberuaga, and H. Jonsson, J. Chem. Phys. **113**, 9901 (2000).
 
 Fast inertial relaxation engine
