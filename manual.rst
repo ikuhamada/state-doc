@@ -120,7 +120,7 @@ PRINT_RHO
 
 	Description:
 
-	Use this keyword to print the charge density in real space
+	Use this keyword to print the charge density in real space.
 
 
 DOS
@@ -130,7 +130,7 @@ DOS
 
 	Description:
 
-	Use this keyword to print the total density of states
+	Use this keyword to print the total density of states.
 
 
 PDOS | AOLDOS
@@ -160,7 +160,7 @@ COOP
 
 	Description:
 
-	Use this keyword to generate data for the COOP analysis
+	Use this keyword to generate data for the COOP analysis.
 
 
 BAND
@@ -170,7 +170,7 @@ BAND
 
 	Description:
 
-	Use this keyword to perform the band structure analysis
+	Use this keyword to perform the band structure analysis.
 
 
 STM_SIMPLE
@@ -950,7 +950,7 @@ TEMP_CONTROL
 
 	Description:
 
-	This keyword defines the ensemble method for the finite temperature molecular dynaics simulation
+	This keyword defines the ensemble method for the finite temperature molecular dynaics simulation.
 
 	* MICRO: Microcanonical 
 
@@ -973,7 +973,7 @@ MVELSC
 	
 	Description:
 
-	Integer to define the method of velocity control for the finite temperature molecular dynamics simulation
+	Integer to define the method of velocity control for the finite temperature molecular dynamics simulation.
 
 	* 0: Microcanonical
 
@@ -1014,7 +1014,7 @@ TOLP
 
 	Description:
 
-	Tolerance of temperature in Kelvin. This variable is used in the simple velocity rescaling or rolling average method
+	Tolerance of temperature in Kelvin. This variable is used in the simple velocity rescaling or rolling average method.
 
 
 WNOSEP
@@ -1111,7 +1111,7 @@ NNEB
 
 	Description:
 
-	The number of standard NEB steps before the climbing-image NEB calculation	
+	The number of standard NEB steps before the climbing-image NEB calculation.
 	
 VERBOSITY_NEB
 	Type: character
@@ -1120,7 +1120,7 @@ VERBOSITY_NEB
 
 	Description:
 
-	Output level for the NEB calculation
+	Output level for the NEB calculation.
 
 	* LOW: minimum output
 
@@ -1133,7 +1133,7 @@ PRTCHGPRO | PRT_CHGPRO | PRINT_CHGPRO
 
 	Description:
 
-	Output level for the charge profile
+	Output level for the charge profile.
 
 	* OFF: No output
 
@@ -1148,7 +1148,7 @@ PRTELE | PRT_ELE | PRINT_ELE
 
 	Description:
 
-	Output level for the wave functions and charge density /potential
+	Output level for the wave functions and charge density /potential.
 
 	* OFF: No output
 
@@ -1181,7 +1181,7 @@ OUT_DIR | OUTDIR
 
 	Description:
 
-	Full path to the output directory (default: "." means the directory where the STATE executable is located)
+	Full path to the output directory (default: "." means the directory where the STATE executable is located).
 
 ESM | ESM_BC
 	Type: character
@@ -1190,7 +1190,7 @@ ESM | ESM_BC
 
 	Description:
 
-	This keyword activate the effective screening medium (ESM) method and specify the periodic boundary condition used
+	This keyword activate the effective screening medium (ESM) method and specify the periodic boundary condition used.
 
 	* BC1 | PE0 | BARE: Vacuum/slab/vacuum boundary condition (Bare Coulomb)
 
@@ -1207,7 +1207,7 @@ ESM_Z1
 
 	Description:
 
-	Z-coordinate of the boundary between vacuum and ESM
+	Z-coordinate of the boundary between vacuum and ESM.
 
 ESM_E_FIELD | ESM_EFIELD | ESM_ELECTRIC_FIELD  
 	Type: real
@@ -1216,7 +1216,8 @@ ESM_E_FIELD | ESM_EFIELD | ESM_ELECTRIC_FIELD
 
 	Description:
 
-	Electric field used with BC2 of the ESM method in Hartree/Bohr
+	Electric field used with BC2 and BC3 of the ESM method in Hartree/Bohr.
+	``E_FIELD`` can also be used.
 
 ESM_E_FIELD_EVA | ESM_EFIELD_EVA | ESM_ELECTRIC_FIELD_EVA
 	Type: real
@@ -1225,7 +1226,8 @@ ESM_E_FIELD_EVA | ESM_EFIELD_EVA | ESM_ELECTRIC_FIELD_EVA
 
 	Description:
 
-	Electric field used with BC2 of the ESM method in eV/Angstrom
+	Electric field used with BC2 BC3 of the ESM method in eV/Angstrom.
+	``E_FIELD_EVA`` can also be used.
 
 ESM_NEW_EWALD
 	Type: none
@@ -1309,9 +1311,9 @@ VAC | STM_VAC | VACUUM_LEVEL
 
   ATOMN: Atomic number.
 
-  ALFA: Initial charge (obsolete).
+  ALFA: Initial charge (obsolete)
 
-  AMION: Atomic weight in atomic mass unit.
+  AMION: Atomic weight in atomic mass unit
 
   ILOC: Angular momentum (l_loc + 1) for the local pseudopotential (obsolete)
 
@@ -1601,7 +1603,7 @@ VAC | STM_VAC | VACUUM_LEVEL
 
   Z1: Z position of the cell boundary
 
-  CHARGE: Charge of the system. Note that positive value means deficit charge, while negative, excess charge.
+  CHARGE: Charge of the system. Note that positive value means deficit charge, while negative, excess charge
 
   Z_WALL: Z position of an artifical wall potential for electron
 
@@ -1609,7 +1611,7 @@ VAC | STM_VAC | VACUUM_LEVEL
 
   BAR_WIDTH: Width for the artifical wall potential for electron
 
-  ELECTRIC_FIELD: Electric field (in Ha/Bohr) applied to the system. Use with the boundary condition PE1 (BC2).
+  ELECTRIC_FIELD: Electric field (in Ha/Bohr) applied to the system. Use with the boundary condition PE1 (BC2)
 
 
 &FIRE ... &END
