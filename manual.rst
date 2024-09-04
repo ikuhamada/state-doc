@@ -901,6 +901,22 @@ NSPIN
 
 	* 2: spin polarized case
 
+SPIN
+	type: character
+
+	Default: none
+
+	Description:
+
+	Spin multiplicity. When this variable is used, the fixed spin moment calculation is performed. Spin multiplicites which can be specified using this keyword is singlet, doublet, triplet, ..., octet.
+
+SPIN_MULTIPLICITY
+	type: integeger
+
+	Default: none
+
+	Description: Spin multiplicity. When this variable is used, the fixed spin moment calculation is performed.
+
 DESTM
 	Type: real
 
