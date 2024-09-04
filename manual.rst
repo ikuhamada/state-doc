@@ -908,7 +908,7 @@ SPIN
 
 	Description:
 
-	Spin multiplicity. When this variable is used, the fixed spin moment calculation is performed. Spin multiplicites which can be specified using this keyword is singlet, doublet, triplet, ..., octet.
+	Spin multiplicity. When this variable is used, the fixed spin moment calculation is performed. The allowed muliplicity using this keyword is singlet, doublet, triplet, ..., octet.
 
 SPIN_MULTIPLICITY
 	type: integeger
