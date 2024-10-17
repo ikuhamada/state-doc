@@ -153,19 +153,19 @@ If not, type the following:
     $ module load intel/2020.2.254
     $ module load intelmpi/2020.2.254
 
-Change the directory to ``STATE/src`` and copy the source code ``state-5.6.14.tgz`` from my directory, and unpack the source code there:
+Change the directory to ``STATE/src`` and copy the source code ``state-5.6.15.tgz`` from my directory, and unpack the source code there:
 
 .. code:: bash
 
-    $ gzip -dc state-5.6.14.tgz | tar xf -
+    $ gzip -dc state-5.6.15.tgz | tar xf -
 
 or
 
 .. code:: bash
 
-    $ tar zxf state-5.6.14.tgz
+    $ tar zxf state-5.6.15.tgz
 
-``state-5.6.14/`` contains the following file and directories::
+``state-5.6.15/`` contains the following file and directories::
 
     README  arch/   build/  src/    util/
 
@@ -173,7 +173,7 @@ Go to the source directory:
 
 .. code:: bash
 
-    $ cd state-5.6.14/src
+    $ cd state-5.6.15/src
 
 
 make a symbolic link to ``make.arch`` as follows, e.g.
@@ -211,19 +211,19 @@ If not, type the following:
     $ module load intel/2021.2.0
     $ module load intelmpi/2021.2.0
 
-Change the directory to ``STATE/src`` and copy the source code ``state-5.6.14.tgz`` from my directory, and unpack the source code there:
+Change the directory to ``STATE/src`` and copy the source code ``state-5.6.15.tgz`` from my directory, and unpack the source code there:
 
 .. code:: bash
 
-    $ gzip -dc state-5.6.14.tgz | tar xf -
+    $ gzip -dc state-5.6.15.tgz | tar xf -
 
 or
 
 .. code:: bash
 
-    $ tar zxf state-5.6.14.tgz
+    $ tar zxf state-5.6.15.tgz
 
-``state-5.6.14/`` contains the following file and directories::
+``state-5.6.15/`` contains the following file and directories::
 
     README  arch/   build/  src/    util/
 
@@ -231,7 +231,7 @@ Go to the source directory:
 
 .. code:: bash
 
-    $ cd state-5.6.14/src
+    $ cd state-5.6.15/src
 
 
 make a symbolic link to ``make.arch`` as follows, e.g.
@@ -259,19 +259,19 @@ On ohtaka at ISSP, we have confirmed that the following modules can be used safe
  1) oneapi_compiler/2023.0.0   2) oneapi_mkl/2023.0.0   3) openapi_mpi/2023.0.0
 
 
-Change the directory to ``STATE/src`` and copy the source code ``state-5.6.14.tgz`` from my directory, and unpack the source code there:
+Change the directory to ``STATE/src`` and copy the source code ``state-5.6.15.tgz`` from my directory, and unpack the source code there:
 
 .. code:: bash
 
-    $ gzip -dc state-5.6.14.tgz | tar xf -
+    $ gzip -dc state-5.6.15.tgz | tar xf -
 
 or
 
 .. code:: bash
 
-    $ tar zxf state-5.6.14.tgz
+    $ tar zxf state-5.6.15.tgz
 
-``state-5.6.14/`` contains the following file and directories::
+``state-5.6.15/`` contains the following file and directories::
 
     README  arch/   build/  src/    util/
 
@@ -279,7 +279,7 @@ Go to the source directory:
 
 .. code:: bash
 
-    $ cd state-5.6.14/src
+    $ cd state-5.6.15/src
 
 
 make a symbolic link to ``make.arch`` as follows, e.g.
@@ -296,6 +296,55 @@ and type
 
 .. warning::
 	When running a code build with Intel MPI (``oneapi_mpi/2023.0.0``), set ``export FI_PROVIDER=psm3`` in the job script, along with the modules used above.
+
+
+kugui @ ISSP
+-------------
+
+On kugui at ISSP, we have confirmed that the following modules can be used safely (see a note below):
+
+.. code:: bash
+
+	Currently Loaded Modulefiles:
+	  1) craype-x86-milan            4) perftools-base/23.03.0      7) cray-mpich/8.1.30          10) nvhpc-nompi/24.7_cuda12.5
+	  2) libfabric/1.13.1            5) cce/18.0.0                  8) cray-libsci/23.02.1.1      11) openmpi_nvhpc/4.1.2
+	  3) craype-network-ofi          6) craype/2.7.20               9) PrgEnv-cray/8.3.3          12) intel/2022.2.1
+
+Change the directory to ``STATE/src`` and copy the source code ``state-5.6.15.tgz`` from my directory, and unpack the source code there:
+
+.. code:: bash
+
+    $ gzip -dc state-5.6.15.tgz | tar xf -
+
+or
+
+.. code:: bash
+
+    $ tar zxf state-5.6.15.tgz
+
+``state-5.6.15/`` contains the following file and directories::
+
+    README  arch/   build/  src/    util/
+
+Go to the source directory:
+
+.. code:: bash
+
+    $ cd state-5.6.15/src
+
+
+make a symbolic link to ``make.arch`` as follows, e.g.
+
+.. code:: bash
+
+    $ ln -s ../arch/make.arch.amd_kugui make.arch
+
+and type
+
+.. code:: bash
+
+    $ make
+
 
 SQUID @ Cybermedia Center, Osaka University
 -------------------------------------------
@@ -321,19 +370,19 @@ Loaded modules are followings:
 	 3) compiler-rt/latest   7) advisor/latest   11) intel_ipp_intel64/latest  15) debugger/latest  19) BasePy/2023(default)   
 	 4) oclfpga/latest       8) clck/latest      12) itac/latest               16) dpl/latest       
 
-Change the directory to ``STATE/src`` and copy the source code ``state-5.6.14.tgz`` from my directory, and unpack the source code there:
+Change the directory to ``STATE/src`` and copy the source code ``state-5.6.15.tgz`` from my directory, and unpack the source code there:
 
 .. code:: bash
 
-    $ gzip -dc state-5.6.14.tgz | tar xf -
+    $ gzip -dc state-5.6.15.tgz | tar xf -
 
 or
 
 .. code:: bash
 
-    $ tar zxf state-5.6.14.tgz
+    $ tar zxf state-5.6.15.tgz
 
-``state-5.6.14/`` contains the following file and directories::
+``state-5.6.15/`` contains the following file and directories::
 
     README  arch/   build/  src/    util/
 
@@ -341,7 +390,7 @@ Go to the source directory:
 
 .. code:: bash
 
-    $ cd state-5.6.14/src
+    $ cd state-5.6.15/src
 
 
 make a symbolic link to ``make.arch`` as follows, e.g.
@@ -356,4 +405,65 @@ Then, type
 
     $ make
 
+
+Wisteria @ Information Technology Center, The University of Tokyo
+-----------------------------------------------------------------
+
+On Wisteria/BDEC-01 Supercomputer System (Odyssey), The University of Tokyo, we use Fujitsu Development Studio compilers and MPI library and the following modules:
+
+- fj
+- fjmpi
+- mpi-fftw
+
+Type or write the following to use these modules
+
+.. code:: bash
+
+	module load fj
+	module load fjmpi
+	module load mpi-fftw
+
+
+Loaded modules are followings:
+
+.. code:: bash
+
+	Currently Loaded Modulefiles:
+	 1) fjmpi/1.2.39   2) fj/1.2.39(default)   3) mpi-fftw/3.3.9  
+
+
+Change the directory to ``STATE/src`` and copy the source code ``state-5.6.15.tgz`` from my directory, and unpack the source code there:
+
+.. code:: bash
+
+    $ gzip -dc state-5.6.15.tgz | tar xf -
+
+or
+
+.. code:: bash
+
+    $ tar zxf state-5.6.15.tgz
+
+``state-5.6.15/`` contains the following file and directories::
+
+    README  arch/   build/  src/    util/
+
+Go to the source directory:
+
+.. code:: bash
+
+    $ cd state-5.6.15/src
+
+
+make a symbolic link to ``make.arch`` as follows, e.g.
+
+.. code:: bash
+
+    $ ln -s ../arch/make.arch.fx1000 make.arch
+
+Then, type
+
+.. code:: bash
+
+    $ make
 
