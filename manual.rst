@@ -1820,7 +1820,7 @@ VAC | STM_VAC | VACUUM_LEVEL
 
   DISP/DISPLACMENT: Displacement (default: 0.02 Bohr)
 
-  ATOM: Used to specify the atoms to be displaced (default: 1-N, where N is the number of atoms)
+  ATOM: Used to specify the atoms (atomic indicies) to be displaced (default: 1-N, where N is the number of atoms)
 
 &COOP ... &END
   This block is used to specify the parameters for the COOP analysis (prep for the COOP analysis by using the ``coop_analysis`` program) when ``TASK COOP`` is set. 
