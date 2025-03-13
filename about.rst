@@ -21,6 +21,8 @@ STATE can perform the following calculations:
 * Electronic structure analysis: band structure and density of states
 * Vibrational mode analysis via the finite difference method
 
+`An interface <https://gitlab.com/morikawa-lab-osakau/ase-state-interface.git>`_  to `Atomic Simulation Environment <https://wiki.fysik.dtu.dk/ase/>`_ has been developed, which allows one to use advanced methods such as efficient structural optimization and transition state search.
+
 Developers
 ----------
 
