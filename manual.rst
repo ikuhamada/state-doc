@@ -1296,6 +1296,60 @@ VAC | STM_VAC | VACUUM_LEVEL
 
 	Vacuum level used for STM simulations.
 
+NMIN
+	Type: integer
+
+	Default: 5
+
+	Description:
+
+	Minimum number of steps for the FIRE method, when P > 0
+
+FIRE_F_INC
+	Type: real
+
+	Default: 1.1
+
+	Description:
+
+	Factor to increase the time step for the FIRE method
+
+FIRE_F_DEC
+	Type: real
+
+	Default: 0.5
+
+	Description:
+
+	Factor to decrease the time step for the FIRE method
+
+ALPHA_START
+	Type: real
+
+	Default: 0.1
+
+	Description:
+
+	Mixing parameter for the velocity and its starting value for the FIRE method
+
+F_ALPHA
+	Type: real
+	
+	Default: 0.99
+
+	Description
+
+	Factor to decrease the mixing parameter alpha for the FIRE method
+
+DTIO_MAX
+	Type: real
+
+	Default: 20.0
+
+	Description:
+
+	Maximum time step for the FIRE method
+
 &CELL ... &END
   This block is used to define the unit cell.
 
@@ -1463,9 +1517,11 @@ VAC | STM_VAC | VACUUM_LEVEL
 	&END
 
 
-  NPDOSAO: Number of atoms for which the projected density of states are calculated
+  NPDOSAO: Number of atoms for which PDOSs are calculated
 
-  IPDOST: Index of atom for which the projected density of states are calculated
+  IPDOST: Index of atom for which PDOSs are calculated
+
+  ATOMS: (**Experimental**) Starting and ending indices for atoms for which PDOSs are calculated (NPDOSAO is not needed)
 
   EPDOS(1): Minimum energy for the density of states
 
@@ -1479,11 +1535,10 @@ VAC | STM_VAC | VACUUM_LEVEL
 
   RPDOS(2,I): Smearing width (in real space) for the I-th atomic orbital
 
-  Following synax can also be used::
+  In case *ATOMS* are used, the block looks like::
 
 	&PDOS
-	 NPDOSAO [NPDOSAO]
-	 IPDOST  [IPDOST(1) IPDOST(2) ... IPDOST(NPDOSAO)]
+	 ATOMS   [I_START]-[I_END]
 	 EMIN    [EPDOS(1)]
          EMAX    [EPDOS(2)]
          EWIDTH  [EPDOS(3)]
