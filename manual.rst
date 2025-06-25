@@ -1344,11 +1344,11 @@ F_ALPHA
 DTIO_MAX
 	Type: real
 
-	Default: 20.0
+	Default: None
 
 	Description:
 
-	Maximum time step for the FIRE method
+	Maximum time step for the FIRE method (20 a.u. is used in the original FIRE paper)
 
 &CELL ... &END
   This block is used to define the unit cell.
