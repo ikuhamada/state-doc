@@ -1703,7 +1703,7 @@ DTIO_MAX
 
   F_ALPHA: Factor to decrease the mixing parameter alpha (default: 0.99)
 
-  DTIO_MAX: Maximum time step (default: 20 atomic unit)
+  DTIO_MAX: Maximum time step (default: None; 20. au. is used in the original FIRE paper)
 
 
 &OCCUPATION ... &END
