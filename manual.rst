@@ -1502,7 +1502,7 @@ DTIO_MAX
 
 
 &PDOS ... &END | &AOLDOS ... &END
-  This block is used to define the parameters needed to calculated PDOS (AOLDOS) in the legacy STATE format.
+  This block is used to define the parameters needed to calculated PDOS (AOLDOS) either in the legacy STATE format or in the free(-like) format. In the case of the legacy STATE format it looks as follows:
 
   Syntax::
 	
@@ -1535,7 +1535,21 @@ DTIO_MAX
 
   RPDOS(2,I): Smearing width (in real space) for the I-th atomic orbital
 
-  In case *ATOMS* are used, the block looks like::
+  In the case of the free-format it looks like::
+
+	&PDOS
+         NPDOSAO [NPDOSAO]
+         IPDOST  [IPDOST(1) IPDOST(2) ... IPDOST(NPDOSAO)]	 
+	 EMIN    [EPDOS(1)]
+         EMAX    [EPDOS(2)]
+         EWIDTH  [EPDOS(3)]
+         NPDOSE  [NPDOSE]
+         RCUT    [RPDOS(1,1) RPDOS(1,2) ... RPDOS(1,NTYP)]
+         RWIDTH  [RPDOS(2,1) RPDOS(2,2) ... RPDOS(2,NTYP)]
+	&END
+
+
+  In case the keyword ``ATOMS`` is used, the block looks like::
 
 	&PDOS
 	 ATOMS   [I_START]-[I_END]
@@ -1546,6 +1560,12 @@ DTIO_MAX
          RCUT    [RPDOS(1,1) RPDOS(1,2) ... RPDOS(1,NTYP)]
          RWIDTH  [RPDOS(2,1) RPDOS(2,2) ... RPDOS(2,NTYP)]
 	&END
+
+  where ``I_START`` and ``I_END`` are the starting and ending indices for the atoms to be considered in the PDOS calculation.
+
+  .. note::
+
+    If PDOS seems not not to be calculated with Gaussian, set the keyword ``GAUSSIAN`` or ``GAUSSDOS`` in the block.
 
 
 &DFT+U ... &END
