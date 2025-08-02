@@ -1846,7 +1846,7 @@ DTIO_MAX
 
 
 &PLOT ... &END
-  This block define the parameters needed in the wave function plot.
+  This block define the parameters needed in volumeric data (wave function, charge density, and local potential) plot.
 
   Syntax::
 
@@ -1871,7 +1871,7 @@ DTIO_MAX
 
   ADD_SIGN/ADD_SIGN_MO_DEN/ADD_SIGN_WF_DEN: Option to add the sign to the wave function densities. Valid only for the wave functions at the Gamma point.
 
-  FORMAT: Format of the wave function can be specified
+  FORMAT: Format of the data (wave function, charge density) can be specified
 
   * STATE: STATE format (not yet implemented)
 
@@ -1880,6 +1880,8 @@ DTIO_MAX
   * XSF: Xcryden Structure File
 
   * XSF_CHARGE/CHARGE_XSF: Charge densities corresponding to the specified wave functions in the Xcrysden Structure File format
+
+  ATOMS: Option to generate an XSF file for the molecular structure (i.e., non-periodic structure). This should be used with ``FORMAT XSF`` or ``XSF_CHARGE``/``CHARGE_XSF``.
 
   PRTVLOC/PRT_VLOC/PRINT_VLOC: Local potential (sum of the local and Hartree potentials) in the Xcrysden Structure File format
 
