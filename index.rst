@@ -21,4 +21,5 @@ STATE documentation
    appendix
    GNCPP/index
    file_format
+   symmetry
 
