@@ -605,7 +605,7 @@ NSTEP
 CPUMAX
 	Type: real
 	
-	Default: none
+	Default: 86400.0
 
 	Description:
 
