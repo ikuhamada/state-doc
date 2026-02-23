@@ -700,6 +700,16 @@ MIX_ALPHA
 	Mixing parameter.
 
 
+MIX_ALPHA_MIN | ALPHA_MIN
+	Type: real
+
+	Default: 0.0
+
+	Description:
+	
+	Minimum mixing parameter in the Kerker's initial approximation.
+
+
 LABMDA_RMM
 	Type: real
 
