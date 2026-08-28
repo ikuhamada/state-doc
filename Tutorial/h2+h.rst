@@ -104,7 +104,7 @@ Preparation can be done using a utility ``prepneb``. Create and go to a subdirec
 
 .. code:: bash
 
-  $ prepneb -ndiv 6 -ini ../Initial/nfinp_ini  -fin ../Final/nfinp_fin
+  prepneb -ndiv 6 -ini ../Initial/nfinp_ini  -fin ../Final/nfinp_fin
 
 (type ``prepneb -h`` for more options)
 
@@ -163,7 +163,7 @@ Finally, the NEB calculation can be executed, in the presence of ``replica.cmd``
 
 .. code ::bash
   
-  $ mpirun -np 6 STATE > neb.log
+  mpirun -np 6 STATE > neb.log
 
 The standard output is not mandatroy, and actual output is written to ``nfout.data`` in each directory.
 
@@ -172,7 +172,7 @@ Instead, we mononitor the convergence of the force along and perpendicular to th
 
 .. code ::bash
 
-  $ for d in 0[2-6]; do grep -A1 ForceIn $d/nfout.data | tail -2; done
+  for d in 0[2-6]; do grep -A1 ForceIn $d/nfout.data | tail -2; done
 
 and we obtain::
 

@@ -167,7 +167,7 @@ After the structural optimzation, type:
 
 .. code:: bash
   
-  $ grep -A1 f_max nfout_1
+  grep -A1 f_max nfout_1
 
 and we get the following (supposing the name of output file is ``nfout_1``)::
 

@@ -35,7 +35,7 @@ Run STATE and confirm that the structural optimization is successfully finished 
 
 .. code:: bash
 
- $ grep -A1 f_max nfout_opt
+ grep -A1 f_max nfout_opt
 
 Then you may get the following::
 
@@ -67,7 +67,7 @@ We then use the ``geom2nfinp`` to generate a new input file for the following up
 
 .. code:: bash
 
-  $ geom2nfinp -i nfinp_opt -g GEOMETRY -o nfinp_prtwfc
+  geom2nfinp -i nfinp_opt -g GEOMETRY -o nfinp_prtwfc
 
 Make sure that the ``GEOMETRY`` file exsit in the working directory.
 

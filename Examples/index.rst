@@ -18,7 +18,7 @@ Remember to execute
 
 .. code:: bash
 
-  $ source ~/.bashrc
+  source ~/.bashrc
 
 
 Silicon
@@ -31,13 +31,13 @@ First in the ``Si`` directory, let us create a symbolik link to the STATE execut
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/src/state/src/STATE
+  ln -s ${HOME}/STATE/src/state/src/STATE
 
 and that to the pseudopotential
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/gncpp/pot_Si.pbe1
+  ln -s ${HOME}/STATE/gncpp/pot_Si.pbe1
 
 Choose appropriate paths for the STATE executable and pseudopotential files depending on your environment.
 
@@ -78,7 +78,7 @@ By using the above input file, we perform the SCF calculation as:
 
 .. code:: bash
 
-  $ mpirun -np 8 ./STATE < nfinp_scf > nfout_scf
+  mpirun -np 8 ./STATE < nfinp_scf > nfout_scf
 
 First, check the output file ``nfout_scf`` and make sure that lattice vectors and atomic positions are correct.
 The primitive lattice vectors are given as::
@@ -140,15 +140,15 @@ In addition, total density of states (DOS) is printed to ``dos.data``, which can
 
 .. code:: bash
 
-  $ gnuplot
+  gnuplot
 
 .. code :: bash
 
-  $ gnuplot> set xrange [-12.5:7.5]
-  $ gnuplot> set yrange [0:2.0]
-  $ gnuplot> set xlabel 'Energy (eV)'
-  $ gnuplot> set ylabel 'DOS (arb. unit)'
-  $ gnuplot> plot 'dos.data' w l
+  set xrange [-12.5:7.5]
+  set yrange [0:2.0]
+  set xlabel 'Energy (eV)'
+  set ylabel 'DOS (arb. unit)'
+  plot 'dos.data' w l
 
 The resulting DOS looks as follows:
 
@@ -182,33 +182,33 @@ For each lattice constant we prepare an input file as ``nfinp_scf_10.10``, ``nfi
 
 .. code:: bash
 
-  $ mpirun -np 8 ./STATE < nfinp_scf_10.10 > nfout_scf_10.10
+  mpirun -np 8 ./STATE < nfinp_scf_10.10 > nfout_scf_10.10
 
 .. code:: bash
 
-  $ mpirun -np 8 ./STATE < nfinp_scf_10.15 > nfout_scf_10.15
+  mpirun -np 8 ./STATE < nfinp_scf_10.15 > nfout_scf_10.15
 
 ...
 
 .. code:: bash
 
-  $ mpirun -np 8 ./STATE < nfinp_scf_10.50 > nfout_scf_10.50
+  mpirun -np 8 ./STATE < nfinp_scf_10.50 > nfout_scf_10.50
 
 To collect the volume-energy (E-V) data, here we use the ``state2ev.sh`` script in ``state/util/`` as
 
 .. code:: bash
 
-  $ state2ev.sh nfout_scf_* > etot.dat
+  state2ev.sh nfout_scf_* > etot.dat
 
 This can be visualized by using, for example, ``gnuplot`` as
 
 .. code:: bash
 
-  $ gnuplot
+  gnuplot
 
 .. code:: bash
 
-  $ gnuplot> plot 'etot.dat' pt 7
+  plot 'etot.dat' pt 7
 
 The output looks like
 
@@ -237,13 +237,13 @@ In the ``Al`` directory, first prepare the pseudopotential as
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/gncpp/pot.Al_pbe1
+  ln -s ${HOME}/STATE/gncpp/pot.Al_pbe1
 
 and the STATE executable as
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/src/state/src/STATE
+  ln -s ${HOME}/STATE/src/state/src/STATE
 
 We use the following input file for the SCF calculation.
 
@@ -296,7 +296,7 @@ Execution of STATE is done by
 
 .. code:: bash
 
-  $ mpirun -np 8 ./STATE < nfinp_scf > nfout_scf
+  mpirun -np 8 ./STATE < nfinp_scf > nfout_scf
 
 Total energy of the metallic system is sensitive to the smearing function and width, and the number of k-points, and they should be determined very carefully before the production run.
 Detail is discussed in the tutorial (to be completed).
@@ -314,13 +314,13 @@ Prep.
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/src/state/src/STATE
+  ln -s ${HOME}/STATE/src/state/src/STATE
 
 * Pseudopotential ``pot.Ni_pbe4``
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/gncpp/pot.Ni_pbe4
+  ln -s ${HOME}/STATE/gncpp/pot.Ni_pbe4
 
 * Input file (``nfinp_scf``)
 
@@ -377,22 +377,22 @@ SCF run
 
 .. code:: bash
 
-  $ mpirun -np 8 ./STATE < nfinp_scf > nfout_scf
+  mpirun -np 8 ./STATE < nfinp_scf > nfout_scf
 
 As above, ``dos.data`` is automatically generated. In the case of spin polarized system, the first column of ``dos.data`` contains energy, second and third columns contain DOS for spin up and down respectively.
 This can be plotted by using gnuplot as follows:
 
 .. code:: bash
 
-  $ gnuplot
+  gnuplot
 
 .. code:: bash
 
-  $ gnuplot> set xrange [-10:5]
-  $ gnuplot> set yrange [0:4]
-  $ gnuplot> set xlabel 'E-E_F (eV)'
-  $ gnuplot> set ylabel 'DOS (state/eV)'
-  $ gnuplot> plot 'dos.data_smearing' using ($1):($2) w l title 'Spin-up','dos.data_smearing' using ($1):($3) w l title 'Spin-down'
+  set xrange [-10:5]
+  set yrange [0:4]
+  set xlabel 'E-E_F (eV)'
+  set ylabel 'DOS (state/eV)'
+  plot 'dos.data_smearing' using ($1):($2) w l title 'Spin-up','dos.data_smearing' using ($1):($3) w l title 'Spin-down'
 
 
 The spin-polarized DOS looks like:
@@ -405,12 +405,12 @@ Or by using the following:
 
 .. code:: bash
 
-  $ gnuplot> set xrange [-10:5]
-  $ gnuplot> set yrange [-4:4]
-  $ gnuplot> set yzeroaxis
-  $ gnuplot> set xlabel 'E-E_F (eV)'
-  $ gnuplot> set ylabel 'DOS (state/eV)'
-  $ gnuplot> plot 'dos.data_smearing' using ($1):($2) w l title 'Spin-up','dos.data_smearing' using ($1):(-$3) w l title 'Spin-down'
+  set xrange [-10:5]
+  set yrange [-4:4]
+  set yzeroaxis
+  set xlabel 'E-E_F (eV)'
+  set ylabel 'DOS (state/eV)'
+  plot 'dos.data_smearing' using ($1):($2) w l title 'Spin-up','dos.data_smearing' using ($1):(-$3) w l title 'Spin-down'
 
 One may obtain the spin-polarized DOS like:
 
@@ -433,14 +433,14 @@ In the ``C2H4`` directory:
 
 .. code:: bash
 
-  $ ln -fs ${HOME}/STATE/src/state/src/STATE
+  ln -fs ${HOME}/STATE/src/state/src/STATE
 
 * Pseudopotentials
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/gncpp/pot.C_pbe3
-  $ ln -s ${HOME}/STATE/gncpp/pot.H_lda3
+  ln -s ${HOME}/STATE/gncpp/pot.C_pbe3
+  ln -s ${HOME}/STATE/gncpp/pot.H_lda3
 
 * Input file ``nfinp_gdiis``
 
@@ -489,13 +489,13 @@ Geometry optimization
 
 .. code:: bash
 
-  $ mpirun -np 8 ./STATE < nfinp_gdiis > nfout_gdiis
+  mpirun -np 8 ./STATE < nfinp_gdiis > nfout_gdiis
 
 The convergence of the forces can be monitored by:
 
 .. code:: bash
 
-  $ grep -A1 f_max nfout_gdiis
+  grep -A1 f_max nfout_gdiis
 
 The result looks like::
 
@@ -529,7 +529,7 @@ This can be done by using a utility ``geom2nfinp`` as
 
 .. code:: bash
 
-  $ geom2nfinp -i nfinp_gdiis -g GEOMETRY -o nfinp_relaxed
+  geom2nfinp -i nfinp_gdiis -g GEOMETRY -o nfinp_relaxed
 
 where input parameters from ``nfinp_gdiis`` and atomic positions from ``GEOMETRY`` are used to create a new input file ``nfinp_relaxed``. 
 ``geom2nfinp`` can also be used to generate an XYZ/XSF file from the optimized geometry.
@@ -634,7 +634,7 @@ Execute the following
 
 .. code:: bash
 
-  $ mpirun -np 8 ./STATE < nfinp_vib > nfout_vib
+  mpirun -np 8 ./STATE < nfinp_vib > nfout_vib
 
 and we get ``nfforce.data`` in addition to the standard output files, which contains displaced atomic positions and forces acting on atoms, which can be used to calculate the vibrational frequencies.
 
@@ -642,7 +642,7 @@ Then to calculate the dynamical matrix and vibrational frequencies, we use the `
 
 .. code:: bash
 
-  $ gif -f nfforce.data
+  gif -f nfforce.data
 
 and we can see the vibrational frequncies printed in the standard output as:
 
@@ -682,14 +682,14 @@ To use ``gif2xsf`` we prepare an XSF, which can be created by using the ``chkinp
 
 .. code:: bash
 
-  $ chkinpf --atom nfinp_vib
+  chkinpf --atom nfinp_vib
 
 By this we are able to create an XSF file for molecule (not periodic boundary condition).
 Then type
 
 .. code:: bash
 
-  $ gif2xsf -s --xsf C2H4 --gif vib.data --prefix vib
+  gif2xsf -s --xsf C2H4 --gif vib.data --prefix vib
 
 Use C2H4.xsf for the XSF file, vib.data for VIB file, and vib for prefix, and we get vib_*.xsf, which can be visualized by using XCrySden or VESTA.
 
@@ -709,17 +709,17 @@ In the ``ClonAl100`` directory
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/src/state/src/STATE
+  ln -s ${HOME}/STATE/src/state/src/STATE
 
 * Pseudopotentials
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/gncpp/pot_Al.pbe1
+  ln -s ${HOME}/STATE/gncpp/pot_Al.pbe1
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/gncpp/pot_Cl.pbe1
+  ln -s ${HOME}/STATE/gncpp/pot_Cl.pbe1
 
 
 Geometry optimization with PBC
@@ -772,7 +772,7 @@ Run STATE by executing:
 
 .. code:: bash
 
-  $ mpirun -np 8 ./STATE < nfinp_gdiis_pbc > nfout_gdiis_pbc
+  mpirun -np 8 ./STATE < nfinp_gdiis_pbc > nfout_gdiis_pbc
 
 and we get ``GEOMETRY`` and ``gdiis.data`` in addition to the standard output files.
 
@@ -840,7 +840,7 @@ Use ``state2chgpro.sh`` utility to extract planar average of charge, effective (
 
 .. code:: bash
 
-  $ state2chgpro.sh nfout_gdiis_pbc > chgpro.dat_pbc
+  state2chgpro.sh nfout_gdiis_pbc > chgpro.dat_pbc
 
 By plotting the first and third colums, and first and fourth colums, we get the following potential profile:
 
@@ -854,7 +854,7 @@ We also extract the planar average of chargen and potential from the ESM calcula
 
 .. code:: bash
 
-  $ state2chgpro.sh nfout_gdiis_esm > chgpro.dat_esm
+  state2chgpro.sh nfout_gdiis_esm > chgpro.dat_esm
 
 and we get the following:
 
@@ -880,13 +880,13 @@ In the ``GR/Opt`` directory, prepare the executable and pseudopotential.
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/src/state/src/STATE
+  ln -s ${HOME}/STATE/src/state/src/STATE
 
 * Pseudopotential
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/gncpp/pot_C.pbe3
+  ln -s ${HOME}/STATE/gncpp/pot_C.pbe3
 
 In this example, input files look like (``nfinp_scf``)::
 
@@ -982,7 +982,7 @@ First perform the SCF calculation by using the following input file (``nfinp_scf
 
 .. code:: bash
 
-  $ mpirun -np 8 ./STATE < nfinp_scf > nfout_scf
+  mpirun -np 8 ./STATE < nfinp_scf > nfout_scf
 
 After converging the charge/potential, we perform the non-SCF band structure calculation by using the following input (``nfinp_band``)::
 
@@ -1064,7 +1064,7 @@ Run the band structure calculation by executing:
 
 .. code:: bash
 
-  $ mpirun -np 8 ./STATE < nfinp_band > nfout_band
+  mpirun -np 8 ./STATE < nfinp_band > nfout_band
 
 we obtain the file ``energy.data``, which containg the Kohn-Sham eigenvalues, along with the k-points.
 However, we cannot plot the band structure directory from ``energy.data`` and should be processed properly.
@@ -1073,7 +1073,7 @@ Type
 
 .. code:: bash
 
-  $ energy2band
+  energy2band
 
 and you will be asked the numbers of bands considered, the number of bands to be plotted (can be the same as the previous one), the number of k-points considered (in this example, the eigenvalues at 61 k-points are calculated), and the energy origin (here, the Fermi level obtained in the SCF calculation will be used).
 If the numbers are given properly, we obtain the file ``band.data``, which can be used to plot the band directory by using gnuplot or grace.

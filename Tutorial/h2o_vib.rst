@@ -53,7 +53,7 @@ To obtain the vibrational frequencies and modes, use ``gif`` as follows:
 
 .. code:: bash
 
-  $ gif -f nfforce.data > gif.out_1
+  gif -f nfforce.data > gif.out_1
 
 In the present case, vibrational frequencies are printed like::
 
@@ -83,7 +83,7 @@ To check if the displacement is appropriate (so that we obtain the harmonic vibr
 
 .. code:: bash
 
-  $ duplicate vib.data_1 nfvibrate.data
+  duplicate vib.data_1 nfvibrate.data
 
 This generates a new set of displacements in the negative and positive directions for each eigenmode.
 Then a similar input file (``nfinp_vib_2``) to the first one is used to perform a new set of the calculations::
@@ -112,7 +112,7 @@ Run ``gif`` after finishing the second STATE run with new ``nfforce.data`` as:
 
 .. code:: bash
 
-  $ gif -f nfforce.data > gif.out_2
+  gif -f nfforce.data > gif.out_2
 
 and you many obtain the following vibrational frequencies::
 

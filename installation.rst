@@ -19,17 +19,17 @@ Let us first make the root directory for the STATE. In the home directory, type
 
 .. code:: bash
 
-  $ mkdir STATE
+  mkdir STATE
 
 Go to the STATE directory and create a directory as
 
 .. code:: bash
 
-  $ cd STATE
+  cd STATE
    
 .. code:: bash
 
-  $ mkdir gncpp
+  mkdir gncpp
 
 Pseudopotentials are stored in ``gncpp``.
 Obtain a set of pseudopotentials (usually named as ``gncpp.tgz``) and unpack it under ``gncpp``
@@ -37,7 +37,7 @@ Then create a source directory as
 
 .. code:: bash
 
-    $ mkdir src
+    mkdir src
 
 Compilation
 ===========
@@ -46,13 +46,13 @@ Having obtained the source code, say ``state-5.6.10.tgz``, unpack the source cod
 
 .. code:: bash
 
-    $ gzip -dc state-5.6.10.tgz | tar xf -
+    gzip -dc state-5.6.10.tgz | tar xf -
 
 or
 
 .. code:: bash
 
-    $ tar zxf state-5.6.10.tgz
+    tar zxf state-5.6.10.tgz
 
 ``state-5.6.10/`` contains the following file and directories::
 
@@ -62,20 +62,20 @@ Go to the source directory
 
 .. code:: bash
 
-    $ cd state-5.6.10/src
+    cd state-5.6.10/src
 
 
 make a symbolic link to ``make.arch`` as follows, e.g.
 
 .. code:: bash
 
-    $ ln -s ../arch/make.arch.intel_smith make.arch
+    ln -s ../arch/make.arch.intel_smith make.arch
 
 and edit ``make.arch`` according to your environment. Then type
 
 .. code:: bash
 
-    $ make
+    make
 
 You will get the executable ``STATE`` in the source directory.
 
@@ -122,7 +122,7 @@ To compile the utilities, go to the ``util`` directory, edit ``make.inc``, and t
 
 .. code:: bash
 
-    $ make
+    make
 
 Symbolic links to the utilities are created in the ``bin`` directory.
 
@@ -140,7 +140,7 @@ First, make sure modules are loaded as appropriate. Type:
 
 .. code:: bash
 
-    $ module avail
+    module avail
 
 and you can see as follows::
 
@@ -150,20 +150,20 @@ If not, type the following:
 
 .. code:: bash
 
-    $ module load intel/2020.2.254
-    $ module load intelmpi/2020.2.254
+    module load intel/2020.2.254
+    module load intelmpi/2020.2.254
 
 Change the directory to ``STATE/src`` and copy the source code ``state-5.6.15.tgz`` from my directory, and unpack the source code there:
 
 .. code:: bash
 
-    $ gzip -dc state-5.6.15.tgz | tar xf -
+    gzip -dc state-5.6.15.tgz | tar xf -
 
 or
 
 .. code:: bash
 
-    $ tar zxf state-5.6.15.tgz
+    tar zxf state-5.6.15.tgz
 
 ``state-5.6.15/`` contains the following file and directories::
 
@@ -173,20 +173,20 @@ Go to the source directory:
 
 .. code:: bash
 
-    $ cd state-5.6.15/src
+    cd state-5.6.15/src
 
 
 make a symbolic link to ``make.arch`` as follows, e.g.
 
 .. code:: bash
 
-    $ ln -s ../arch/make.arch.intel_smith make.arch
+    ln -s ../arch/make.arch.intel_smith make.arch
 
 and edit ``make.arch`` according to your need. Then type
 
 .. code:: bash
 
-    $ make
+    make
 
 You will get the executable ``STATE`` in the source directory.
 
@@ -198,7 +198,7 @@ As in the case of smith, make sure modules are loaded as appropriate. Type:
 
 .. code:: bash
 
-    $ module avail
+    module avail
 
 and you can see as follows::
 
@@ -208,20 +208,20 @@ If not, type the following:
 
 .. code:: bash
 
-    $ module load intel/2021.2.0
-    $ module load intelmpi/2021.2.0
+    module load intel/2021.2.0
+    module load intelmpi/2021.2.0
 
 Change the directory to ``STATE/src`` and copy the source code ``state-5.6.15.tgz`` from my directory, and unpack the source code there:
 
 .. code:: bash
 
-    $ gzip -dc state-5.6.15.tgz | tar xf -
+    gzip -dc state-5.6.15.tgz | tar xf -
 
 or
 
 .. code:: bash
 
-    $ tar zxf state-5.6.15.tgz
+    tar zxf state-5.6.15.tgz
 
 ``state-5.6.15/`` contains the following file and directories::
 
@@ -231,20 +231,20 @@ Go to the source directory:
 
 .. code:: bash
 
-    $ cd state-5.6.15/src
+    cd state-5.6.15/src
 
 
 make a symbolic link to ``make.arch`` as follows, e.g.
 
 .. code:: bash
 
-    $ ln -s ../arch/make.arch.intel_sb100 make.arch
+    ln -s ../arch/make.arch.intel_sb100 make.arch
 
 and edit ``make.arch`` according to your need. Then type
 
 .. code:: bash
 
-    $ make
+    make
 
 You will get the executable ``STATE`` in the source directory.
 
@@ -263,13 +263,13 @@ Change the directory to ``STATE/src`` and copy the source code ``state-5.6.15.tg
 
 .. code:: bash
 
-    $ gzip -dc state-5.6.15.tgz | tar xf -
+    gzip -dc state-5.6.15.tgz | tar xf -
 
 or
 
 .. code:: bash
 
-    $ tar zxf state-5.6.15.tgz
+    tar zxf state-5.6.15.tgz
 
 ``state-5.6.15/`` contains the following file and directories::
 
@@ -279,20 +279,20 @@ Go to the source directory:
 
 .. code:: bash
 
-    $ cd state-5.6.15/src
+    cd state-5.6.15/src
 
 
 make a symbolic link to ``make.arch`` as follows, e.g.
 
 .. code:: bash
 
-    $ ln -s ../arch/make.arch.intel_ohtaka_scalapack make.arch
+    ln -s ../arch/make.arch.intel_ohtaka_scalapack make.arch
 
 and type
 
 .. code:: bash
 
-    $ make
+    make
 
 .. warning::
 	When running a code build with Intel MPI (``oneapi_mpi/2023.0.0``), set ``export FI_PROVIDER=psm3`` in the job script, along with the modules used above.
@@ -314,13 +314,13 @@ Change the directory to ``STATE/src`` and copy the source code ``state-5.6.15.tg
 
 .. code:: bash
 
-    $ gzip -dc state-5.6.15.tgz | tar xf -
+    gzip -dc state-5.6.15.tgz | tar xf -
 
 or
 
 .. code:: bash
 
-    $ tar zxf state-5.6.15.tgz
+    tar zxf state-5.6.15.tgz
 
 ``state-5.6.15/`` contains the following file and directories::
 
@@ -330,20 +330,20 @@ Go to the source directory:
 
 .. code:: bash
 
-    $ cd state-5.6.15/src
+    cd state-5.6.15/src
 
 
 make a symbolic link to ``make.arch`` as follows, e.g.
 
 .. code:: bash
 
-    $ ln -s ../arch/make.arch.amd_kugui make.arch
+    ln -s ../arch/make.arch.amd_kugui make.arch
 
 and type
 
 .. code:: bash
 
-    $ make
+    make
 
 
 SQUID @ Cybermedia Center, Osaka University
@@ -374,13 +374,13 @@ Change the directory to ``STATE/src`` and copy the source code ``state-5.6.15.tg
 
 .. code:: bash
 
-    $ gzip -dc state-5.6.15.tgz | tar xf -
+    gzip -dc state-5.6.15.tgz | tar xf -
 
 or
 
 .. code:: bash
 
-    $ tar zxf state-5.6.15.tgz
+    tar zxf state-5.6.15.tgz
 
 ``state-5.6.15/`` contains the following file and directories::
 
@@ -390,20 +390,20 @@ Go to the source directory:
 
 .. code:: bash
 
-    $ cd state-5.6.15/src
+    cd state-5.6.15/src
 
 
 make a symbolic link to ``make.arch`` as follows, e.g.
 
 .. code:: bash
 
-    $ ln -s ../arch/make.arch.intel_squid make.arch
+    ln -s ../arch/make.arch.intel_squid make.arch
 
 Then, type
 
 .. code:: bash
 
-    $ make
+    make
 
 
 Wisteria @ Information Technology Center, The University of Tokyo
@@ -436,13 +436,13 @@ Change the directory to ``STATE/src`` and copy the source code ``state-5.6.15.tg
 
 .. code:: bash
 
-    $ gzip -dc state-5.6.15.tgz | tar xf -
+    gzip -dc state-5.6.15.tgz | tar xf -
 
 or
 
 .. code:: bash
 
-    $ tar zxf state-5.6.15.tgz
+    tar zxf state-5.6.15.tgz
 
 ``state-5.6.15/`` contains the following file and directories::
 
@@ -452,18 +452,18 @@ Go to the source directory:
 
 .. code:: bash
 
-    $ cd state-5.6.15/src
+    cd state-5.6.15/src
 
 
 make a symbolic link to ``make.arch`` as follows, e.g.
 
 .. code:: bash
 
-    $ ln -s ../arch/make.arch.fx1000 make.arch
+    ln -s ../arch/make.arch.fx1000 make.arch
 
 Then, type
 
 .. code:: bash
 
-    $ make
+    make
 

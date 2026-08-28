@@ -134,7 +134,7 @@ For the spin polarized system (``NSPIN=2``), use
 
 .. code:: bash
 
- $ energy2band -s
+ energy2band -s
 
 Enter the number of bands, number of k-points (for the band structure calculation), and the energy origin (we use the Fermi level obtained in the SCF calculation or the valence band maximum), we obtain the ``band.data`` file.
 The band can be visualized by using gnuplot as:

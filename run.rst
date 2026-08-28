@@ -12,29 +12,29 @@ In ``${HOME}/STATE``, let us create a directory for a test run for a CO molecule
 
 .. code:: bash
 
-  $ mkdir -p test/CO; cd test/CO
+  mkdir -p test/CO; cd test/CO
 
 Let us create symbolic link to a STATE command by executing
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/src/state-5.6.x/src/STATE
+  ln -s ${HOME}/STATE/src/state-5.6.x/src/STATE
 
 and those to pseudopotentials as
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/gncpp/pot.C_pbe1
+  ln -s ${HOME}/STATE/gncpp/pot.C_pbe1
 
-  $ ln -s ${HOME}/STATE/gncpp/pot.O_pbe1
+  ln -s ${HOME}/STATE/gncpp/pot.O_pbe1
 
 or
 
 .. code:: bash
 
-  $ ln -s ${HOME}/STATE/gncpp/C_pbe1/#vnew.data pot.C_pbe1
+  ln -s ${HOME}/STATE/gncpp/C_pbe1/#vnew.data pot.C_pbe1
 
-  $ ln -s ${HOME}/STATE/gncpp/O_pbe1/#vnew.data pot.O_pbe1
+  ln -s ${HOME}/STATE/gncpp/O_pbe1/#vnew.data pot.O_pbe1
 
 Then let us prepare the input file. Here we use the following file named ``nfinp_1``
 
@@ -64,7 +64,7 @@ Then let us prepare the input file. Here we use the following file named ``nfinp
 
 In the current working directory, let us execute::
 
-  $ mpirun -np 6 ./STATE < nfinp_1 > nfout_1
+  mpirun -np 6 ./STATE < nfinp_1 > nfout_1
 
 where we use 2 processors and the output is written to ``nfout_1``. The MPI command depends on the system and a job script is necessary when we use a supercomputer facility.
 

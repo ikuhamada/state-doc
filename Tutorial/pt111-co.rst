@@ -262,7 +262,7 @@ Having prepared ``nfcoop.data``, execute ``coop_analysis``
 
 .. code:: bash
 
-  $ coop_analysis > coop.out
+  coop_analysis > coop.out
 
 The standard output (now, ``coop.out``) contains PDOS projected onto MO (``PDOS``), PDOS weighted by gross population (``GPOP``), and PDOS weighted by coop (``COOP2``).
 They can be found by searching the keywrod ``PDOS``, ``GPOP``, and ``COOP2``, respectively.
@@ -270,12 +270,12 @@ For instance, if PDOS is required, one may type
 
 .. code:: bash
 
-  $ grep 'PDOS\:' coop.out | awk -F\: '{print $2}' > pdos.dat
+  grep 'PDOS\:' coop.out | awk -F\: '{print $2}' > pdos.dat
 
 and we obtain ``pdos.data``, which contains the energy and PDOS data.
 For COOP::
 
-  $ grep 'COOP2\:' coop.out | awk -F\: '{print $2}' > coop2.dat
+  grep 'COOP2\:' coop.out | awk -F\: '{print $2}' > coop2.dat
 
 The output ``coop2.dat`` may look like::
 
