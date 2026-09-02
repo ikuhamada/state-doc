@@ -380,7 +380,7 @@ CELL
 
 	Description:
 
-	Lengths of first, second, and third vectors (A, B, and C), and angles (in degree) between, second and third, third and first, and first and second vectors (ALPHA, BEGA, GAMMA).
+	Lengths of first, second, and third vectors (A, B, and C in bohr), and angles (in degree) between, second and third, third and first, and first and second vectors (ALPHA, BEGA, GAMMA).
         These parameters define the basic lattice vectors of the *conventional* unit cell and the lattice vectors of the  *primitive* lattice vectors used in the actual calculation depends on ``BRAVIS_TYPE`` or ``TYPE``.
         In this way, the first lattice vector :math:`a_1` is along the x-axis, the second lattice vector :math:`a_2` is in the xy plane, and the third vector :math:`a_3` is determined depending on the angle with :math:`a_1` and :math:`a_2`.
 
@@ -738,7 +738,7 @@ EDELTA
 
 	Descritoin:
 
-	Convergence threshold (Hartree/atom) for the total energy.
+	Convergence threshold (hartree/atom) for the total energy.
 
 
 NBZTYP
@@ -846,7 +846,7 @@ FORCCR | FMAX
 
 	Description:
 
-	Force threshold for the geometry optimization.
+	Force threshold (hartree/bohr) for the geometry optimization.
 
 ISTRESS
 	Type: integer
@@ -1242,7 +1242,7 @@ ESM_E_FIELD | ESM_EFIELD | ESM_ELECTRIC_FIELD
 
 	Description:
 
-	Electric field used with BC2 and BC3 of the ESM method in Hartree/Bohr.
+	Electric field used with BC2 and BC3 of the ESM method in hartree/bohr.
 	``E_FIELD`` can also be used.
 
 ESM_E_FIELD_EVA | ESM_EFIELD_EVA | ESM_ELECTRIC_FIELD_EVA
@@ -1440,7 +1440,7 @@ DTIO_MAX
 	&END
 	
 	
-  CARTESIAN/CART: If set, atomic coordinates are given in the cartesian coordinate
+  CARTESIAN/CART: If set, atomic coordinates are given in the cartesian coordinate (in bohr)
 
   ANGSTROM: If set, atomic coordinates are given in Angstrom (cartesian)
 
@@ -1602,7 +1602,7 @@ DTIO_MAX
 
   IPDOST: Index of atom for which Hubbard correction is applied
 
-  UT(1:NPDOSAO): Habbard U value
+  UT(1:NPDOSAO): Habbard U value (in eV)
 
   EPDOS(1): Minimum energy for the density of states
 
@@ -1616,9 +1616,9 @@ DTIO_MAX
 
   NDMAT: Number of density matrix to be read from a file
 
-  U_LDAU: Habbard U value
+  U_LDAU: Habbard U value (in eV)
 
-  J_LDAU: Habbard J value
+  J_LDAU: Habbard J value (in eV)
 
 
 &VDW_CORRECTION ... &END
@@ -1712,7 +1712,7 @@ DTIO_MAX
 
   BAR_WIDTH: Width for the artifical wall potential for electron
 
-  ELECTRIC_FIELD: Electric field (in Ha/Bohr) applied to the system. Use with the boundary condition PE1 (BC2)
+  ELECTRIC_FIELD: Electric field (in hartree/bohr) applied to the system. Use with the boundary condition PE1 (BC2)
 
 
 &FIRE ... &END
@@ -1793,13 +1793,13 @@ DTIO_MAX
          EWIDTH [value]
 	&END
 
-  EMIN: Minimum energy in eV (default: -0.5 Hartree ~ -13.6 eV)
+  EMIN: Minimum energy in eV (default: -0.5 hartree ~ -13.6 eV)
 
-  EMAX: Maximum energy in eV (default: 0.3 Hartree ~ 8.2 eV)
+  EMAX: Maximum energy in eV (default: 0.3 hartree ~ 8.2 eV)
 
   NDOSE: Energy mesh (integer) for the density of states calculation (default: 2000)
 
-  EWIDTH: Smearing width for the Gaussian broadening in eV (default: 0.01 Hartree ~ 0.3 eV)
+  EWIDTH: Smearing width for the Gaussian broadening in eV (default: 0.01 hartree ~ 0.3 eV)
 
 
 &ALDOS ... &END
@@ -1823,13 +1823,13 @@ DTIO_MAX
 
   NLAY: Number of atomic layers to be considered between `ZMIN` and `ZMAX`
 
-  EMIN: Minimum energy in eV (default: -0.5 Hartree ~ -13.6 eV)
+  EMIN: Minimum energy in eV (default: -0.5 hartree ~ -13.6 eV)
 
-  EMAX: Maximum energy in eV (default: 0.3 Hartree ~ 8.2 eV)
+  EMAX: Maximum energy in eV (default: 0.3 hartree ~ 8.2 eV)
 
   NDOSE: Energy mesh (integer) for the density of states calculation (default: 2000)
 
-  EWIDTH: Smearing width for the Gaussian broadening in eV (default: 0.01 Hartree ~ 0.3 eV)
+  EWIDTH: Smearing width for the Gaussian broadening in eV (default: 0.01 hartree ~ 0.3 eV)
 
 
 &KPOINTS_BAND ... &END
