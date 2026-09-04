@@ -798,7 +798,7 @@ NEG
 
 	Description:
 
-	Number of bands considered in the calculation.
+	Number of bands considered in the calculation. ``NEG`` should be slightly larger than the number of valence electrons (:math:`N_{val}`) divided by 2. Experimentally, ``NEG`` is set to :math:`N_{val}/2 \times ~1.2`, when ``NEG`` is not set.
 
 
 IMDALG
